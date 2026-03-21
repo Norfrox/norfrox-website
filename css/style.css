@@ -67,12 +67,19 @@ body{
     color: var(--text);
     text-decoration: none;
     padding-bottom: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover{
+    color: var(--brand);
+    transform: translateY(-2px);
 }
 
 .nav-links a::after{
     content: "";
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
     width: 0%;
     height: 2px;
@@ -82,7 +89,8 @@ body{
         #2563EB,
         #1D4ED8
     );
-    transition: width .3s ease;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .nav-links a:hover::after,
@@ -96,6 +104,20 @@ body{
     border-radius: 6px;
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover{
+    background: var(--brand-alt);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-contact:active{
+    transform: translateY(0px);
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
 }
 
 .menu-toggle{
