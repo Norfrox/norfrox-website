@@ -265,3 +265,89 @@ h1, h2, h3 {
 }
 
 /* Footer End */
+
+/* Politica de Privacidad */
+
+.policy{
+    padding: 60px 0;
+    max-width: 900px;
+}
+
+.policy-header{
+    margin-bottom: 40px;
+}
+
+.policy h1{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.policy h2{
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    color: var(--text);
+}
+
+.policy ul{
+    margin: 10px 0 20px 20px;
+    color: var(--text-secondary);
+}
+
+.policy li{
+    margin-bottom: 8px;
+}
+
+.policy a{
+    color: var(--brand);
+    text-decoration: none;
+}
+
+.policy p{
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.policy a:hover{
+    text-decoration: underline;
+}
+
+.policy section{
+    margin-bottom: 30px;
+}
+
+.policy-date{
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px){
+    .policy{
+        padding: 40px;
+        max-width: 100%;
+    }
+
+    .policy h1{
+        font-size: 26px;
+    }
+
+    .policy h2{
+        font-size: 20px;
+    }
+
+    .policy ul{
+        margin-left: 16px;
+    }
+
+    .policy p, .policy li{
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .policy section{
+        margin-bottom: 24px;
+    }
+}
+
+/* politica de Privacidad End */
