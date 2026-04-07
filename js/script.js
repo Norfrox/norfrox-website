@@ -73,7 +73,36 @@ class FAQCarousel{
     }
 }
 
+class Tabs {
+
+    constructor(){
+        this.buttons = document.querySelectorAll(".tab-btn");
+        this.panels = document.querySelectorAll(".tab-panel");
+        if (!this.buttons.length) return;
+        this.init();
+    }
+
+    init() {
+        this.buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                this.switchTab(button);
+            });
+        });
+    }
+
+    switchTab(button) {
+        const target = button.dataset.tab;
+
+        this.buttons.forEach(btn => btn.classList.remove("active"));
+        this.panels.forEach(panel => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(target).classList.add("active");
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new FAQCarousel();
+    new Tabs();
 })
