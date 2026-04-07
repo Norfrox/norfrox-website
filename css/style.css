@@ -785,6 +785,104 @@ h1, h2, h3 {
     }
 }
 
+.mission-vision{
+    padding: 60px 0;
+}
+
+.tabs-header{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.tab-btn{
+    position: relative;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+    padding-bottom: 6px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover{
+    color: var(--brand);
+}
+
+.tab-btn::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        #3B82F6,
+        #2563EB,
+        #1D4ED8
+    );
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.tab-btn.active{
+    color: var(--text);
+}
+
+.tab-btn.active::after{
+    width: 100%;
+}
+
+.tabs-content{
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tab-panel{
+    display: none;
+    animation: fadeTab 0.4s ease;
+}
+
+.tab-panel.active{
+    display: block;
+}
+
+.tab-panel h2{
+    margin-bottom: 10px;
+    font-size: 24px
+}
+
+.tab-panel p{
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+@keyframes fadeTab{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px){
+    .tabs-header{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-btn{
+        width: 100%;
+        max-width: 250px;
+    }
+}
 
 .principles{
     padding: 60px 0;
