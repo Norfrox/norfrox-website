@@ -1021,3 +1021,397 @@ h1, h2, h3 {
 }
 
 /* Nosotros End */
+
+/* Servicios */
+
+.services-hero-alt{
+    padding: 0px 0;
+    text-align: center;
+}
+ 
+.hero-center{
+    max-width: 750px;
+    margin: 0 auto 50px;
+}
+
+.hero-center h1{
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero-center p{
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.hero-actions{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.services-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.services-header h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.services-header p{
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.services-detail{
+    padding: 60px 0;
+}
+
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.service-detail-card{
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.service-detail-card:hover{
+    border-color: var(--brand);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.service-detail-card h3{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.service-detail-card p{
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+
+.service-detail-card ul{
+    list-style: none;
+    margin: 20px 0 25px;
+    padding: 0;
+}
+
+.service-detail-card li{
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.service-detail-card li{
+    position: relative;
+    padding-left: 30px;
+    transition: all 0.25s ease;
+}
+
+.service-detail-card li::before{
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--brand);
+
+    border-radius: 50%;
+    font-size: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.service-detail-card li{
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.service-detail-card li:hover{
+    transform: translateX(4px);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.service-detail-card li:hover::before{
+    transform: scale(1.1);
+}
+
+.service-detail-card a{
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.pricing{
+    padding: 60px 0;
+}
+
+.pricing-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.pricing-header h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.pricing-header p{
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.pricing-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pricing-card{
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--brand);
+    transform: scale(1.05);
+}
+
+.pricing-card.featured{
+    border: 2px solid var(--brand);
+    transform: scale(1.05);
+}
+
+.badge{
+    display: inline-block;
+    background: var(--brand);
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.price{
+    font-size: 26px;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.pricing-card ul{
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.pricing-card li{
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+.pricing-card a{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.process{
+    padding: 60px 0;
+}
+
+.process-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.process-header h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.process-header p{
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.process-steps{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+    align-items: start;
+}
+
+.process-steps::before{
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border);
+    z-index: 0;
+}
+
+.process-step{
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeUp 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.process-step:hover{
+    border-color: var(--brand);
+    transform: translateY(-5px);
+}
+
+.step-number{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 10px;
+}
+
+.process-step h3{
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.process-step p{
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.step-content{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.process-step:hover .step-content{
+    max-height: 160px;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+.step-content p{
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.benefits{
+    padding: 60px 0;
+}
+
+.benefits-content{
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.benefits-content::before{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--brand);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.benefits-content h2{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.benefits-main{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.benefits-sub{
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+@media (max-width: 768px){
+
+    .services-hero-alt{
+        padding: 70px 0;
+    }
+
+    .hero-center h1{
+        font-size: 28px;
+    }
+
+    .hero-center p{
+        font-size: 16px;
+    }
+
+    .services-header h2{
+        font-size: 24px;
+    }
+
+    .services-list{
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured{
+        transform: none;
+    }
+
+    .process-steps{
+        grid-template-columns: 1fr;
+    }
+
+    .step-content{
+        max-height: none;
+        opacity: 1;
+        margin-top: 10px;
+    }
+
+}
+
+/* Servicios End */
