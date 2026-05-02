@@ -1,6 +1,6 @@
 # Norfrox Website
 
-<img width="10379" height="6587" alt="LOGO" src="https://github.com/user-attachments/assets/a17eaac6-c106-444d-acda-4c499b9eea9d" />
+<img width="1920" height="1080" alt="NORFROX_1920x1080" src="https://github.com/user-attachments/assets/cad2da0f-0430-4002-bf90-9a924c8e632f" />
 
 # 
 Sitio web corporativo de Norfrox, desarrollado para presentar nuestros servicios de desarrollo web, software a medida y soluciones tecnológicas para empresas.
