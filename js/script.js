@@ -101,8 +101,68 @@ class Tabs {
     }
 }
 
+class TestimonialCarousel {
+
+    constructor() {
+        this.cards = document.querySelectorAll(".testimonial-card");
+        this.nextBtn = document.querySelector(".js-testimonial-next");
+        this.prevBtn = document.querySelector(".js-testimonial-prev");
+        this.currentIndex = 0;
+        this.interval = null;
+
+        if (!this.cards.length) return;
+
+        this.init();
+    }
+
+    init() {
+        this.showCard(this.currentIndex);
+
+        this.nextBtn?.addEventListener("click", () => 
+            {
+                this.next();
+                this.resetAutoPlay();
+            });
+        this.prevBtn?.addEventListener("click", () => 
+            {
+                this.prev();
+                this.resetAutoPlay();
+            });
+
+        this.startAutoPlay();
+    }
+
+    startAutoPlay() {
+        this.interval = setInterval(() => this.next(), 6000);
+    }
+
+    resetAutoPlay() {
+        if(this.interval) {
+            clearInterval(this.interval);
+        }
+
+        this.startAutoPlay();
+    }
+
+    showCard(index) {
+        this.cards.forEach(card => card.classList.remove("active"));
+        this.cards[index].classList.add("active");
+    }
+
+    next() {
+        this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+        this.showCard(this.currentIndex);
+    }
+
+    prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.cards.length) % this.cards.length;
+        this.showCard(this.currentIndex);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new FAQCarousel();
     new Tabs();
+    new TestimonialCarousel();
 })
