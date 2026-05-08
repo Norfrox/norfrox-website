@@ -917,31 +917,6 @@ h1, h2, h3 {
     }
 }
 
-@media (max-width: 768px){
-    .testimonial-card{
-        padding: 1.75rem;
-        min-height: auto;
-    }
-
-    .testimonial-top{
-        align-items: flex-start;
-    }
-
-    .testimonial-text{
-        max-width: 100%;
-        font-size: .98rem;
-    }
-
-    .testimonial-bottom{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .testimonial-nav{
-        display: none;
-    }
-}
-
 @media (max-width: 1024px){
     .why-layout{
         grid-template-columns: 1fr;
@@ -954,6 +929,140 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px){
+    
+    .hero-home{
+        min-height: 78vh;
+        background-position: center;
+    }
+
+    .hero-content{
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+    }
+
+    .hero-text{
+        max-width: 100%;
+        padding: 2rem 0;
+    }
+
+    .hero-home h1{
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-home p{
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 1.75rem;
+    }
+
+    .hero-actions{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-trust{
+        gap: .5rem;
+        font-size: .85rem;
+        line-height: 1.6;
+    }
+
+    .home-services{
+        padding: 70px 40px;
+    }
+
+    .services-intro{
+        margin-bottom: 3rem;
+    }
+
+    .services-intro h2{
+        line-height: 1.15;
+    }
+
+    .service-panel{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.75rem 0;
+    }
+
+    .service-number{
+        font-size: 1.15rem;
+    }
+
+    .service-body h3{
+        font-size: 1.3rem;
+    }
+
+    .service-body p{
+        font-size: .96rem;
+        line-height: 1.7;
+    }
+
+    .service-body ul{
+        gap: .75rem;
+    }
+
+    .service-body ul li{
+        width: 100%;
+    }
+
+    .service-panel:hover{
+        transform: none;
+    }
+    
+    .why-us{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .why-us-header{
+        margin-bottom: 2rem;
+    }
+
+    .why-us-header h2{
+        line-height: 1.15;
+    }
+
+    .why-featured{
+        padding: 1.5rem;
+        border-radius: 22px;
+    }
+
+    .why-featured h3{
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .why-featured p{
+        line-height: 1.75;
+        font-size: .97rem;
+    }
+
+    .why-featured-stats{
+        gap: .75rem;
+        margin-top: 1.5rem;
+    }
+
+    .why-card{
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .why-card h3{
+        font-size: 1rem;
+    }
+
+    .why-card p{
+        font-size: .92rem;
+        line-height: 1.65;
+    }
+
     .why-grid{
         grid-template-columns: 1fr;
     }
@@ -969,6 +1078,72 @@ h1, h2, h3 {
     .why-featured-stats{
         grid-template-columns: 1fr;
     }
+
+     .testimonials{
+        padding: 70px 40px;
+    }
+
+    .testimonials-header{
+        margin-bottom: 2rem;
+    }
+
+    .testimonial-card{
+        padding: 1.5rem;
+        border-radius: 22px;
+    }
+
+    .testimonial-top{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testimonial-logo{
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+    }
+
+    .testimonial-company{
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .testimonial-company h3{
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .testimonial-link{
+        width: 28px;
+        height: 28px;
+    }
+
+    .testimonial-text{
+        font-size: .96rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .testimonial-bottom{
+        gap: .35rem;
+    }
+
+    .testimonial-text{
+        max-width: 100%;
+        font-size: .98rem;
+    }
+
+    .testimonial-bottom{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testimonial-nav{
+        display: none;
+    }
+
+
 }
 
 /* Home End */
