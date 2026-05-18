@@ -160,9 +160,47 @@ class TestimonialCarousel {
     }
 }
 
+class FAQAccordion {
+
+    constructor() {
+
+        this.items = document.querySelectorAll(".faq-item");
+
+        if(!this.items.length) return;
+
+        this.init();
+    }
+
+    init() {
+
+        this.items.forEach(item => {
+
+            const question = item.querySelector(".faq-question");
+
+            question.addEventListener("click", () => {
+
+                const isActive = item.classList.contains("active");
+
+                this.items.forEach(el => {
+                    el.classList.remove("active");
+                });
+
+                if(!isActive){
+                    item.classList.add("active");
+                }
+
+            });
+
+        });
+
+    }
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new FAQCarousel();
     new Tabs();
     new TestimonialCarousel();
+    new FAQAccordion();
 })
