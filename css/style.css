@@ -2042,6 +2042,12 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
+.cta-actions .btn-primary{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
 @media (max-width: 768px){
     .about-hero{
         padding: 50px 0;
