@@ -2385,63 +2385,158 @@ h1, h2, h3 {
 }
 
 .services-detail{
-    padding: 60px 0;
+    padding: 80px 0;
+}
+
+.services-header{
+    text-align: left;
+    max-width: 700px;
+    margin: 0 0 60px;
+}
+
+.services-header h2{
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 12px 0 18px;
+    line-height: 1.1;
+}
+
+.services-header p{
+    position: relative;
+
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 620px;
+
+    padding-top: 22px;
+}
+
+.services-header p::before{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 90px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        var(--brand),
+        transparent
+    );
 }
 
 .services-list{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 28px;
 }
 
 .service-detail-card{
-    background: var(--bg-secondary);
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.015),
+            rgba(255,255,255,.01)
+        ),
+        var(--bg-secondary);
+
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 30px;
-    transition: all 0.3s ease;
+    border-radius: 12px;
+
+    padding: 34px;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.service-detail-card .linear-separator{
+    padding: 15px 0 10px;
+}
+
+.service-detail-card::before{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--brand),
+        transparent
+    );
 }
 
 .service-detail-card:hover{
-    border-color: var(--brand);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    transform: translateY(-6px);
+
+    border-color: rgba(77,163,255,.35);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.22);
+}
+
+.service-card-number{
+    display: inline-block;
+
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+
+    color: var(--brand);
+
+    margin-bottom: 18px;
 }
 
 .service-detail-card h3{
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 14px;
 }
 
 .service-detail-card p{
     color: var(--text-secondary);
-    margin-bottom: 18px;
-    line-height: 1.7;
+    line-height: 1.8;
+
+    margin-bottom: 24px;
+
+    text-align: justify;
 }
 
 .service-detail-card ul{
     list-style: none;
-    margin: 20px 0 25px;
     padding: 0;
-}
-
-.service-detail-card li{
-    margin-bottom: 10px;
-    color: var(--text-secondary);
-    font-size: 14px;
+    margin: 0 0 28px;
 }
 
 .service-detail-card li{
     position: relative;
+
     padding-left: 30px;
-    transition: all 0.25s ease;
+    margin-bottom: 14px;
+
+    color: var(--text-secondary);
+    line-height: 1.6;
+
+    transition: all .25s ease;
 }
 
 .service-detail-card li::before{
     content: "✓";
+
     position: absolute;
     left: 0;
-    top: 0;
+    top: 2px;
 
     width: 20px;
     height: 20px;
@@ -2450,32 +2545,23 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
 
-    background: rgba(59, 130, 246, 0.15);
+    border-radius: 50%;
+
+    background: rgba(59,130,246,.14);
+
     color: var(--brand);
 
-    border-radius: 50%;
     font-size: 12px;
-
-    transition: all 0.25s ease;
-}
-
-.service-detail-card li{
-    transition: transform 0.25s ease, color 0.25s ease;
+    font-weight: 700;
 }
 
 .service-detail-card li:hover{
     transform: translateX(4px);
     color: var(--text);
-    cursor: pointer;
-}
-
-.service-detail-card li:hover::before{
-    transform: scale(1.1);
 }
 
 .service-detail-card a{
-    margin-top: 15px;
-    display: inline-block;
+    margin-top: auto;
 }
 
 .pricing{
@@ -2689,6 +2775,18 @@ h1, h2, h3 {
 
 @media (max-width: 768px){
 
+    .services-header{
+        text-align: center;
+    }
+
+    .services-list{
+        grid-template-columns: 1fr;
+    }
+
+    .service-detail-card{
+        padding: 28px;
+    }
+
     .services-hero-alt{
         padding: 70px 0;
     }
@@ -2703,10 +2801,6 @@ h1, h2, h3 {
 
     .services-header h2{
         font-size: 24px;
-    }
-
-    .services-list{
-        grid-template-columns: 1fr;
     }
 
     .pricing-grid{
