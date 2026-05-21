@@ -68,6 +68,10 @@ h1, h2, h3 {
     animation: fadeUp 0.8s ease forwards;
 }
 
+.box-spacer{
+    padding: 50px 0;
+}
+
 @media (max-width: 768px){
     .container{
         padding: 0 16px;
@@ -926,7 +930,7 @@ h1, h2, h3 {
 
     background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 12px;
 
     color: var(--text);
     font-size: .95rem;
@@ -937,7 +941,7 @@ h1, h2, h3 {
     transition: all .3s ease;
     cursor: default;
 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(22px);
 }
 
 .industry-card::before{
@@ -2018,6 +2022,206 @@ h1, h2, h3 {
 
 }
 
+/* Quality Section */
+
+.quality-section{
+    position: relative;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.quality-section::before{
+    content: "";
+    position: absolute;
+    top: -180px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.044),
+        transparent 50%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.quality-header,
+.quality-content{
+    position: relative;
+    z-index: 1;
+}
+
+.quality-header{
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.quality-header h2{
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    margin: 18px 0;
+    letter-spacing: -0.03em;
+}
+
+.quality-header p{
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 700px;
+}
+
+.quality-header::after{
+    content: "";
+    display: block;
+    width: 90px;
+    height: 1px;
+    margin-top: 28px;
+    background: linear-gradient(
+        to right,
+        var(--accent),
+        transparent
+    );
+}
+
+.quality-content{
+    position: relative;
+    display: grid;
+    gap: 40px;
+    max-width: 1200px;
+    margin-top: 16px;
+}
+
+.quality-lead{
+    position: relative;
+    padding-left: 0px;    
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-weight: 500;
+    max-width: 800px;
+}
+
+.quality-lead::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 4px;
+    height: calc(100% - 24px);
+    border-radius: 999px;
+    background: linear-gradient(
+        to bottom,
+        var(--accent),
+        transparent
+    );
+}
+
+.quality-text-flow{
+    display: grid;
+    max-width: 930px;
+    gap: 28px;
+}
+
+.quality-text-flow p{
+    position: relative;
+    text-align: justify;
+    padding: 0 0 0 28px;
+    font-size: 1rem;
+    line-height: 1.95;
+    color: var(--text-secondary);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform .3s ease;
+}
+
+.quality-text-flow p:hover{
+    transform: translateX(4px);
+}
+
+.quality-text-flow p::after{
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: -20px;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+}
+
+.quality-highlight{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 10px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.015)
+        );
+    backdrop-filter: blur(14px);
+    overflow: hidden;
+}
+
+.quality-highlight::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 32px;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        var(--accent),
+        transparent
+    );
+}
+
+.quality-highlight span{
+    width: 14px;
+    height: 14px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.426);
+}
+
+.quality-highlight p{
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.inline-badge{
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: .9rem;
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+}
+
+.inline-badge:hover{
+    background: #2563EB;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
 .mission-vision{
     padding: 60px 0;
 }
@@ -2333,6 +2537,128 @@ h1, h2, h3 {
     .cta-content h2{
         font-size: 24px;
     }
+
+    .quality-section{
+        padding: 70px 0;
+    }
+
+    .quality-section::before{
+        width: 260px;
+        height: 260px;
+        top: -100px;
+        right: -120px;
+        opacity: .7;
+    }
+
+    .quality-header{
+        margin-bottom: 40px;
+    }
+
+    .quality-header h2{
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+    }
+
+    .quality-header p{
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .quality-header::after{
+        width: 70px;
+        margin-top: 22px;
+    }
+
+    .quality-content{
+        gap: 28px;
+        margin-top: 14px;
+    }
+
+    .quality-lead{
+        font-size: 1.15rem;
+        line-height: 1.8;
+        padding-left: 18px;
+    }
+
+    .quality-lead::before{
+        width: 3px;
+        top: 10px;
+        height: calc(100% - 20px);
+    }
+
+    .quality-text-flow{
+        gap: 24px;
+    }
+
+    .quality-text-flow p{
+        padding-left: 18px;
+        font-size: .98rem;
+        line-height: 1.9;
+        text-align: left;
+    }
+
+    .quality-text-flow p:hover{
+        transform: none;
+    }
+
+    .quality-text-flow p::after{
+        display: none;
+    }
+
+    .quality-highlight{
+        gap: 14px;
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .quality-highlight::before{
+        left: 22px;
+        width: 90px;
+    }
+
+    .quality-highlight span{
+        width: 12px;
+        height: 12px;
+        margin-top: 9px;
+    }
+
+    .quality-highlight p{
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .inline-badge{
+        gap: 40px;
+        margin-top: 20px;
+        padding: 7px 12px;
+        font-size: .85rem;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .quality-section{
+        padding: 60px 0;
+    }
+
+    .quality-header h2{
+        font-size: 2rem;
+    }
+
+    .quality-lead{
+        font-size: 1.05rem;
+    }
+
+    .quality-highlight{
+        padding: 20px;
+    }
+
+    .inline-badge{
+        display: inline-flex;
+        margin-bottom: 8px;
+    }
+
 }
 
 /* Nosotros End */
