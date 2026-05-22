@@ -2787,6 +2787,10 @@ h1, h2, h3 {
     padding: 15px 0 10px;
 }
 
+.service-detail-card .cta-actions{
+    justify-content: start;
+}
+
 .service-detail-card::before{
     content: "";
 
