@@ -3372,6 +3372,15 @@ h1, h2, h3 {
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
+.gray-text{
+    margin: 12px 0 22px;
+    color: var(--text-secondary);
+}
+
+.pricing-comparison-row{
+    background: rgba(255,255,255,0.02)
+}
+
 .comparison-table .item-comparison{
     color: var(--brand);
 }
