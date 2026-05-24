@@ -1410,6 +1410,150 @@ h1, h2, h3 {
 
 }
 
+.counter-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: clamp(1.25rem, 2vw, 2rem);
+    border-radius: 20px;
+}
+
+.stat-card {
+    padding: clamp(1.25rem, 1.8vw, 2rem);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    text-align: center;
+    background: var(--bg-secondary);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    min-height: 170px;
+    display: grid;
+    place-items: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.wrapper-counter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 190px);
+    height: 3.9rem;
+    padding: 4px 10px;
+    overflow: hidden;
+    margin-inline: auto;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.counter {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.1vw, 2rem);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--brand-alt);
+    position: relative;
+    z-index: 1;
+    text-shadow: none;
+    will-change: transform, opacity, filter;
+    font-variant-numeric: tabular-nums;
+}
+
+.counter-label {
+    margin-top: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
+
+.animate-entry {
+    animation: upAndOut 0.38s forwards cubic-bezier(0.55, 0.08, 0.68, 0.53);
+}
+
+.animate-exit {
+    animation: inFromBelow 0.42s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 960px) {
+    .counter-cards {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .counter-cards > .stat-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .counter-cards {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .counter-cards > .stat-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        width: 100%;
+    }
+
+    .wrapper-counter {
+        width: min(100%, 172px);
+        height: 3.4rem;
+    }
+
+    .counter {
+        font-size: clamp(1.35rem, 6.4vw, 1.8rem);
+    }
+
+    .counter-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .animate-entry,
+    .animate-exit {
+        transition: none;
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+    }
+}
+
+@keyframes upAndOut {
+    0% {
+        transform: translateY(0);
+            opacity: 1;
+            filter: blur(0);
+    }
+    100% {
+        transform: translateY(-120%);
+        opacity: 0;
+        filter: blur(6px);
+    }
+}
+
+@keyframes inFromBelow {
+    0% {
+        transform: translateY(120%);
+        opacity: 0;
+        filter: blur(6px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
 /* Home End */
 
 
