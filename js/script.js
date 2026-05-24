@@ -197,10 +197,70 @@ class FAQAccordion {
 
 }
 
+class CounterAnimator {
+    constructor () {
+        this.cards = document.querySelectorAll(".stat-card");
+        this.section = document.querySelector(".counter-cards");
+        this.durationAnimation = 90;
+        this.pauseBetweenChanges = 100;
+
+        if(!this.cards.length || !this.section) return;
+        
+        this.observeSection();
+    }
+
+    init() {
+        this.cards.forEach((card) => {
+            const counter = card.querySelector('[data-counter]');
+            if (!counter) return;
+
+            const limit = Number(card.dataset.limit || 0);
+            const begin = Number(card.dataset.begin || 0);
+
+            let current = 0;
+            counter.textContent = current;
+
+            const updateCounter = () => {
+                if(current >= limit) return;
+                current++;
+
+                counter.classList.remove("animate-entry" , "animate-exit");
+                void counter.offsetWidth;
+                counter.classList.add("animate-entry");
+
+                setTimeout(() => {
+                    counter.textContent = current;
+                    counter.classList.remove("animate-entry");
+
+                    setTimeout(updateCounter, this.pauseBetweenChanges);
+                }, this.durationAnimation * 0.6);
+            };
+            setTimeout(updateCounter, begin);
+        })
+    }
+
+    observeSection() {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                this.init();
+                obs.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.35,
+            rootMargin: "0px 0px -10% 0px"
+        });
+
+        observer.observe(this.section);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new FAQCarousel();
     new Tabs();
     new TestimonialCarousel();
     new FAQAccordion();
+    new CounterAnimator();
 })
