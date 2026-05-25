@@ -2621,6 +2621,21 @@ h1, h2, h3 {
     gap: 10px;
 }
 
+.phone-ring {
+    transform-origin: center;
+    animation: phoneRing 1s infinite;
+}
+
+@keyframes phoneRing {
+    0%   { transform: rotate(0deg); }
+    10%  { transform: rotate(-15deg); }
+    20%  { transform: rotate(15deg); }
+    30%  { transform: rotate(-15deg); }
+    40%  { transform: rotate(15deg); }
+    50%  { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
 @media (max-width: 768px){
     .about-hero{
         padding: 50px 0;
