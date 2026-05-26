@@ -197,10 +197,102 @@ class FAQAccordion {
 
 }
 
+class CounterAnimator {
+
+    constructor () {
+
+        this.cards = document.querySelectorAll(".stat-card");
+        this.section = document.querySelector(".counter-cards");
+
+        if(!this.cards.length || !this.section) return;
+
+        this.observeSection();
+    }
+
+    init() {
+
+        this.cards.forEach((card) => {
+
+            const counter = card.querySelector('[data-counter]');
+
+            if (!counter) return;
+
+            const limit = Number(card.dataset.limit || 0);
+            const begin = Number(card.dataset.begin || 0);
+
+            let current = 1;
+
+            const showNumber = () => {
+
+                counter.classList.remove(
+                    "animate-entry",
+                    "animate-exit"
+                );
+
+                void counter.offsetWidth;
+
+                counter.classList.add("animate-entry");
+
+                setTimeout(() => {
+
+                    counter.textContent = current;
+
+                    counter.classList.remove("animate-entry");
+
+                    counter.classList.add("animate-exit");
+
+                }, 120);
+
+                current++;
+
+
+                let delay = 90;
+
+                if(current >= limit - 1){
+                    delay = 420;
+                }
+
+                if(current <= limit){
+                    setTimeout(showNumber, delay);
+                }
+
+            };
+
+            setTimeout(showNumber, begin);
+
+        });
+
+    }
+
+    observeSection() {
+
+        const observer = new IntersectionObserver((entries, obs) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                this.init();
+
+                obs.unobserve(entry.target);
+
+            });
+
+        }, {
+            threshold: 0.35
+        });
+
+        observer.observe(this.section);
+
+    }
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new FAQCarousel();
     new Tabs();
     new TestimonialCarousel();
     new FAQAccordion();
+    new CounterAnimator();
 })
