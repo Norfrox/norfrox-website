@@ -1181,10 +1181,6 @@ h1, h2, h3 {
         background-position: center;
     }
 
-    .hero-content{
-        padding-bottom: 4rem;
-    }
-
     .hero-text{
         max-width: 100%;
         display: flex;
