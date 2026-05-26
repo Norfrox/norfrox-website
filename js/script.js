@@ -198,62 +198,94 @@ class FAQAccordion {
 }
 
 class CounterAnimator {
+
     constructor () {
+
         this.cards = document.querySelectorAll(".stat-card");
         this.section = document.querySelector(".counter-cards");
-        this.durationAnimation = 90;
-        this.pauseBetweenChanges = 100;
 
         if(!this.cards.length || !this.section) return;
-        
+
         this.observeSection();
     }
 
     init() {
+
         this.cards.forEach((card) => {
+
             const counter = card.querySelector('[data-counter]');
+
             if (!counter) return;
 
             const limit = Number(card.dataset.limit || 0);
             const begin = Number(card.dataset.begin || 0);
 
-            let current = 0;
-            counter.textContent = current;
+            let current = 1;
 
-            const updateCounter = () => {
-                if(current >= limit) return;
-                current++;
+            const showNumber = () => {
 
-                counter.classList.remove("animate-entry" , "animate-exit");
+                counter.classList.remove(
+                    "animate-entry",
+                    "animate-exit"
+                );
+
                 void counter.offsetWidth;
+
                 counter.classList.add("animate-entry");
 
                 setTimeout(() => {
+
                     counter.textContent = current;
+
                     counter.classList.remove("animate-entry");
 
-                    setTimeout(updateCounter, this.pauseBetweenChanges);
-                }, this.durationAnimation * 0.6);
+                    counter.classList.add("animate-exit");
+
+                }, 120);
+
+                current++;
+
+
+                let delay = 90;
+
+                if(current >= limit - 1){
+                    delay = 420;
+                }
+
+                if(current <= limit){
+                    setTimeout(showNumber, delay);
+                }
+
             };
-            setTimeout(updateCounter, begin);
-        })
+
+            setTimeout(showNumber, begin);
+
+        });
+
     }
 
     observeSection() {
+
         const observer = new IntersectionObserver((entries, obs) => {
+
             entries.forEach((entry) => {
+
                 if (!entry.isIntersecting) return;
 
                 this.init();
+
                 obs.unobserve(entry.target);
+
             });
+
         }, {
-            threshold: 0.35,
-            rootMargin: "0px 0px -10% 0px"
+            threshold: 0.35
         });
 
         observer.observe(this.section);
+
     }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
