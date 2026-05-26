@@ -31,48 +31,6 @@ class Navbar{
     }
 }
 
-class FAQCarousel{
-    
-    constructor(){
-        this.track = document.querySelector(".js-faq-track");
-        this.nextBtn = document.querySelector(".faq-nav.next");
-        this.prevBtn = document.querySelector(".faq-nav.prev");
-
-        if(!this.track) return
-
-        this.init();
-    }
-
-    init(){
-        this.nextBtn?.addEventListener("click", () => this.scrollNext());
-        this.prevBtn?.addEventListener("click", () => this.scrollPrev());
-    }
-
-    scrollNext(){
-        const card = this.track.querySelector(".faq-card");
-        const gap = 20;
-
-        const scrollAmount = card.offsetWidth + gap;
-
-        this.track.scrollBy({
-            left: scrollAmount,
-            behavior: "smooth"
-        });
-    }
-
-    scrollPrev(){
-        const card = this.track.querySelector(".faq-card");
-        const gap = 20;
-
-        const scrollAmount = card.offsetWidth + gap;
-
-        this.track.scrollBy({
-            left: -scrollAmount,
-            behavior: "smooth"
-        });
-    }
-}
-
 class Tabs {
 
     constructor(){
@@ -290,7 +248,6 @@ class CounterAnimator {
 
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
-    new FAQCarousel();
     new Tabs();
     new TestimonialCarousel();
     new FAQAccordion();
