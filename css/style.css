@@ -86,8 +86,32 @@ h1, h2, h3 {
 .text-content {
     color: var(--text-secondary);
     margin-top: 1rem;
-    margin-bottom: 1rem;
+
     max-width: 650px;
+}
+
+.text-link{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 2rem;
+    color: var(--brand);
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+        color .3s ease,
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+.text-link:hover{
+    color: var(--brand-alt);
+    transform: translateX(4px);
+}
+
+.brand-text {
+    color: var(--brand);
 }
 
 .button-left{
@@ -745,18 +769,6 @@ h1, h2, h3 {
     letter-spacing: .08em;
     color: var(--brand);
     margin-bottom: 1rem;
-}
-
-.services-intro h2{
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-}
-
-.services-intro p{
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    max-width: 620px;
 }
 
 .services-stack{
