@@ -64,6 +64,11 @@ h1, h2, h3 {
     border-top: 1px solid var(--border);
 }
 
+.section-separator{
+    margin-top: 100px;
+    border-top: 1px solid var(--border);
+}
+
 .fadeup-animation{
     animation: fadeUp 0.8s ease forwards;
 }
