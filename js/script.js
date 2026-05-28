@@ -246,6 +246,7 @@ class CounterAnimator {
 
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new Tabs();
