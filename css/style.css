@@ -1032,6 +1032,7 @@ h1, h2, h3 {
         rgba(255, 255, 255, .05),
         transparent 60%
     );
+    border-radius: 12px;
 }
 
 .industry-card:hover{
