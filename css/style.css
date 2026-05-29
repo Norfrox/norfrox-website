@@ -776,6 +776,8 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
+
+
 .services-stack{
     display: flex;
     flex-direction: column;
@@ -1227,10 +1229,13 @@ h1, h2, h3 {
 
 .metrics-grid{
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 4rem 4rem;
+}
+
+.metrics-linear-separator{
+    margin: 4rem 0 4rem;
+    border-top: 1px solid var(--border);
 }
 
 .metric-card{
