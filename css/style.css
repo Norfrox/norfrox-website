@@ -984,10 +984,6 @@ h1, h2, h3 {
     font-size: .92rem;
 }
 
-.industries{
-    padding: 5rem 20px;
-}
-
 .industries-grid{
     display: flex;
     flex-wrap: wrap;
@@ -1577,7 +1573,7 @@ h1, h2, h3 {
         );
 
     border: 1px solid var(--border);
-    border-radius: 22px;
+    border-radius: 12px;
 
     min-height: 240px;
 
