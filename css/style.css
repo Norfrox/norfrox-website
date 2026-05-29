@@ -807,6 +807,22 @@ h1, h2, h3 {
     color: rgba(255, 255, 255, 0.68);
 }
 
+.hero-trust span{
+    top: -1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-trust svg{
+    color: #ffffff;
+    stroke: #ffffff;
+    opacity: .92;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+}
+
 .home-services{
     padding: 100px 20px;
 }
@@ -1103,15 +1119,6 @@ h1, h2, h3 {
     text-align: start;
     max-width: 760px;
     margin: 0 0 3rem;
-}
-
-.testimonials-header h2{
-    margin: 1rem 0;
-}
-
-.testimonials-header p{
-    color: var(--text-muted);
-    line-height: 1.7;
 }
 
 .testimonial-wrapper{
