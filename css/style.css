@@ -12,8 +12,12 @@
 
     --text:#E4E4E4;
     --text-secondary:#9CA3AF;
+
     --bg-box: linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015));
     --bg-box-secondary: linear-gradient( 135deg, rgba(59,130,246,.08), rgba(37,99,235,.04));
+
+    --accent: rgba(59,130,246,.08);
+    --accent-light: rgba(78, 143, 247, 0.08);
 }
 
 *{
@@ -333,7 +337,7 @@ h1, h2, h3 {
         radial-gradient(circle at top right, rgba(77,163,255,.18), transparent 35%),
         linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
          var(--bg-secondary);
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(59,130,246,.15);
     overflow: hidden;
     transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
@@ -550,25 +554,37 @@ h1, h2, h3 {
     gap: 18px;
     margin-top: 10px;
     padding: 30px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(59,130,246,.15);
     border-radius: 12px;
-    background: var(--bg-box);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
     backdrop-filter: blur(14px);
     overflow: hidden;
+}
+
+.quality-highlight:hover{
+    transform: translateY(-6px);
+    border-color: rgba(59,130,246,.28);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 40px rgba(59,130,246,.08);
 }
 
 .quality-highlight::before{
     content: "";
     position: absolute;
-    top: 0;
-    left: 32px;
-    width: 120px;
-    height: 1px;
-    background: linear-gradient(
-        to right,
-        var(--accent),
-        transparent
-    );
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(59,130,246,.15),
+            transparent 45%
+        );
+    pointer-events: none;
 }
 
 .quality-highlight span{
@@ -591,20 +607,21 @@ h1, h2, h3 {
 .inline-badge{
     display: inline-flex;
     align-items: center;
-    padding: 6px 12px;
+    padding: 10px 18px;
     margin: 0 4px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px;
+    background: rgba(59,130,246,.08);
+    border: 1px solid rgba(59,130,246,.15);
+    color: var(--brand);
     font-size: .9rem;
-    color: var(--text-primary);
-    backdrop-filter: blur(10px);
 }
 
 .inline-badge:hover{
-    background: #2563EB;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transform: translateY(-6px);
+    border-color: rgba(59,130,246,.28);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 40px rgba(59,130,246,.08);
 }
 
 .mission-vision{
@@ -697,8 +714,7 @@ h1, h2, h3 {
     content: "";
     position: absolute;
     inset: 0;
-    background:
-        radial-gradient(
+    background: radial-gradient(
             circle at top right,
             rgba(59,130,246,.15),
             transparent 45%
@@ -897,7 +913,12 @@ h1, h2, h3 {
     width: 100%;
     text-align: center;
     padding: 60px 40px;
-    background: var(--bg-box-secondary);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
     border: 1px solid rgba(59,130,246,.15);
     border-radius: 12px;
     overflow: hidden;
@@ -928,7 +949,7 @@ h1, h2, h3 {
 }
 
 .cta-content h2{
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 32px;
     margin-bottom: 18px;
 }
 
@@ -2288,47 +2309,35 @@ h1, h2, h3 {
 .industry-card{
     flex: 1 1 auto;
     width: fit-content;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     min-height: 58px;
     padding: 14px 22px;
-
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
     border-radius: 12px;
-
     color: var(--text);
     font-size: .95rem;
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
-
     transition: all .3s ease;
     cursor: default;
 
-    backdrop-filter: blur(22px);
-}
-
-.industry-card::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, .05),
-        transparent 60%
-    );
-    border-radius: 12px;
 }
 
 .industry-card:hover{
-    transform: translateY(-4px);
-    border-color: var(--brand);
-    background: rgba(255,255,255,.03);
-    color: white;
+    transform: translateY(-6px);
+    border-color: rgba(59,130,246,.28);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 40px rgba(59,130,246,.08)
 }
 
 .industry-card:hover::before{
