@@ -3802,16 +3802,6 @@ h1, h2, h3 {
     gap: 20px;
     align-items: stretch;
 }
-.process-steps::before{
-    content: "";
-    position: absolute;
-    top: 25px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--border);
-    z-index: 0;
-}
 
 .process-step{
     position: relative;
