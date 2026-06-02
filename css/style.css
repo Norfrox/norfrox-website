@@ -3412,23 +3412,8 @@ h1, h2, h3 {
 
 /* Politica de Privacidad End */
 
-/* Contacto */
-
-
-
-/* Contacto End */
-
-/* Nosotros */
-
-/* Nosotros End */
-
 /* Servicios */
 
-.services-hero-alt{
-    padding: 0px 0;
-    text-align: center;
-}
- 
 .hero-center{
     max-width: 750px;
     margin: 0 auto 50px;
@@ -3467,10 +3452,6 @@ h1, h2, h3 {
 .services-header p{
     color: var(--text-secondary);
     line-height: 1.7;
-}
-
-.services-detail{
-    padding: 80px 0;
 }
 
 .services-header{
@@ -3514,28 +3495,38 @@ h1, h2, h3 {
 
 .services-list{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 28px;
 }
 
 .service-detail-card{
-    position: relative;
+    height: 100%;
+}
 
+.service-detail-card .btn-primary{
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.service-detail-card .btn-primary,
+.service-detail-card .cta-actions{
+    margin-top: auto;
+}
+
+.service-detail-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background:
         linear-gradient(
-            180deg,
-            rgba(255,255,255,.015),
-            rgba(255,255,255,.01)
-        ),
-        var(--bg-secondary);
-
-    border: 1px solid var(--border);
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
     border-radius: 12px;
-
     padding: 34px;
-
     overflow: hidden;
-
     transition:
         transform .35s ease,
         border-color .35s ease,
@@ -3550,16 +3541,30 @@ h1, h2, h3 {
     justify-content: start;
 }
 
+.service-detail-card::after{
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -90px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(59,130,246,.08);
+    filter: blur(40px);
+    transition: transform .4s ease;
+}
+
+.service-detail-card:hover::after{
+    transform: scale(1.15);
+}
+
 .service-detail-card::before{
     content: "";
-
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 3px;
-
     background: linear-gradient(
         90deg,
         var(--brand),
@@ -3569,36 +3574,45 @@ h1, h2, h3 {
 
 .service-detail-card:hover{
     transform: translateY(-6px);
-
     border-color: rgba(77,163,255,.35);
-
     box-shadow:
         0 20px 40px rgba(0,0,0,.22);
 }
 
 .service-card-number{
-    display: inline-block;
-
-    font-size: .85rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-
-    color: var(--brand);
-
-    margin-bottom: 18px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(255,255,255,.05);
+    pointer-events: none;
 }
 
 .service-detail-card h3{
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 1.5rem;
     margin-bottom: 14px;
+}
+
+.service-detail-card h3::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand);
+    flex-shrink: 0;
+    box-shadow:
+        0 0 10px rgba(59,130,246,.4);
 }
 
 .service-detail-card p{
     color: var(--text-secondary);
     line-height: 1.8;
-
     margin-bottom: 24px;
-
     text-align: justify;
 }
 
@@ -3610,36 +3624,32 @@ h1, h2, h3 {
 
 .service-detail-card li{
     position: relative;
-
-    padding-left: 30px;
-    margin-bottom: 14px;
-
+    padding-left: 32px;
+    margin-bottom: 16px;
     color: var(--text-secondary);
-    line-height: 1.6;
+    transition:
+        transform .25s ease,
+        color .25s ease;
+}
 
-    transition: all .25s ease;
+.service-detail-card li:hover{
+    color: var(--text);
+    transform: translateX(5px);
 }
 
 .service-detail-card li::before{
     content: "✓";
-
     position: absolute;
     left: 0;
     top: 2px;
-
     width: 20px;
     height: 20px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
     background: rgba(59,130,246,.14);
-
     color: var(--brand);
-
     font-size: 12px;
     font-weight: 700;
 }
@@ -3651,6 +3661,45 @@ h1, h2, h3 {
 
 .service-detail-card a{
     margin-top: auto;
+    max-width: 60%;
+}
+
+.service-icon{
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    border-radius: 14px;
+    color: var(--brand);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
+    box-shadow:
+        0 0 20px rgba(59,130,246,.05);
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.service-detail-card:hover .service-icon{
+    transform: translateY(-3px);
+    border-color: rgba(59,130,246,.30);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12),
+        0 0 25px rgba(59,130,246,.08);
+}
+
+.service-icon svg{
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
 }
 
 .pricing{
@@ -3685,7 +3734,6 @@ h1, h2, h3 {
     border-radius: 14px;
     padding: 30px;
     text-align: center;
-
     transition: all 0.3s ease;
 }
 
@@ -4266,7 +4314,7 @@ h1, h2, h3 {
 
 .comparison-note{
     text-align: center;
-    padding: 20px;
+    padding: 20px 0 0;
     justify-content: center;
 }
 
