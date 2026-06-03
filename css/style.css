@@ -1152,7 +1152,7 @@ h1, h2, h3 {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 40px;
     color: var(--text-secondary);
     font-size: .95rem;
 }
@@ -3776,7 +3776,6 @@ h1, h2, h3 {
 }
 
 .pricing-card a{
-    display: inline-block;
     margin-top: 10px;
 }
 
@@ -4062,7 +4061,7 @@ h1, h2, h3 {
 /* Pricing */
 
 .pricing-section{
-    padding: 100px 0 40px;
+    padding:  0px 0;
 }
 
 .pricing-header{
@@ -4092,13 +4091,13 @@ h1, h2, h3 {
     position: relative;
     padding: 34px;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
     background:
         linear-gradient(
-            180deg,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.015)
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
         );
+    border: 1px solid rgba(59,130,246,.15);
     backdrop-filter: blur(14px);
     transition: all .35s ease;
     overflow: hidden;
@@ -4128,21 +4127,21 @@ h1, h2, h3 {
     background:
         linear-gradient(
             180deg,
-            rgba(37,99,235,0.08),
-            rgba(255,255,255,0.02)
+            rgba(98, 145, 247, 0.178),
+            rgba(141, 24, 24, 0.02)
         );
 }
 
 .pricing-badge{
     display: inline-flex;
-    padding: 6px 12px;
+    padding: 8px 14px;
     margin-bottom: 18px;
     border-radius: 999px;
     font-size: .82rem;
-    background: rgba(37,99,235,0.12);
-    color: #7fb0ff;
+    background: rgba(59,130,246,.1);
+    color: var(--brand);
     border: 1px solid rgba(37,99,235,0.25);
-}
+}   
 
 .pricing-plan{
     display: block;
@@ -4231,29 +4230,18 @@ h1, h2, h3 {
     box-shadow: 0 0 12px rgba(255,255,255,0.4);
 }
 
-.comparison-section{
-    padding: 40px 0 100px;
-}
-
-.comparison-header{
-    margin-bottom: 40px;
-}
-
-.comparison-header h2{
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin-top: 16px;
-}
-
 .comparison-table-wrapper{
-    overflow-x: auto;
+    backdrop-filter: blur(14px);
+    transition: all .35s ease;
+    overflow: hidden;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
     background:
         linear-gradient(
-            180deg,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.015)
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
         );
+    border: 1px solid rgba(59,130,246,.15);
 }
 
 .comparison-table{
@@ -4304,7 +4292,7 @@ h1, h2, h3 {
 
 .comparison-note{
     text-align: center;
-    padding: 20px 0 0;
+    padding: 20px 20px 0;
     justify-content: center;
 }
 
