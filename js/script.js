@@ -118,11 +118,11 @@ class TestimonialCarousel {
     }
 }
 
-class FAQAccordion {
+class ListAccordion {
 
     constructor() {
 
-        this.items = document.querySelectorAll(".faq-item");
+        this.items = document.querySelectorAll(".list-item");
 
         if(!this.items.length) return;
 
@@ -133,7 +133,7 @@ class FAQAccordion {
 
         this.items.forEach(item => {
 
-            const question = item.querySelector(".faq-question");
+            const question = item.querySelector(".list-question");
 
             question.addEventListener("click", () => {
 
@@ -251,6 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new Tabs();
     new TestimonialCarousel();
-    new FAQAccordion();
+    new ListAccordion();
     new CounterAnimator();
 })
