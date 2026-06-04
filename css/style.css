@@ -2061,9 +2061,8 @@ textarea{
         width: 44px;
         height: 44px;
     }
-
     .footer-divider{
-        margin-bottom: 18px;
+        margin: 0px 0 16px;
     }
 
     .footer-content{
