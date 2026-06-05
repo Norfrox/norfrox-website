@@ -4390,9 +4390,11 @@ textarea{
 }
 
 .comparison-table-wrapper{
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     backdrop-filter: blur(14px);
     transition: all .35s ease;
-    overflow: hidden;
     border-radius: 12px;
     background:
         linear-gradient(
