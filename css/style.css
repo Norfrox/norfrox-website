@@ -4281,6 +4281,114 @@ textarea{
     box-shadow: 0 0 12px rgba(255,255,255,0.4);
 }
 
+.included-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.included-card{
+    position: relative;
+    padding: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+
+    border: 1px solid rgba(59,130,246,.15);
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.included-card::before{
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(59,130,246,.08);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.included-card::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--brand),
+        transparent
+    );
+}
+
+.included-card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(59,130,246,.30);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.20);
+}
+
+.included-icon{
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.12),
+            rgba(37,99,235,.06)
+        );
+    border: 1px solid rgba(59,130,246,.18);
+    color: var(--brand);
+    position: relative;
+    z-index: 1;
+}
+
+.included-card h3{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.included-card p{
+    position: relative;
+    z-index: 1;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+@media(max-width:992px){
+    .included-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:768px){
+    .included-grid{
+        grid-template-columns:1fr;
+    }
+}
+
 .comparison-table-wrapper{
     backdrop-filter: blur(14px);
     transition: all .35s ease;
