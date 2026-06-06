@@ -81,7 +81,7 @@ h1, h2, h3 {
 
 .content-header h2{
     margin: 1rem 0;
-    font-size: 32px;
+    font-size: 35px;
 }
 
 .content-header p{
@@ -2425,21 +2425,43 @@ textarea{
 
 .why-featured{
     background:
-        radial-gradient(circle at top right, rgba(255,255,255,.06), transparent 35%),
-        var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 28px;
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
+    border-radius: 12px;
+    transition: all .35s ease;     
     padding: 2.5rem;
     position: relative;
     overflow: hidden;
+}
+
+.why-featured::before{
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 240px;
+    height: 240px;
+    border-radius: 12px;
+    background: rgba(59,130,246,.08);
+    filter: blur(50px);
+}
+
+.why-featured:hover{
+    transform: translateY(-8px);
+    border-color:  rgba(59,130,246,.35);
 }
 
 .why-badge{
     display: inline-flex;
     padding: .45rem .85rem;
     border-radius: 999px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid var(--border);
+    color: var(--brand);    
+    background: rgba(59,130,246,.08);
+    border: 1px solid rgba(59,130,246,.15);
     font-size: .8rem;
     margin-bottom: 1.25rem;
 }
@@ -2488,9 +2510,14 @@ textarea{
 }
 
 .why-card{
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 24px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
+    border-radius: 12px;
     padding: 1.75rem;
     min-height: 220px;
     transition: all .35s ease;
@@ -2502,14 +2529,18 @@ textarea{
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,.04), transparent 60%);
-    opacity: 0;
-    transition: opacity .35s ease;
+    top: -120px;
+    right: -120px;
+    width: 240px;
+    height: 240px;
+    border-radius: 12px;
+    background: rgba(59,130,246,.08);
+    filter: blur(50px);
 }
 
 .why-card:hover{
     transform: translateY(-8px);
-    border-color: var(--accent);
+    border-color: rgba(59,130,246,.35);
 }
 
 .why-card:hover::before{
@@ -2565,14 +2596,13 @@ textarea{
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
-    transition: all .3s ease;
+    transition: all .35s ease;
     cursor: default;
-
 }
 
 .industry-card:hover{
-    transform: translateY(-6px);
-    border-color: rgba(59,130,246,.28);
+    transform: translateY(-8px);
+    border-color:  rgba(59,130,246,.35);
     box-shadow:
         0 20px 50px rgba(0,0,0,.25),
         0 0 40px rgba(59,130,246,.08)
@@ -2588,13 +2618,6 @@ textarea{
     max-width: 100%;
 }
 
-
-.testimonials-header{
-    text-align: start;
-    max-width: 760px;
-    margin: 0 0 3rem;
-}
-
 .testimonial-wrapper{
     position: relative;
     width: 100%;
@@ -2607,14 +2630,35 @@ textarea{
 }
 
 .testimonial-card{
+    position: relative;
+    overflow: hidden;
     display: none;
     width: 100%;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
     border-radius: 12px;
     padding: clamp(1.8rem, 3vw, 3rem);
     min-height: 320px;
     transition: all .35s ease;
+}
+
+.testimonial-card::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -180px;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(59,130,246,.10);
+    filter: blur(90px);
+    pointer-events: none;
 }
 
 .testimonial-card.active{
@@ -2640,9 +2684,14 @@ textarea{
 .testimonial-logo{
     width: 72px;
     height: 72px;
-    border-radius: 18px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2700,9 +2749,14 @@ textarea{
     width: 42px;
     height: 42px;
     border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
+    color: var(--text);
     cursor: pointer;
     transition: all .25s ease;
 }
@@ -2733,8 +2787,8 @@ textarea{
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
+    border: 1px solid rgba(59,130,246,.15);
+    color: var(--text);
     transition: all 0.3 ease;
 }
 
@@ -2742,7 +2796,6 @@ textarea{
     background: var(--brand);
     border-color: var(--brand);
     color: white;
-
     transform: translateY(-2px);
 }
 
@@ -3089,21 +3142,16 @@ textarea{
 .stat-card{
     position: relative;
     overflow: hidden;
-
     padding: 2rem;
-
     background:
         linear-gradient(
-            180deg,
-            rgba(255,255,255,.02),
-            rgba(255,255,255,.01)
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
         );
-
-    border: 1px solid var(--border);
+    border: 1px solid rgba(59,130,246,.15);
     border-radius: 12px;
-
     min-height: 240px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -3117,52 +3165,42 @@ textarea{
 
 .stat-card::before{
     content: "";
-
     position: absolute;
     inset: 0;
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(59,130,246,.12),
-            transparent 45%
-        );
-
-    opacity: 0;
+    top: -120px;
+    right: -120px;
+    width: 240px;
+    height: 240px;
+    border-radius: 12px;
+    background: rgba(59,130,246,.08);
+    filter: blur(50px);
     transition: opacity .35s ease;
 }
 
 .stat-card::after{
     content: "";
-
     position: absolute;
-
     width: 140px;
     height: 140px;
-
     right: -50px;
     bottom: -50px;
-
     border-radius: 50%;
-
     background:
         radial-gradient(
-            circle,
-            rgba(255,255,255,.04),
+             135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
             transparent 70%
         );
-
     pointer-events: none;
 }
 
 .stat-card:hover{
-    transform: translateY(-6px);
-
-    border-color: rgba(59,130,246,.45);
-
+    transform: translateY(-8px);
+    border-color:  rgba(59,130,246,.35);
     box-shadow:
-        0 18px 40px rgba(0,0,0,.28),
-        0 0 0 1px rgba(59,130,246,.08);
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 40px rgba(59,130,246,.08)
 }
 
 .stat-card:hover::before{
@@ -3197,16 +3235,15 @@ textarea{
 
     padding: 1rem 1.4rem;
 
-    border-radius: 18px;
-
+    border-radius: 12px;
     background:
         linear-gradient(
-            180deg,
-            rgba(255,255,255,.03),
-            rgba(255,255,255,.015)
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
         );
 
-    border: 1px solid rgba(255,255,255,.06);
+    border: 1px solid rgba(59,130,246,.15);
 
     backdrop-filter: blur(10px);
 }
