@@ -672,9 +672,12 @@ textarea{
     height: 420px;
     background: radial-gradient(
         circle,
-        rgba(255, 255, 255, 0.044),
-        transparent 50%
+        rgba(59,130,246,.15),
+        rgba(59,130,246,.08) 40%,
+        transparent 45%
     );
+
+    filter: blur(50px);
     pointer-events: none;
     z-index: 0;
 }
