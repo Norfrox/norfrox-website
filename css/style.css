@@ -162,6 +162,13 @@ h1, h2, h3 {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 480px) {
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .btn-secondary:hover{
     border-color: var(--brand);
     color: var(--brand);
@@ -468,7 +475,7 @@ h1, h2, h3 {
     color: var(--text);
     font-family: inherit;
     font-size: 14px;
-    transition: 1ll 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input::placeholder,
@@ -1226,6 +1233,7 @@ textarea{
 .cta-actions .btn-primary{
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -1630,9 +1638,27 @@ textarea{
     flex-wrap: wrap;
 }
 
+.button-left > div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-left > div > a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 18px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .button-left .btn-primary{
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -1640,9 +1666,22 @@ textarea{
     animation: floatIcon 3s cubic-bezier(.37,0,.63,1) infinite;
 }
 
+@media (max-width: 768px){
+  .button-left{
+    justify-content: center;
+  }
+}
+
+.arrow-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .arrow-primary-button{
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background: var(--brand);
     color: white;
@@ -1650,6 +1689,7 @@ textarea{
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 
@@ -1817,6 +1857,7 @@ textarea{
     font-size: 1rem;
     vertical-align: middle;
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .btn-contact:hover{
@@ -3687,8 +3728,8 @@ textarea{
 }
 
 .service-detail-card .btn-primary{
-    width: fit-content;
-    align-self: flex-start;
+    width: 100%;
+    align-self: center;
 }
 
 .service-detail-card .btn-primary,
@@ -3844,7 +3885,7 @@ textarea{
 
 .service-detail-card a{
     margin-top: auto;
-    max-width: 60%;
+    max-width: 100%;
 }
 
 .service-icon{
@@ -4264,6 +4305,7 @@ textarea{
     }
 
     .hero-actions{
+        width: 100%;
         justify-content: flex-start;
     }
     .hero-center h1{
