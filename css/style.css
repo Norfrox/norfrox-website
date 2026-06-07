@@ -2229,7 +2229,7 @@ textarea{
     width: 100%;
     min-height: 92vh;
     display: flex;
-    background: url('/assets/images/hero-home-bg.webp') center center / cover no-repeat;
+    background: url('/assets/images/hero.webp') center center / cover no-repeat;
 }
 
 .hero-overlay{
@@ -2273,7 +2273,7 @@ textarea{
     line-height: 1.05;
     font-weight: 700;
     color: #fff;
-    max-width: 680px;
+    max-width: 620px;
     margin-bottom: 1.5rem;
 }
 
@@ -2281,7 +2281,7 @@ textarea{
     font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.82);
-    max-width: 620px;
+    max-width: 600px;
     margin-bottom: 2rem;
 }
 
