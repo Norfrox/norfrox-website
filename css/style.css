@@ -489,8 +489,6 @@ textarea{
     min-height: 100px;
 }
 
-/* SVG animation */
-
 .airplane-icon {
     display: inline-block;
     transform-origin: center;
@@ -1805,12 +1803,19 @@ textarea{
 
 .btn-contact{
     background: var(--brand);
-    padding: 10px 18px;
+    padding: 0px 18px;
+    height: 46px;
     border-radius: 6px;
     color: white;
     text-decoration: none;
     font-weight: 500;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: normal;
+    font-size: 1rem;
+    vertical-align: middle;
     transition: all 0.3s ease;
 }
 
