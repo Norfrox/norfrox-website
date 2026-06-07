@@ -2273,7 +2273,7 @@ textarea{
     line-height: 1.05;
     font-weight: 700;
     color: #fff;
-    max-width: 620px;
+    max-width: 600px;
     margin-bottom: 1.5rem;
 }
 
@@ -2281,7 +2281,7 @@ textarea{
     font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.82);
-    max-width: 600px;
+    max-width: 550px;
     margin-bottom: 2rem;
 }
 
