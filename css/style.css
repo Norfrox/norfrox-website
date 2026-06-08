@@ -1757,6 +1757,12 @@ textarea{
     }
 }
 
+@media (max-width: 768px){
+    .arrow-secondary-button{
+    width: 100%;
+    }
+}
+
 /* Navbar */
 
 .navbar{
@@ -2838,21 +2844,59 @@ textarea{
 }
 
 .testimonial-bottom{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1.5rem;
+    padding-top:1.25rem;
+    border-top:1px solid var(--border);
 }
 
-.testimonial-bottom strong{
-    font-size: .95rem;
+.testimonial-author{
+    display:flex;
+    flex-direction:column;
+    gap:.25rem;
 }
 
-.testimonial-bottom span{
-    font-size: .9rem;
-    color: var(--text-muted);
+.testimonial-author strong{
+    font-size:1rem;
+}
+
+.testimonial-author span{
+    font-size:.9rem;
+    color:var(--text-muted);
+}
+
+.testimonial-actions{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.testimonial-date{
+    color:var(--text-muted);
+    font-size:.9rem;
+}
+
+.testimonial-button{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.75rem 1rem;
+    border-radius:10px;
+    background:rgba(59,130,246,.08);
+    border:1px solid rgba(59,130,246,.15);
+    text-decoration: none;
+    color:var(--text);
+    transition:.3s;
+}
+
+.testimonial-button:hover{
+    background:var(--brand);
+    border-color:var(--brand);
+    color:white;
+
+    transform:translateY(-2px);
 }
 
 .testimonial-nav{
@@ -3079,6 +3123,10 @@ textarea{
     .service-panel:hover{
         transform: none;
     }
+
+    .services-cta{
+        width: 100%;
+    }
     
     .why-us{
         padding-top: 1rem;
@@ -3160,8 +3208,20 @@ textarea{
         font-size: .9rem;
     }
 
-     .testimonials{
-        padding: 70px 40px;
+    .testimonial-bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .testimonial-actions{
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .testimonial-button{
+        justify-content: center;
     }
 
     .testimonials-header{
@@ -3206,18 +3266,9 @@ textarea{
         margin-bottom: 1.5rem;
     }
 
-    .testimonial-bottom{
-        gap: .35rem;
-    }
-
     .testimonial-text{
         max-width: 100%;
         font-size: .98rem;
-    }
-
-    .testimonial-bottom{
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .hero-carousel{
