@@ -2270,7 +2270,7 @@ textarea{
     width: 100%;
     min-height: 92vh;
     display: flex;
-    background: url('/assets/images/hero-home-bg.webp') center center / cover no-repeat;
+    background: url('/assets/images/hero.webp') center center / cover no-repeat;
 }
 
 .hero-overlay{
@@ -2314,7 +2314,7 @@ textarea{
     line-height: 1.05;
     font-weight: 700;
     color: #fff;
-    max-width: 680px;
+    max-width: 600px;
     margin-bottom: 1.5rem;
 }
 
@@ -2322,7 +2322,7 @@ textarea{
     font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.82);
-    max-width: 620px;
+    max-width: 550px;
     margin-bottom: 2rem;
 }
 
@@ -2377,74 +2377,136 @@ textarea{
     margin-bottom: 1rem;
 }
 
-
-
 .services-stack{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
+.service-card{
+    position: relative;
+    overflow: hidden;    
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
+    border: 1px solid rgba(59,130,246,.15);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all .35s ease;
+}
+
+.service-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        var(--brand-alt),
+        transparent
+    );
+}
+
+.service-card::before{
+        background: rgba(59,130,246,.08);
+}
+
+.service-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(59,130,246,.18),
+            transparent 40%
+        );
+    opacity:.9;
+    pointer-events:none;
+}
+
+.service-card:hover{
+    transform: translateY(-8px);
+    border-color:  rgba(59,130,246,.35);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 40px rgba(59,130,246,.08)
+}
+
+.service-card:hover .service-number{
+    opacity:.35;
+    transform:scale(1.05);
+}
+
 .service-panel{
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    padding: 2rem 0;
-    border-top: 1px solid rgba(255, 255, 255, .08);
-    transition: all .3s ease;
-}
-
-.service-panel:last-child{
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-}
-
-.service-panel:hover {
-    transform: translateX(8px);
+    display:grid;
+    grid-template-columns:80px 1fr auto;
+    gap:2rem;
+    align-items:center;
 }
 
 .service-number{
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--brand-alt);
-    line-height: 1;
+    font-size:3.5rem;
+    font-weight:800;
+    color:var(--brand-alt);
+    opacity:.15;
+    line-height:1;
+    user-select:none;
+    transition: opacity .35s ease;
 }
 
 .service-body h3{
-    font-size: 1.5rem;
-    margin-bottom: .75rem;
+    font-size:1.55rem;
+    margin-bottom:.75rem;
+    position:relative;
+}
+
+.service-body h3::after{
+    content:"";
+    display:block;
+    width:50px;
+    height:2px;
+    margin-top:.75rem;
+    background:var(--brand-alt);
+    border-radius:999px;
 }
 
 .service-body p{
     color: var(--text-secondary);
     margin-bottom: 1rem;
-    max-width: 650px;
-} 
+    max-width: 700px;
+}
 
 .service-body ul{
     display: flex;
     flex-wrap: wrap;
-    gap: .75rem 1.5rem;
+    gap: .75rem;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1rem 0 0;
 }
 
 .service-body ul li{
-    position: relative;
-    padding-left: 1rem;
-    color: var(--text);
-    font-size: .95rem;
+    padding: .45rem .85rem;
+    border-radius: 999px;
+    background: rgba(59,130,246,.08);
+    border: 1px solid rgba(59,130,246,.15);
+    color: var(--text-secondary);
+    font-size: .9rem;
+    transition: all .3s ease;
 }
 
-.service-body ul li::before{
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--text);
-    position: absolute;
-    left: 0;
-    top: .5rem;
+.service-card:hover .service-body ul li{
+    border-color: rgba(98, 144, 255, .18);
 }
 
 .services-cta{
@@ -2867,17 +2929,12 @@ textarea{
 
 .metric-card::before{
     content: "";
-
     position: absolute;
-
     left: 0;
     top: 0;
-
     width: 3px;
     height: 100%;
-
     border-radius: 999px;
-
     background: var(--brand);
 }
 
