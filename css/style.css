@@ -162,6 +162,13 @@ h1, h2, h3 {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 480px) {
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .btn-secondary:hover{
     border-color: var(--brand);
     color: var(--brand);
@@ -468,7 +475,7 @@ h1, h2, h3 {
     color: var(--text);
     font-family: inherit;
     font-size: 14px;
-    transition: 1ll 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input::placeholder,
@@ -1226,6 +1233,7 @@ textarea{
 .cta-actions .btn-primary{
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -1630,9 +1638,27 @@ textarea{
     flex-wrap: wrap;
 }
 
+.button-left > div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-left > div > a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 18px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .button-left .btn-primary{
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -1640,9 +1666,22 @@ textarea{
     animation: floatIcon 3s cubic-bezier(.37,0,.63,1) infinite;
 }
 
+@media (max-width: 768px){
+  .button-left{
+    justify-content: center;
+  }
+}
+
+.arrow-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .arrow-primary-button{
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background: var(--brand);
     color: white;
@@ -1650,6 +1689,7 @@ textarea{
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 
@@ -1714,6 +1754,12 @@ textarea{
     to{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px){
+    .arrow-secondary-button{
+    width: 100%;
     }
 }
 
@@ -1817,6 +1863,7 @@ textarea{
     font-size: 1rem;
     vertical-align: middle;
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .btn-contact:hover{
@@ -2797,21 +2844,59 @@ textarea{
 }
 
 .testimonial-bottom{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1.5rem;
+    padding-top:1.25rem;
+    border-top:1px solid var(--border);
 }
 
-.testimonial-bottom strong{
-    font-size: .95rem;
+.testimonial-author{
+    display:flex;
+    flex-direction:column;
+    gap:.25rem;
 }
 
-.testimonial-bottom span{
-    font-size: .9rem;
-    color: var(--text-muted);
+.testimonial-author strong{
+    font-size:1rem;
+}
+
+.testimonial-author span{
+    font-size:.9rem;
+    color:var(--text-muted);
+}
+
+.testimonial-actions{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.testimonial-date{
+    color:var(--text-muted);
+    font-size:.9rem;
+}
+
+.testimonial-button{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.75rem 1rem;
+    border-radius:10px;
+    background:rgba(59,130,246,.08);
+    border:1px solid rgba(59,130,246,.15);
+    text-decoration: none;
+    color:var(--text);
+    transition:.3s;
+}
+
+.testimonial-button:hover{
+    background:var(--brand);
+    border-color:var(--brand);
+    color:white;
+
+    transform:translateY(-2px);
 }
 
 .testimonial-nav{
@@ -3038,6 +3123,10 @@ textarea{
     .service-panel:hover{
         transform: none;
     }
+
+    .services-cta{
+        width: 100%;
+    }
     
     .why-us{
         padding-top: 1rem;
@@ -3119,8 +3208,20 @@ textarea{
         font-size: .9rem;
     }
 
-     .testimonials{
-        padding: 70px 40px;
+    .testimonial-bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .testimonial-actions{
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .testimonial-button{
+        justify-content: center;
     }
 
     .testimonials-header{
@@ -3165,18 +3266,9 @@ textarea{
         margin-bottom: 1.5rem;
     }
 
-    .testimonial-bottom{
-        gap: .35rem;
-    }
-
     .testimonial-text{
         max-width: 100%;
         font-size: .98rem;
-    }
-
-    .testimonial-bottom{
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .hero-carousel{
@@ -3744,8 +3836,8 @@ textarea{
 }
 
 .service-detail-card .btn-primary{
-    width: fit-content;
-    align-self: flex-start;
+    width: 100%;
+    align-self: center;
 }
 
 .service-detail-card .btn-primary,
@@ -3901,7 +3993,7 @@ textarea{
 
 .service-detail-card a{
     margin-top: auto;
-    max-width: 60%;
+    max-width: 100%;
 }
 
 .service-icon{
@@ -4321,6 +4413,7 @@ textarea{
     }
 
     .hero-actions{
+        width: 100%;
         justify-content: flex-start;
     }
     .hero-center h1{
