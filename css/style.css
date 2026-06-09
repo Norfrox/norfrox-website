@@ -37,6 +37,10 @@ h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
 }
 
+.hero-container{
+    padding: 2rem 0;
+}
+
 .container{
     width: 100%;
     max-width: 1200px;
@@ -1326,6 +1330,7 @@ textarea{
     .grid-muted-text{
         font-size: 15px;
         line-height: 1.7;
+        text-align: justify;
     }
 
     .button-actions{
@@ -1530,11 +1535,6 @@ textarea{
         gap: 14px;
         padding: 22px;
         border-radius: 18px;
-    }
-
-    .quality-highlight::before{
-        left: 22px;
-        width: 90px;
     }
 
     .quality-highlight span{
