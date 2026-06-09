@@ -17,7 +17,17 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://www.norfrox.com/desarrollo-web">
-    <link rel="stylesheet" href="css/style.css?v=1.58">
+
+    <!--
+    DEVELOPMENT STYLE
+    -->
+    <link rel="stylesheet" href="css/style.css?v=1.64"> 
+
+
+    <!--
+    MINIFIED STYLE
+    <link rel="stylesheet" href="css/style.mini.css?v=1.1"> 
+    -->
 
     <title>Desarrollo Web</title>
 </head>
@@ -43,7 +53,24 @@
                 </div>
 
                 <div class="nav-right">
-                    <a href="/contacto" class="btn-contact">Contacto</a>
+                    <a href="/contacto" class="btn-contact">
+                        Hablemos
+                        <svg
+                            class="airplane-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+
+                            <path d="M22 2 11 13"/>
+                            <path d="M22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>                        
+                    </a>
 
                     <button class="menu-toggle js-menu-toggle">
                         <span></span>
@@ -101,8 +128,8 @@
                     </div>
 
                     <p class="pricing-description">
-                        Ideal para campañas, negocios pequeños o empresas que necesitan una presencia rápida y 
-                        moderna.
+                        El plan basico es ideal para negocios locales, profesionistas, consultorios, restaurantes, PyMES
+                        emprendedores.
                     </p>
 
                      <a href="/contacto" class="arrow-secondary-button">
@@ -138,8 +165,8 @@
                     </div>
 
                     <p class="pricing-description">
-                        Solución ideal para quienes buscan una presencia digital sólida,
-                        profesional y optimizada para crecimiento.
+                        Nuestro plan estrella es ideal para empresas, constructoras, despachos, clinicas 
+                        y negocios establecidos.
                     </p>
 
                     <div class="cta-actions">
@@ -187,8 +214,8 @@
                     </div>
 
                     <p class="pricing-description">
-                        Sistemas para quienes requieren automatización,
-                        paneles administrativos y escalabilidad.
+                        El plan mas completo y a medida es ideal para empresas medianas, franquicias, 
+                        corporativos y plataformas SaaS.
                     </p>
 
                     <a href="/contacto" class="arrow-secondary-button">
@@ -220,7 +247,7 @@
             <div class="content-header">
 
                 <span class="section-tag">
-                    Incluido en todos los proyectos
+                    Todo proyecto web desarrollado por Norfrox incluye
                 </span>
 
                 <h2>
@@ -347,7 +374,7 @@
                     <thead>
 
                         <tr>
-                            <th>Características</th>
+                            <th>Característica</th>
                             <th>Starter</th>
                             <th>Professional</th>
                             <th>Enterprise</th>
@@ -359,8 +386,8 @@
 
                         <tr>
                             <td>Cantidad de páginas</td>
-                            <td>Hasta 5 páginas</td>
-                            <td>Hasta 12 páginas</td>
+                            <td>5</td>
+                            <td>10</td>
                             <td>Personalizado</td>
                         </tr>
 
@@ -372,18 +399,18 @@
                         </tr>
 
                         <tr>
-                            <td>Diseño personalizado</td>
+                            <td>Diseño UI</td>
                             <td class="item-comparison">✓</td>
                             <td class="item-comparison">✓</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
                         <tr>
-                            <td>Optimización SEO</td>
-                            <td>Básica</td>
-                            <td>Avanzada</td>
-                            <td>Avanzada</td>
-                        </tr>
+                            <td>UX Optimizada</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>                        
 
                         <tr>
                             <td>Formulario de contacto</td>
@@ -400,44 +427,65 @@
                         </tr>
 
                         <tr>
+                            <td>SEO</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>
+
+                        <tr>
+                            <td>GEO</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>   
+                        
+                        <tr>
+                            <td>Blog</td>
+                            <td>—</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>   
+
+                        <tr>
+                            <td>Google Analytics</td>
+                            <td>—</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>  
+
+                        <tr>
+                            <td>Correos corporativos</td>
+                            <td>—</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>  
+
+                        <tr>
                             <td>Panel administrativo</td>
                             <td>—</td>
-                            <td>Opcional</td>
+                            <td>—</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
                         <tr>
-                            <td>Base de datos</td>
+                            <td>Automatizaciones</td>
                             <td>—</td>
-                            <td>Opcional</td>
+                            <td>—</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
                         <tr>
-                            <td>Integraciones externas</td>
+                            <td>Integraciones API</td>
                             <td>—</td>
-                            <td class="item-comparison">✓</td>
-                            <td class="item-comparison">✓</td>
-                        </tr>
-
-                        <tr>
-                            <td>Escalabilidad avanzada</td>
                             <td>—</td>
-                            <td>Limitada</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
                         <tr>
-                            <td>Seguridad avanzada</td>
-                            <td>—</td>
+                            <td>Soporte inicial</td>
                             <td class="item-comparison">✓</td>
                             <td class="item-comparison">✓</td>
-                        </tr>
-
-                        <tr>
-                            <td>Soporte prioritario</td>
-                            <td>—</td>
-                            <td>—</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
@@ -460,6 +508,149 @@
         </section>
 
         <section class="spacer">
+            <div class="website-infrastructure-section">
+
+                <div class="content-header">
+                    <span class="section-tag">
+                        INFRAESTRUCTURA WEB
+                    </span>
+
+                    <h2>
+                        Todo lo necesario para publicar tu sitio web
+                    </h2>
+
+                    <p>
+                        Te ayudamos con la configuración de los elementos esenciales para que tu sitio web esté disponible, sea seguro y proyecte una imagen profesional.
+                    </p>
+                </div>
+
+                <div class="infrastructure-grid">
+
+                    <article class="infrastructure-card">
+
+                        <div class="card-icon">
+                            🌐
+                        </div>
+
+                        <h3>Dominio Profesional</h3>
+
+                        <p>
+                            Configuración de dominios como
+                            <strong>tuempresa.com</strong>
+                            para fortalecer la presencia digital de tu negocio.
+                        </p>
+
+                    </article>
+
+                    <article class="infrastructure-card">
+
+                        <div class="card-icon">
+                            ☁️
+                        </div>
+
+                        <h3>Hosting Seguro</h3>
+
+                        <p>
+                            Implementación en servidores confiables con certificados SSL y respaldo para mantener tu sitio disponible.
+                        </p>
+
+                    </article>
+
+                    <article class="infrastructure-card">
+
+                        <div class="card-icon">
+                            ✉️
+                        </div>
+
+                        <h3>Correo Empresarial</h3>
+
+                        <p>
+                            Configuración de cuentas profesionales como
+                            <strong>ventas@tuempresa.com</strong>
+                            para mejorar la confianza de tus clientes.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="spacer">
+            <div class="project-delivery-section">
+
+                <div class="content-header">
+
+                    <span class="section-tag">
+                        ENTREGA DEL PROYECTO
+                    </span>
+
+                    <h2>
+                        Lo que recibirás al finalizar tu sitio web
+                    </h2>
+
+                    <p>
+                        Nuestro objetivo es que tu empresa cuente con una solución lista para operar desde el primer día.
+                    </p>
+
+                </div>
+
+                <div class="delivery-grid">
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Sitio web completamente publicado</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Diseño adaptable a dispositivos móviles</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Optimización SEO inicial</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Integración con formularios de contacto</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Configuración de Google Analytics</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Certificado SSL configurado</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Correos empresariales configurados</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Capacitación básica de uso</p>
+                    </div>
+
+                    <div class="delivery-item">
+                        <span>✓</span>
+                        <p>Soporte posterior a la entrega</p>
+                    </div>
+
+                </div>
+            </div>
+            <p class="delivery-note">
+                Todos los sitios web desarrollados por Norfrox se entregan optimizados para motores de búsqueda, preparados para dispositivos móviles y listos para integrarse con herramientas de análisis y marketing digital.
+            </p>
+        </section>
+        
+        <section class="spacer">
 
             <div class="content-header">
 
@@ -468,8 +659,10 @@
                 <h2>¿Qué incluye cada plan de soporte?</h2>
 
                 <p>
-                    Nuestros planes de soporte técnico están diseñados para mantener tu sitio web
-                    estable, seguro y optimizado después de la entrega del proyecto.
+                    Nuestros planes de soporte técnico ayudan a mantener tu sitio web actualizado, 
+                    seguro y funcionando correctamente. Desde correcciones y monitoreo hasta optimización SEO 
+                    y mejoras continuas, nos encargamos de la parte técnica para que puedas concentrarte en tu negocio.
+
                 </p>
 
             </div>
@@ -481,7 +674,7 @@
                     <thead>
 
                         <tr>
-                            <th>Características</th>
+                            <th>Característica</th>
                             <th>Basic</th>
                             <th>Professional</th>
                             <th>Enterprise</th>
@@ -492,38 +685,32 @@
                     <tbody>
 
                         <tr>
-                            <td>Actualizaciones del sitio</td>
-                            <td>Básicas</td>
-                            <td>Periódicas</td>
-                            <td>Continuas</td>
+                            <td>Actualizaciones de seguridad</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
                         </tr>
+
 
                         <tr>
                             <td>Corrección de errores</td>
-                            <td>Incidencias menores</td>
-                            <td>Corrección prioritaria</td>
-                            <td>Atención avanzada</td>
+                            <td>Basica</td>
+                            <td>Prioritaria</td>
+                            <td>Inmediata</td>
                         </tr>
 
                         <tr>
                             <td>Monitoreo del sitio</td>
-                            <td>Básico</td>
-                            <td>Avanzado</td>
+                            <td>Semanal</td>
+                            <td>Diario</td>
                             <td>Tiempo real</td>
                         </tr>
 
                         <tr>
-                            <td>Optimización de rendimiento</td>
-                            <td>—</td>
-                            <td class="item-comparison">✓</td>
-                            <td>Optimización avanzada</td>
-                        </tr>
-
-                        <tr>
                             <td>Respaldos automáticos</td>
-                            <td>—</td>
                             <td>Semanales</td>
                             <td>Diarios</td>
+                            <td>Diarios + históricos</td>
                         </tr>
 
                         <tr>
@@ -537,50 +724,71 @@
                             <td>Tiempo de respuesta</td>
                             <td>24 hrs</td>
                             <td>12 hrs</td>
-                            <td>Prioritario</td>
+                            <td>4 hrs</td>
                         </tr>
 
                         <tr>
                             <td>Monitoreo de seguridad</td>
                             <td>Básico</td>
-                            <td>Protección activa</td>
-                            <td>Seguridad avanzada</td>
+                            <td>Avanzado</td>
+                            <td>Continuo</td>
                         </tr>
 
                         <tr>
-                            <td>Optimización SEO técnica</td>
+                            <td>Optimización SEO</td>
                             <td>—</td>
-                            <td>Básica</td>
-                            <td>Avanzada</td>
-                        </tr>
-
-                        <tr>
-                            <td>Soporte prioritario</td>
-                            <td>—</td>
-                            <td>Limitado</td>
+                            <td class="item-comparison">✓</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
                         <tr>
-                            <td>Mejoras continuas</td>
+                            <td>Optimización GEO</td>
                             <td>—</td>
-                            <td>Ajustes menores</td>
-                            <td>Implementación continua</td>
-                        </tr>
-
-                        <tr>
-                            <td>Escalabilidad y optimización</td>
-                            <td>—</td>
-                            <td>Opcional</td>
+                            <td class="item-comparison">✓</td>
                             <td class="item-comparison">✓</td>
                         </tr>
 
                         <tr>
-                            <td>Asistencia técnica especializada</td>
+                            <td>Optimización de rendimiento</td>
                             <td>—</td>
-                            <td>Opcional</td>
+                            <td class="item-comparison">✓</td>
                             <td class="item-comparison">✓</td>
                         </tr>
+
+                        <tr>
+                            <td>Cambios de contenido</td>
+                            <td>2 al mes</td>
+                            <td> 5 al mes</td>
+                            <td>Ilimitados*</td>
+                        </tr>
+
+                        <tr>
+                            <td>Mejoras funcionales</td>
+                            <td>—</td>
+                            <td>Menores</td>
+                            <td>Continuas</td>
+                        </tr>
+
+                        <tr>
+                            <td>Soporte Prioritario</td>
+                            <td>—</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>
+
+                        <tr>
+                            <td>Reporte mensual</td>
+                            <td>—</td>
+                            <td class="item-comparison">✓</td>
+                            <td class="item-comparison">✓</td>
+                        </tr>           
+                        
+                        <tr>
+                            <td>Reporte de seguimiento</td>
+                            <td>—</td>
+                            <td>Trimestral</td>
+                            <td>Mensual</td>
+                        </tr>      
 
                         <tr class="pricing-comparison-row">
                             <td>Precio mensual</td>
@@ -595,14 +803,13 @@
 
             </div>
 
-            <div class="comparison-note">
-
-                <p class="gray-text">
+                <p class="delivery-note">
                     Todos nuestros proyectos incluyen <strong>30 días de soporte técnico inicial sin costo</strong>
                     después de la entrega. Posteriormente puedes continuar con cualquiera de nuestros
-                    planes mensuales para mantener tu aplicación actualizada, estable y segura.
+                    planes mensuales.
                 </p>
 
+            <div class="comparison-note">
                 <p>
                     ¿Necesitas un plan personalizado para tu sitio web?
                     <a href="https://wa.me/5214495395074?text=Hola,%20me%20gustaria%20solicitar%20informacion%20sobre%20sus%20planes%20de%20soporte%20web.">
@@ -951,7 +1158,15 @@
         </a>
     </div>
 
-    <script src="js/script.js?v=1.5"></script>
+    <!--
+    DEVELOPMENT STYLE
+        <script src="js/script.js?v=1.6"></script>
+    -->
+
+    <!--
+    MINIFIED STYLE
+    -->
+    <script src="js/script.mini.js?v=1.1"></script>
 
 </body>
 </html>
