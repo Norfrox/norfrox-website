@@ -3664,6 +3664,7 @@ textarea{
     grid-template-columns: 1.1fr .9fr;
     gap: 60px;
     align-items: center;
+    padding: 2rem 0;
 }
 
 .hero-center{
