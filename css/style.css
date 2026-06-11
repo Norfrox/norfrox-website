@@ -3578,7 +3578,7 @@ textarea{
 }
 
 .policy-header{
-    margin-bottom: 40px;
+    padding: 2rem 0;
 }
 
 .policy h1{
@@ -3624,6 +3624,68 @@ textarea{
     margin-top: 20px;
     font-size: 14px;
     color: var(--text-secondary);
+}
+
+.legal-page{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.legal-header{
+    margin-bottom: 60px;
+}
+
+.legal-header h1{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.legal-header p{
+    color: var(--text-secondary);
+}
+
+.legal-content{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.legal-content section{
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+}
+
+.legal-content section:last-child{
+    border-bottom: none;
+}
+
+.legal-content h2{
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+}
+
+.legal-content p,
+.legal-content li{
+    color: var(--text-secondary);
+    line-height: 1.9;
+}
+
+.legal-content ul{
+    margin-top: 16px;
+    padding-left: 20px;
+}
+
+.legal-content a{
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.legal-content p{
+    color: var(--text-secondary);
+    line-height: 1.9;
+    padding: 16px 0;
 }
 
 @media (max-width: 768px){
