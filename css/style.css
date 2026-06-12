@@ -3817,9 +3817,7 @@ textarea{
 }
 
 .hero-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     color: var(--brand);
     pointer-events: none;
 }
