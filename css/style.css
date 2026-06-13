@@ -202,7 +202,12 @@ h1, h2, h3 {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    background: var(--bg-secondary);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
     border: 1px solid rgba(59,130,246,.15);
     transition:
         transform .3s ease,
@@ -383,10 +388,16 @@ h1, h2, h3 {
 
 .email-form{
     position: relative;
-    background: var(--bg-secondary);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
     padding: 25px;
     border-radius: 12px;
     border: 1px solid rgba(59,130,246,.15);
+
     overflow: hidden;
     transition:
         border-color .3s ease,
@@ -592,12 +603,14 @@ textarea{
 .details-grid-card{
     position: relative;
     padding: 2rem;
-    border-radius: 12px;
     background:
-        radial-gradient(circle at top right, rgba(77,163,255,.18), transparent 35%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
-         var(--bg-secondary);
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.08),
+            rgba(37,99,235,.04)
+        );
     border: 1px solid rgba(59,130,246,.15);
+    border-radius: 12px;
     overflow: hidden;
     transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
@@ -606,7 +619,7 @@ textarea{
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient( 135deg, rgba(255,255,255,.06), transparent 45%);
+    background: rgba(59,130,246,.08);
     opacity: 0;
     transition: opacity .35s ease;
 }
