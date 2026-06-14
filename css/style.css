@@ -49,6 +49,12 @@ h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
 }
 
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .hero-container{
     padding: 2rem 0;
 }
@@ -1794,6 +1800,7 @@ textarea{
 
 .navbar{
     background: var(--bg-secondary);
+    backdrop-filter: blur(19px);
     border-bottom: 1px solid var(--border);
 }
 
@@ -1801,7 +1808,7 @@ textarea{
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 20px 16px;
+    padding: 20px 20px;
 }
 
 .nav-left{
@@ -1921,6 +1928,11 @@ textarea{
 }
 
 @media (max-width: 768px){
+
+    .navbar{
+        padding: 0 20px;
+    }
+
     .navbar-content{
         grid-template-columns: auto 1fr;
     }
@@ -1943,6 +1955,9 @@ textarea{
         flex-direction: column;
         padding: 20px;
         gap: 20px;
+        background: var(--bg-secondary);
+         backdrop-filter: blur(35px);
+        border-bottom: 1px solid var(--border);
     }
 
     .btn-contact{
