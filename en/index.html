@@ -37,1202 +37,296 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!--
-    DEVELOPMENT STYLE
-        -->
-    <link rel="stylesheet" href="css/style.css?v=1.66"> 
+    <link rel="stylesheet" href="../css/refactor-style.css"> 
 
-
-    <!--
-    MINIFIED STYLE
-
-    <link rel="stylesheet" href="css/style.min.css?v=1.1"> 
-    -->    
-
-    <title>Empresa de Desarrollo Web y Software en México | Norfrox</title>
+    <title>Norfrox - Empresa de Desarrollo Web y Software en México</title>
 </head>
 <body>
     
     <header>
-
         <nav class="navbar">
-
             <div class="container navbar-content">
-
                 <div class="nav-left">
-                    <a href="/" class="logo"><img src="/assets/images/logo.png" alt="Norfrox logo" class="logo-img"></a>
-                </div>
-
-                <div class="nav-center">
+                    <a href="/" class="logo">
+                    <img src="/assets/images/logo.png" alt="Norfrox logo" class="logo-img">
+                    </a>
                     <ul class="nav-links">
-                        <li><a href="/" class="js-nav-link">Inicio</a></li>
-                        <li><a href="/servicios" class="js-nav-link">Servicios</a></li>
-                        <li><a href="/nosotros" class="js-nav-link">Nosotros</a></li>
-                        <li><a href="/contacto" class="js-nav-link">Contacto</a></li>
+                    <li class="dropdown mega-dropdown">
+                        <a href="/producto" class="js-nav-link drop-trigger">
+                        Products
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                        </a>
+                        <div class="mega-menu">
+                        <div class="mega-menu-inner">
+                            <div class="mega-col">
+                            <h4>Norfrox Platforms</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <strong>Norfrox Scout</strong>
+                                        <span>Smart prospecting and B2B customer management</span>                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <strong>Norfrox BSO</strong>
+                                        <span>Operación, administración y control empresarial</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <strong>Norfrox POS</strong>
+                                        <span>Business operation, administration and control</span>                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <strong>DENUE Tools</strong>
+                                        <span>Extraction and generation of prospects from INEGI data</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="mega-col">
+                            <h4>Capabilities</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <strong>Automation</strong>
+                                        <span>Intelligent business processes</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <strong>Data Intelligence</strong>
+                                        <span>Data analysis for business decisions</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <strong>APIs</strong>
+                                        <span>Integration with external systems</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <strong>Cloud Systems</strong>
+                                        <span>Scalable and secure infrastructure</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="mega-col">
+                            <h4>Getting Started</h4>
+                            <ul>
+                                <li><a href="#">Quickstart</a></li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">API Reference</a></li>
+                                <li><a href="#">Changelog</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown mega-dropdown">
+                        <a href="/solutions" class="js-nav-link drop-trigger">
+                        Solutions
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                        </a>
+                        <div class="mega-menu">
+                        <div class="mega-menu-inner">
+                            <div class="mega-col">
+                            <h4>Development</h4>
+                            <ul>
+                                <li><a href="#"><strong>Web Development</strong><span>Sitios y plataformas modernas y escalables</span></a></li>
+                                <li><a href="#"><strong>Software Development</strong><span>Sistemas a medida para empresas</span></a></li>
+                                <li><a href="#"><strong>E-commerce</strong><span>Tiendas en línea optimizadas para ventas</span></a></li>
+                            </ul>
+                            </div>
+                            <div class="mega-col">
+                            <h4>AI & Automation</h4>
+                            <ul>
+                                <li><a href="#"><strong>Artificial Intelligence</strong><span>Modelos y soluciones inteligentes para negocio</span></a></li>
+                                <li><a href="#"><strong>Process Automation</strong><span>Automatización de flujos y operaciones</span></a></li>
+                                <li><a href="#"><strong>Data & Analytics</strong><span>Decisiones basadas en datos reales</span></a></li>
+                            </ul>
+                            </div>
+                            <div class="mega-col">
+                            <h4>Customers</h4>
+                            <ul>
+                                <li><a href="#">Case studies</a></li>
+                                <li><a href="#">Testimonials</a></li>
+                                <li><a href="#">Success stories</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/docs" class="js-nav-link">Docs</a></li>
+
+                    <li class="dropdown mega-dropdown">
+                        <a href="/resources" class="js-nav-link drop-trigger">
+                        Resources
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                        </a>
+                        <div class="mega-menu">
+                        <div class="mega-menu-inner">
+                            <div class="mega-col">
+                            <h4>Learn</h4>
+                            <ul>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Webinars</a></li>
+                                <li><a href="#">Guides</a></li>
+                            </ul>
+                            </div>
+                            <div class="mega-col">
+                            <h4>Community</h4>
+                            <ul>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">GitHub</a></li>
+                                <li><a href="#">Status</a></li>
+                            </ul>
+                            </div>
+                            <div class="mega-col">
+                            <h4>Support</h4>
+                            <ul>
+                                <li><a href="#">Help center</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Support</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
                     </ul>
                 </div>
 
                 <div class="nav-right">
-                    <a href="/contacto" class="btn-contact">
-                        Hablemos
-                        <svg
-                            class="airplane-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round">
+                    <a href="#" class="nav-icon-btn discord-btn" aria-label="Discord">
+                        <svg class="icon-svg" viewBox="0 0 36 36" width="20" height="20" fill="currentColor">
+                            <path d="M30.476 6.274A29.7 29.7 0 0 0 23.148 4a.11.11 0 0 0-.118.056 21 21 0 0 0-.912 1.874 27.4 27.4 0 0 0-8.23 0 19 19 0 0 0-.927-1.874.12.12 0 0 0-.118-.056 29.6 29.6 0 0 0-7.328 2.273.1.1 0 0 0-.048.041C.8 13.288-.478 20.09.15 26.805a.12.12 0 0 0 .047.085 29.9 29.9 0 0 0 8.989 4.544.12.12 0 0 0 .126-.042 21.3 21.3 0 0 0 1.84-2.99.114.114 0 0 0-.063-.16 19.7 19.7 0 0 1-2.808-1.338.116.116 0 0 1-.012-.191c.189-.142.378-.289.558-.437a.11.11 0 0 1 .116-.016c5.892 2.69 12.27 2.69 18.092 0a.11.11 0 0 1 .118.014c.18.149.37.297.56.439a.115.115 0 0 1-.01.191c-.897.524-1.83.967-2.81 1.337a.115.115 0 0 0-.061.16 24 24 0 0 0 1.837 2.99c.029.04.08.057.127.043 2.941-.91 5.924-2.283 9.003-4.544a.12.12 0 0 0 .047-.083c.75-7.765-1.257-14.51-5.323-20.49a.1.1 0 0 0-.046-.043M12.03 22.716c-1.774 0-3.235-1.629-3.235-3.629s1.433-3.628 3.235-3.628c1.816 0 3.264 1.643 3.235 3.628 0 2-1.433 3.629-3.235 3.629m11.962 0c-1.774 0-3.235-1.629-3.235-3.629s1.433-3.628 3.235-3.628c1.816 0 3.264 1.643 3.235 3.628 0 2-1.419 3.629-3.235 3.629"/>
+                        </svg>
+                        <span>Discord</span>
+                    </a>
 
+                    <a href="https://github.com/Norfrox" class="nav-icon-btn github-btn" aria-label="GitHub">
+                        <svg class="icon-svg" viewBox="0 0 26 26" width="20" height="20" fill="currentColor">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.3-.535-1.52.117-3.16 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.399 3-.399s2.04.132 3 .399c2.292-1.552 3.3-1.23 3.3-1.23.653 1.64.24 2.86.118 3.16.768.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.62-5.476 5.92.43.37.824 1.102.824 2.22 0 1.602-.015 2.894-.015 3.287 0 .322.216.694.825.577C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                        </svg>
+                        <span class="github-stars">2.3k</span>
+                    </a>
+
+                    <div class="lang-dropdown">
+                        <button class="lang-toggle" aria-label="Idioma">
+                        <svg class="icon-svg" viewBox="0 0 26 26" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        <span class="current-lang">ES</span>
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24" width="14" height="14">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                        </button>
+                        <ul class="lang-menu">
+                        <li><a href="#" data-lang="es">ES</a></li>
+                        <li><a href="#" data-lang="en">EN</a></li>
+                        <li><a href="#" data-lang="fr">FR</a></li>
+                        <li><a href="#" data-lang="gr">GR</a></li>
+                        </ul>
+                    </div>
+
+
+                    <a href="/contacto" class="btn-contact">
+                        Let's Talk
+                        <svg class="airplane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 2 11 13"/>
                             <path d="M22 2 15 22 11 13 2 9 22 2"/>
                         </svg>                        
                     </a>
-
-                    <button class="menu-toggle js-menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <button class="menu-toggle js-menu-toggle" aria-label="Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                     </button>
-
                 </div>
-
             </div>
-
         </nav>
-
     </header>
 
-    <main>
-
-        <!-- Hero Section -->
-        <section class="hero-home">
-            <div class="hero-overlay"></div>
-            
-            <div class="container container-spacer hero-content">
-
-                <nav class="breadcrumb" aria-label="breadcrumb">
-                    <a href="/">Inicio</a>
-                </nav>
-
-                <div class="hero-text fadeup-animation">
-
-                    <span class="hero-eyebrow">Menos procesos. Más resultados.</span>
-
-                    <h1>
-                        Software que impulsa negocios
-                    </h1>
-
-                    <p>
-                        Desarrollamos sitios web, software y tiendas en línea que ayudan a las empresas a vender más, optimizar procesos y crecer con tecnología.
-                    </p>
-
-                    <div class="hero-actions">
-                        <div class="cta-actions">
-                            <a href="/contacto" class="btn-primary">
-                            
-                            <svg class="phone-ring"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                                19.79 19.79 0 0 1-8.63-3.07
-                                19.5 19.5 0 0 1-6-6
-                                19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
-                                12.84 12.84 0 0 0 .7 2.81
-                                2 2 0 0 1-.45 2.11L8.09 9.91
-                                a16 16 0 0 0 6 6l1.27-1.27
-                                a2 2 0 0 1 2.11-.45
-                                12.84 12.84 0 0 0 2.81.7
-                                A2 2 0 0 1 22 16.92z"/>
-
-                            </svg>
-                            Hablemos de tu proyecto</a>
-                        <a href="/servicios" class="arrow-secondary-button">
-                            Descubrir servicios
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="18" 
-                                height="18" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>  
-                        
-                        </a>
-                        </div>
-                    </div>
-
-                    <div class="hero-trust">
-                        <span>
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="18" 
-                                height="18" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 14.8 7.1 17.2 8 11.7 4 7.8 9.5 7z"/>
-                            </svg>
-                            Desarrollo Web
-                        </span>
-                        <span>•</span>
-                        <span>
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="18" 
-                                height="18" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M12 2l7 4v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V6l7-4z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                            Infraestructura segura
-                        </span>
-                        <span>•</span>
-                        <span>
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="18" 
-                                height="18" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.4 2.1L8 9a16 16 0 0 0 7 7l.7-1.2a2 2 0 0 1 2.1-.4c.8.3 1.6.5 2.5.6A2 2 0 0 1 22 16.9z"/>
-                            </svg>
-                            Soporte técnico 24/7
-                        </span>
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-
-        <div class="container container-spacer">
-            <!-- SEO Section -->
-            <section class="spacer">
-
-                <div class="content-header">
-                    <span class="section-tag">SOLUCIONES TECNOLÓGICAS. DESARROLLO MODERNO. RESULTADOS PODEROSOS</span>
-                    <h2>
-                        Transformamos problemas en oportunidades
-                    </h2>
-                    <p>
-                        Ayudamos a empresas a optimizar procesos, aumentar ventas y mejorar su operación mediante software empresarial, sitios web y automatización.
-                    </p>
-                </div>
-
-                <div class="metrics-linear-separator"></div>
-
-                <div class="metrics-grid ">
-
-                    <article class="metric-card">
-                        <h3>+34</h3>
-                        <p>CLIENTES ALREDEDOR DEL MUNDO</p>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>+46</h3>
-                        <p>PROYECTOS ENTREGADOS</p>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>100%</h3>
-                        <p>SATISFACCIÓN DEL CLIENTE</p>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>24/7</h3>
-                        <p>SOPORTE TÉCNICO</p>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>+18</h3>
-                        <p>SOLUCIONES IMPLEMENTADAS</p>
-                    </article>
-
-                    <article class="metric-card">
-                        <h3>100%</h3>
-                        <p>DESARROLLO PERSONALIZADO</p>
-                    </article>
-
-                </div>
-
-                <div class="metrics-linear-separator"></div>
-
-                <div class="button-container">
-                    <div class="button-left">
-                        <div class=" btn-up-down">
-                            <a href="/nosotros" class="btn-primary">
-                                
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="20" 
-                                height="20" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="1.8" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                                ¿Quiénes somos?</a>
-                        </div>
-                        <div>
-                            <a href="/servicios" class="arrow-secondary-button">
-                            Conoce nuestros precios
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="18" 
-                                height="18" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>                    
-                        </a>
-                        </div>
-                    </div>
-                </div>
-                
-            </section>
-
-            <!-- Home Services Section-->
-            <section class="spacer">
-
-                <div class="content-header">
-                    <span class="section-tag">Servicios</span>
-                    <h2>Soluciones diseñadas para tu negocio</h2>
-                    <p>
-                        Ofrecemos servicios de desarrollo web, desarrollo de software, aplicaciones empresariales,
-                        tiendas en línea y soluciones tecnológicas personalizadas. 
-                    </p>
-                </div>
-
-                <div class="services-stack">
-
-                    <article class="service-card">
-                        <div class="service-panel">
-                            <span class="service-number">01</span>
-                            <div class="service-body">
-                                <h3>Desarrollo Web</h3>
-                                <p>
-                                    Creamos sitios web profesionales optimizados para SEO, diseñados para generar confianza, captar clientes y aumentar tus oportunidades de venta.
-                                </p>
-                                <ul>
-                                    <li>Diseño responsivo</li>
-                                    <li>SEO avanzado</li>
-                                    <li>Alto rendimiento</li>
-                                </ul>
-                                <a href="/desarrollo-web" class="text-link">
-                                    Acerca de Desarrollo Web  >
-                                </a>
-                            </div>
-
-                        </div>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-panel">
-                            <span class="service-number">02</span>
-                            <div class="service-body">
-                                <h3>Desarrollo de Aplicaciones</h3>
-                                <p>
-                                    Desarrollamos aplicaciones empresariales que centralizan información, automatizan procesos y facilitan la operación diaria de tu negocio.
-                                </p>
-                                <ul>
-                                    <li>Apps multiplataforma</li>
-                                    <li>Integración con APIs y sistemas</li>
-                                    <li>Escalable y flexible</li>
-                                </ul>
-
-                                <a href="/desarrollo-de-aplicaciones" class="text-link">
-                                    Acerca de Desarrollo de Aplicaciones  >
-                                </a>                        
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-panel">
-                            <span class="service-number">03</span>
-                            <div class="service-body">
-                                <h3>Tienda en Línea</h3>
-                                <p>
-                                    Construimos tiendas en línea preparadas para vender 24/7, gestionar pedidos y ofrecer una experiencia de compra profesional a tus clientes.
-                                </p>
-                                <ul>
-                                    <li>Integración de pagos y métodos de envío</li>
-                                    <li>Gestión de productos y pedidos</li>
-                                    <li>Posicionamiento SEO</li>
-                                </ul>
-
-                                <a href="/tienda-en-linea" class="text-link">
-                                    Acerca de Tienda en Línea >
-                                </a>                        
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <div class="services-cta">
-                    <a href="/servicios" class="arrow-secondary-button">
-                        Explora todos nuestros servicios
-                        <svg 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            width="18" 
-                            height="18" 
-                            viewBox="0 0 24 24" 
-                            fill="none"
-                            stroke="currentColor" 
-                            stroke-width="2" 
-                            stroke-linecap="round" 
-                            stroke-linejoin="round"
-                        >
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-            </section>
-            
-            <!-- Why Us Section -->
-            <section class="spacer">
-
-                <div class="content-header">
-                    <span class="section-tag">¿Por qué Norfrox?</span>
-                    <h2>¿Por qué las empresas eligen Norfrox?</h2>
-                    <p>
-                        Diseñamos soluciones tecnológicas enfocadas en el crecimiento, la eficiencia
-                        y cumplir con las necesidades de tu empresa.
-                    </p>
-                </div>
-
-                <div class="why-layout">
-
-                    <article class="why-featured">
-                        <span class="why-badge">Valor principal</span>
-                        <h3>Construimos tecnología con enfoque en negocio</h3>
-                        <p>
-                            No desarrollamos software por desarrollar. Creamos herramientas que resuelven problemas reales, reducen trabajo manual y permiten que tu empresa opere de forma más eficiente.
-                        <div class="why-featured-stats">
-                            <div>
-                                <strong class="brand-text">+Eficiencia</strong>
-                                <span>Procesos más ágiles y organizados</span>
-                            </div>
-                            <div>
-                                <strong class="brand-text">+Escalabilidad</strong>
-                                <span>Sistemas preparados para crecer</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <div class="why-grid">
-
-                        <article class="why-card">
-                            <span class="why-icon">01</span>
-                            <h3>Infraestructura segura</h3>
-                            <p class="text-content">
-                                Protegemos tu información y mantenemos tus sistemas siempre disponibles.
-                            </p>
-                        </article>
-
-                        <article class="why-card">
-                            <span class="why-icon">02</span>
-                            <h3>Automatización inteligente</h3>
-                            <p class="text-content">
-                                Reducimos tareas manuales y mejoramos la productividad con tecnología útil.
-                            </p>
-                        </article>
-
-                        <article class="why-card">
-                            <span class="why-icon">03</span>
-                            <h3>Soporte real</h3>
-                            <p class="text-content">
-                                Acompañamiento técnico continuo antes, durante y después del proyecto.
-                            </p>
-                        </article>
-
-                        <article class="why-card">
-                            <span class="why-icon">04</span>
-                            <h3>Tecnología moderna</h3>
-                            <p class="text-content">
-                                Soluciones escalables con enfoque profesional.
-                            </p>
-                        </article>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Industries Section -->
-            <section class="spacer">
-                <div class="content-header">
-                    <span class="section-tag">Industrias</span>
-                    <h2>Experiencia en distintos sectores</h2>
-                    <p>
-                        Desarrollamos software, sitios web y soluciones digitales para empresas de distintos sectores, adaptándonos a los procesos y necesidades de cada industria.
-                    </p>
-                </div>
-
-                <div class="industries-grid">
-
-                    <article class="industry-card">
-                        <h3>eCommerce</h3>
-                    </article>
-                    
-                    <article class="industry-card">
-                        <h3>Sector Público</h3>
-                    </article>
-
-                    <article class="industry-card">
-                        <h3>Sector Salud</h3>
-                    </article>
-
-                    <article class="industry-card">
-                        <h3>Servicios Profesionales</h3>
-                    </article>
-
-                    <article class="industry-card">
-                        <h3>PyMES</h3>
-                    </article>
-
-                </div>
-
-            </section>
-
-            <!-- Results Section -->
-            <section class="spacer">
-                <div class="content-header">
-                    <span class="section-tag">RESULTADOS</span>
-                    <h2>La confianza de nuestros clientes nos respalda</h2>
-                    <p>
-                        Más de <strong>40</strong> proyectos desarrollados para empresas, negocios y emprendedores que buscaban crecer mediante tecnología.
-                    </p>
-                </div>
-                <div class="counter-cards">
-                    <article class="stat-card" data-limit="33" data-begin="0">
-                        <h2>Empresas atendidas</h2>
-                        <div class="wrapper-counter">
-                            <h3 class="counter" data-counter>0</h3>
-                        </div>
-                        <p class="counter-label">Negocios y empresas que han confiado en nuestras soluciones.</p>
-                    </article>
-
-                    <article class="stat-card" data-limit="16" data-begin="0">
-                        <h2>Meses construyendo soluciones</h2>
-                        <div class="wrapper-counter">
-                            <h3 class="counter" data-counter>0</h3>
-                        </div>
-                        <p class="counter-label">Experiencia construyendo plataformas escalables.</p>
-                    </article>
-
-                    <article class="stat-card" data-limit="45" data-begin="0">
-                        <h2>Proyectos implementados</h2>
-                        <div class="wrapper-counter">
-                            <h3 class="counter" data-counter>0</h3>
-                        </div>
-                        <p class="counter-label">Sistemas y plataformas entregadas exitosamente.</p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="spacer">
-
-                <div class="content-header">
-                    <span class="section-tag">Testimonios</span>
-                    <h2>Empresas que ya trabajan con Norfrox</h2>
-                    <p>
-                        Conoce la experiencia de empresas que confiaron en nosotros para diseñar,
-                        desarrollar e implementar sus soluciones tecnológicas.
-                    </p>
-                </div>
-
-                <div class="testimonial-wrapper">
-
-                    <div class="testimonial-track js-testimonial-track">
-
-                        <article class="testimonial-card active">
-                            <div class="testimonial-top">
-                                <div class="testimonial-logo">
-                                    <img src="/assets/images/testimonials/enterprises-logo-images/SIA_UNI_LOGO.webp" alt="Logo empresa SIA">
-                                </div>
-
-                                <div class="testimonial-meta">
-
-                                    <div class="testimonial-company">
-                                        <h3>Servicios Industriales de Aguascalientes</h3>
-                                    </div>
-
-                                    <div class="testimonial-stars">
-                                        ★★★★★
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <p class="testimonial-text">
-                                Norfrox nos ayudó a desarrollar nuestro sitio web y mejorar nuestra presencia en internet.
-                                Gracias a eso hemos logrado conectar con más clientes y transmitir una imagen mucho más profesional.
-                            </p>
-
-                            <div class="testimonial-bottom">
-                                <div class="testimonial-author">
-                                    <strong>Javier Godinez</strong>
-                                    <span>Gerente General</span>
-                                </div>
-                                <div class="testimonial-actions">
-                                    <span class="testimonial-date">
-                                        Abril 2026
-                                    </span>
-                                    <a 
-                                        href="https://serviciosindustrialesags.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="testimonial-button"
-                                        aria-label="Visitar sitio web">
-                                        Explorar sitio web
-                                        <svg 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="18"
-                                            height="18"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round">
-
-                                            <path d="M7 17L17 7"/>
-                                            <path d="M7 7h10v10"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="testimonial-card">
-                            <div class="testimonial-top">
-                                <div class="testimonial-logo">
-                                    <img src="/assets/images/testimonials/enterprises-logo-images/MARISCOS_EL_GUERO_RANGEL_LOGO.webp" alt="Logo empresa Mariscos el Guero Rangel">
-                                </div>
-
-                                <div class="testimonial-meta">
-                                    <h3>Mariscos el Guero Rangel</h3>
-                                    <div class="testimonial-stars">★★★★★</div>
-                                </div>
-                            </div>
-
-                            <p class="testimonial-text">
-                                Desarrollaron una plataforma para nuestro restaurante que realmente mejoró nuestro trabajo diario.
-                                El resultado superó nuestras expectativas y hoy nos facilita muchísimo el trabajo.
-                            </p>
-
-                            <div class="testimonial-bottom">
-                                <div class="testimonial-author">
-                                    <strong>Roberts C.</strong>
-                                    <span>Gerente</span>
-                                </div>
-                                <div class="testimonial-actions">
-                                    <span class="testimonial-date">Mayo 2026</span>
-                                    <a 
-                                        href="https://share.google/9e3gBgsyY3mnvjI8w"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="testimonial-button"
-                                        aria-label="Visitar sitio web">
-                                        Visita su negocio
-                                        <svg 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="18"
-                                            height="18"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round">
-
-                                            <path d="M7 17L17 7"/>
-                                            <path d="M7 7h10v10"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="testimonial-card">
-                            <div class="testimonial-top">
-                                <div class="testimonial-logo">
-                                    <img src="/assets/images/testimonials/enterprises-logo-images/JABONES_ARTESANALES_AG_LOGO.webp" alt="Logo empresa Jabones Artesanales AG">
-                                </div>
-
-                                <div class="testimonial-meta">
-                                    <h3>Jabones Artesanales AG</h3>
-                                    <div class="testimonial-stars">★★★★★</div>
-                                </div>
-                            </div>
-
-                            <p class="testimonial-text">
-                                Ayudaron a mi emprendimiento a crear una tienda en línea.
-                                Nuestros clientes ahora pueden conocer nuestros productos y realizar pedidos de
-                                una forma mucho más rápida y cómoda.
-                            </p>
-
-                            <div class="testimonial-bottom">
-
-                                <div class="testimonial-author">
-                                    <strong>Alejandra G.</strong>
-                                    <span>Fundadora</span>
-                                </div>
-                                <div class="testimonial-actions">
-                                    <span class="testimonial-date">Abril 2026</span>
-                                    <a 
-                                        href="https://www.facebook.com/p/Jabones-Artesanales-AG-100063689105555/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="testimonial-button"
-                                        aria-label="Visitar sitio web">
-                                        Visita su negocio
-                                        <svg 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="18"
-                                            height="18"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round">
-
-                                            <path d="M7 17L17 7"/>
-                                            <path d="M7 7h10v10"/>
-                                        </svg>
-                                    </a>                                    
-                                </div>
-
-                            </div>
-                        </article>                    
-
-                        <article class="testimonial-card">
-                            <div class="testimonial-top">
-                                <div class="testimonial-logo">
-                                    <img src="/assets/images/testimonials/enterprises-logo-images/DARWIINS.webp" alt="Logo empresa DARWIINS">
-                                </div>
-                                <div class="testimonial-meta">
-                                    <div class="testimonial-company">
-                                        <h3>DARWIINS</h3>
-                                    </div>                            
-                                    <div class="testimonial-stars">★★★★★</div>
-                                </div>
-                            </div>
-                            <p class="testimonial-text">
-                                Decidí confiar en Norfrox para el desarrollo de mi tienda en línea y superaron mis expectativas. 
-                                Cumplieron con lo prometido, entregando un trabajo de excelente calidad. Totalmente recomendables.
-                            </p>
-                            <div class="testimonial-bottom">
-                                <div class="testimonial-author">
-                                    <strong>Francisco Esparza.</strong>
-                                    <span>Gerente</span>
-                                </div>
-                                <div class="testimonial-actions">
-                                    <span class="testimonial-date">Junio 2026</span>
-                                    <a 
-                                        href="https://darwiins.com/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="testimonial-button"
-                                        aria-label="Visitar sitio web">
-                                        Explorar sitio web   
-                                        <svg 
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="18"
-                                            height="18"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round">
-
-                                            <path d="M7 17L17 7"/>
-                                            <path d="M7 7h10v10"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </article> 
-
-                    </div>
-
-                </div>
-
-                <div class="testimonial-controls">
-
-                    <button class="testimonial-nav prev js-testimonial-prev" aria-label="Testimonio anterior">
-                        &#10094;
-                    </button>
-
-                    <button class="testimonial-nav next js-testimonial-next" aria-label="Siguiente testimonio">
-                        &#10095;
-                    </button>
-
-                </div>
-
-            </section>
-
-            <section class="cta-section spacer ">
-
-                <div class="cta-content">
-
-                    <span class="cta-badge">
-                        SOLUCIONES TECNOLÓGICAS PARA EMPRESAS
-                    </span>
-
-                    <h2>
-                        Desarrolla el software que tu empresa necesita
-                    </h2>
-
-                    <p>
-                        Desde sitios web profesionales hasta sistemas empresariales completos, desarrollamos soluciones adaptadas a los objetivos de tu empresa.
-                    </p>
-
-                    <div class="cta-actions">
-
-                        <a href="/contacto" class="btn-primary">
-
-                            <svg class="phone-ring"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                                19.79 19.79 0 0 1-8.63-3.07
-                                19.5 19.5 0 0 1-6-6
-                                19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
-                                12.84 12.84 0 0 0 .7 2.81
-                                2 2 0 0 1-.45 2.11L8.09 9.91
-                                a16 16 0 0 0 6 6l1.27-1.27
-                                a2 2 0 0 1 2.11-.45
-                                12.84 12.84 0 0 0 2.81.7
-                                A2 2 0 0 1 22 16.92z"/>
-
-                            </svg>
-
-                            Agenda una llamada
-
-                        </a>
-
-                        <a href="/servicios" class="arrow-secondary-button">
-                            Nuestros Servicios
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="18" 
-                                height="18" 
-                                viewBox="0 0 24 24" 
-                                fill="none"
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round"
-                            >
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>  
-                        </a>
-
-                    </div>
-
-                    <div class="cta-features">
-                        <span>✓ Consulta inicial sin costo</span>
-                        <span>✓ Soluciones personalizadas</span>
-                        <span>✓ Atención en menos de 24 horas</span>
-                    </div>
-
-                </div>
-
-            </section>
-
-        </div>
-    </main>
+    <main></main>
 
     <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="footer-label">Growing Together</span>
+                    <h2>
+                        Construyendo soluciones para empresas que quieren crecer.
+                    </h2>
+                </div>
 
-        <div class="container footer-top">
+                <div class="footer-social">
+                    <a href="https://github.com/Norfrox" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
 
-            <div class="footer-top-left">
-                <span class="footer-label">Growing Together</span>
-
-                <h2>
-                    Construyendo soluciones tecnológicas para empresas que quieren crecer.
-                </h2>
-
-            </div>
-
-            <div class="footer-social">
-
-                <a 
-                    href="https://github.com/Norfrox-Systems"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 
-                        6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 
-                        6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 
-                        4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 
-                        16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 
-                        5.09 1 5.09 1A5.07 5.07 0 0 0 5 
-                        4.77a5.44 5.44 0 0 0-1.5 3.78c0 
-                        5.42 3.3 6.61 6.44 7A3.37 3.37 
-                        0 0 0 9 18.13V22"/>
-
-                    </svg>
-                </a>
-
-                <a 
-                    href="https://www.facebook.com/profile.php?id=61590199923812"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
+                    <a href="https://www.facebook.com/profile.php?id=61590199923812" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-
-                    </svg>
-                </a>
-
-                <a 
-                    href="https://www.instagram.com/norfrox_/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
+                        </svg>
+                    </a>  
+                    
+                    <a href="https://www.instagram.com/norfrox_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <path d="M16 11.37a4 4 0 1 1-2.63-2.63 
-                        4 4 0 0 1 2.63 2.63z"/>
+                        <path d="M16 11.37a4 4 0 1 1-2.63-2.63 4 4 0 0 1 2.63 2.63z"/>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
 
-                    </svg>
-                </a>
-
-                <a 
-                    href="https://x.com/norfrox"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="X">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
+                    <a href="https://x.com/norfrox" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 6 6 18"/>
                         <path d="m6 6 12 12"/>
-
-                    </svg>
-                </a>
-
-                <a 
-                    href="https://www.linkedin.com/company/norfrox/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn">
-
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-
+                        </svg>
+                    </a>              
+                    
+                    <a href="https://www.linkedin.com/company/norfrox/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                         <rect x="2" y="9" width="4" height="12"/>
                         <circle cx="4" cy="4" r="2"/>
-
-                    </svg>
-
-                </a>
-
+                        </svg>
+                    </a>
+                </div>
             </div>
+
+            <div class="footer-divider"></div>
 
         </div>
-
-        <div class="footer-divider"></div>
-
-        <div class="container footer-content">
-                
-            <div class="footer-left">
-                <p>© 2026 <a href="https://www.norfrox.com">Norfrox</a>. Todos los derechos reservados.</p>
+        <div class="container footer-bottom">
+            <div class="footer-copy">
+            <p>© 2026 <a href="https://www.norfrox.com">Norfrox</a>. Todos los derechos reservados.</p>
             </div>
-
-            <div class="footer-right">
-                <a href="/privacidad">Política de privacidad</a>
-                <a href="mailto:contact@norfrox.com">contacto@norfrox.com</a>
-             </div>
-
+            <div class="footer-links">
+            <a href="/privacidad">Política de privacidad</a>
+            <a href="mailto:contact@norfrox.com">contacto@norfrox.com</a>
+            </div>
         </div>
 
     </footer>
 
-    <div class="whatsapp-container">
-        <span class="whatsapp-tooltip">¿Necesitas ayuda?</span>
-        <a 
-            href="https://wa.me/5214495395074?text=Hola,%20me%20gustaria%20solicitar%20informacion%20sobre%20sus%20servicios."
-            class="whatsapp-float"
-            target="_blank"
-            aria-label="Chat en WhatsApp">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <path fill="white" d="M16 .396C7.163.396 0 7.558 0 16.396c0 2.89.76 5.6 2.086 7.945L0 32l7.84-2.056A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16.004C32 7.558 24.837.396 16 .396zm0 29.272a13.21 13.21 0 01-6.725-1.835l-.482-.287-4.653 1.22 1.24-4.54-.314-.468a13.16 13.16 0 01-2.02-7.063c0-7.292 5.93-13.222 13.22-13.222 7.29 0 13.22 5.93 13.22 13.222 0 7.292-5.93 13.222-13.22 13.222zm7.29-9.894c-.4-.2-2.366-1.166-2.732-1.3-.366-.134-.634-.2-.902.2-.268.4-1.036 1.3-1.27 1.566-.234.268-.468.3-.868.1-.4-.2-1.688-.622-3.214-1.984-1.188-1.06-1.99-2.37-2.222-2.77-.234-.4-.024-.616.176-.816.18-.178.4-.468.6-.702.2-.234.268-.4.4-.668.134-.268.066-.5-.034-.7-.1-.2-.902-2.168-1.236-2.968-.326-.782-.658-.676-.902-.688l-.768-.014c-.268 0-.7.1-1.068.5s-1.4 1.366-1.4 3.332c0 1.966 1.434 3.868 1.634 4.134.2.268 2.822 4.31 6.834 6.038.954.41 1.698.656 2.278.84.958.304 1.83.262 2.52.16.768-.114 2.366-.966 2.7-1.9.334-.934.334-1.734.234-1.9-.1-.166-.366-.268-.768-.468z"/>
-            </svg>
-        </a>
-    </div>
-
-    <!--
-    DEVELOPMENT STYLE
-        <script src="js/script.js?v=1.6"></script>
-    -->
-
-    <!--
-    MINIFIED STYLE
-    -->
-    <script src="js/script.mini.js?v=1.1"></script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-
-        "@graph": [
-
-            {
-                "@type": "Organization",
-
-                "@id": "https://www.norfrox.com/#organization",
-
-                "name": "Norfrox",
-                "alternateName": "Norfrox Systems",
-
-                "url": "https://www.norfrox.com",
-
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://www.norfrox.com/assets/images/logo.png"
-                },
-
-                "image": "https://www.norfrox.com/assets/images/preview.png",
-
-                "description": "Empresa especializada en desarrollo de software, desarrollo web, automatización empresarial, aplicaciones web y soluciones tecnológicas en México.",
-
-                "email": "contacto@norfrox.com",
-                "telephone": "+52 449 539 5074",
-
-                "sameAs": [
-                    "https://github.com/Norfrox-Systems",
-                    "https://www.facebook.com/profile.php?id=61590199923812",
-                    "https://www.instagram.com/norfrox_/"
-                ],
-
-                "foundingLocation": {
-                    "@type": "Place",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressCountry": "MX"
-                    }
-                },
-
-                "areaServed": {
-                    "@type": "Country",
-                    "name": "México"
-                },
-
-                "knowsAbout": [
-                    "Desarrollo web",
-                    "Desarrollo de software",
-                    "Software empresarial",
-                    "Microservicios",
-                    "Automatización empresarial",
-                    "Infraestructura tecnológica",
-                    "Sistemas administrativos",
-                    "Aplicaciones web",
-                    "Soluciones tecnológicas"
-                ],
-
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "telephone": "+52 449 539 5074",
-                    "contactType": "customer service",
-                    "areaServed": "MX",
-                    "availableLanguage": [
-                        "Español",
-                        "English"
-                    ]
-                }
-            },
-
-            {
-                "@type": "WebSite",
-
-                "@id": "https://www.norfrox.com/#website",
-
-                "url": "https://www.norfrox.com",
-
-                "name": "Norfrox",
-
-                "description": "Desarrollo de software, soluciones tecnológicas y sistemas empresariales.",
-
-                "publisher": {
-                    "@id": "https://www.norfrox.com/#organization"
-                },
-
-                "inLanguage": "es-MX"
-            },
-
-            {
-                "@type": "ProfessionalService",
-
-                "@id": "https://www.norfrox.com/#service",
-
-                "name": "Norfrox",
-
-                "url": "https://www.norfrox.com",
-
-                "image": "https://www.norfrox.com/assets/images/preview.png",
-
-                "description": "Empresa de soluciones tecnológicas especializada en desarrollo de software, sistemas empresariales, desarrollo web y soporte técnico.",
-
-                "priceRange": "$$",
-
-                "areaServed": {
-                    "@type": "Country",
-                    "name": "México"
-                },
-
-                "serviceType": [
-                    "Desarrollo web",
-                    "Desarrollo de software",
-                    "Software empresarial",
-                    "Soporte técnico",
-                    "Desarrollo backend",
-                    "Automatización empresarial"
-                ],
-
-                "hasOfferCatalog": {
-                    "@type": "OfferCatalog",
-
-                    "name": "Servicios de Norfrox",
-
-                    "itemListElement": [
-
-                        {
-                            "@type": "Offer",
-                            "itemOffered": {
-                                "@type": "Service",
-                                "name": "Desarrollo Web"
-                            }
-                        },
-
-                        {
-                            "@type": "Offer",
-                            "itemOffered": {
-                                "@type": "Service",
-                                "name": "Desarrollo de Software"
-                            }
-                        },
-
-                        {
-                            "@type": "Offer",
-                            "itemOffered": {
-                                "@type": "Service",
-                                "name": "Software Empresarial"
-                            }
-                        },
-
-                        {
-                            "@type": "Offer",
-                            "itemOffered": {
-                                "@type": "Service",
-                                "name": "Soporte Técnico"
-                            }
-                        },
-
-                        {
-                            "@type": "Offer",
-                            "itemOffered": {
-                                "@type": "Service",
-                                "name": "Automatización Empresarial"
-                            }
-                        }
-
-                    ]
-                }
-            }
-
-        ]
-    }
-    </script>    
+    
+    <script src="../js/refactor-js.js"></script>
 
 </body>
 </html>
