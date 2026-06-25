@@ -35,8 +35,10 @@
     <meta property="twitter:description" content="Desarrollo de software empresarial y soluciones tecnológicas.">
     <meta name="twitter:image" content="https://www.norfrox.com/assets/images/preview.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/refactor-style.css"> 
 
     <title>Norfrox - Empresa de Desarrollo Web y Software en México</title>
@@ -178,28 +180,34 @@
                         <div class="mega-menu">
                         <div class="mega-menu-inner">
                             <div class="mega-col">
-                            <h4>Learn</h4>
-                            <ul>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Webinars</a></li>
-                                <li><a href="#">Guides</a></li>
-                            </ul>
+                                <h4>Community</h4>
+                                <ul>
+                                    <li><a href="https://github.com/Norfrox">GitHub</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li>
+                                        <a href="#">
+                                            Status
+                                            <span class="status-text">All systems are operational <span class="status-dot"></span>  </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="mega-col">
-                            <h4>Community</h4>
-                            <ul>
-                                <li><a href="#">Community</a></li>
-                                <li><a href="#">GitHub</a></li>
-                                <li><a href="#">Status</a></li>
-                            </ul>
-                            </div>
+                                <h4>Connect</h4>
+                                <ul>
+                                    <li><a href="https://www.facebook.com/profile.php?id=61590199923812" target="_blank">Facebook</a></li>
+                                    <li><a href="https://www.instagram.com/norfrox_/" target="_blank">Instagram</a></li>
+                                    <li><a href="https://www.linkedin.com/company/norfrox/" target="_blank">LinkedIn</a>
+                                    <li><a href="https://x.com/norfrox" target="_blank">X</a></li>
+                                </ul>
+                            </div>                            
                             <div class="mega-col">
-                            <h4>Support</h4>
-                            <ul>
-                                <li><a href="#">Help center</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Support</a></li>
-                            </ul>
+                                <h4>Support</h4>
+                                <ul>
+                                    <li><a href="#">Help center</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Support</a></li>
+                                </ul>
                             </div>
                         </div>
                         </div>
@@ -260,7 +268,115 @@
         </nav>
     </header>
 
-    <main></main>
+    <main>
+
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="/assets/videos/hero-background.mp4" type="video/mp4">
+                <div class="hero-video-fallback"></div>
+            </video>
+
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+                <span class="hero-tag">Norfrox</span>
+
+                <h1 class="hero-title">
+                    We build the future <br>
+                    of your business with technology.
+                </h1>
+
+                <div class="hero-buttons">
+                    <a href="/contacto.html" class="btn-primary">Start now</a>
+                    <a href="/docs" class="btn-secondary">Read the docs</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="container">
+            <div class="divider"></div>
+        </div>
+
+        <section class="features-section">
+            <div class="container features-container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-card-top">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2V5"/>
+                                <path d="M12 19V22"/>
+                                <path d="M2 12H5"/>
+                                <path d="M19 12H22"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M5 5L7 7"/>
+                                <path d="M17 17L19 19"/>
+                                <path d="M5 19L7 17"/>
+                                <path d="M17 7L19 5"/>
+                            </svg>
+                            <h3>Business Automation</h3>
+
+                        </div>
+                        <p>Less manual labor, more operational efficiency.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-top">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="7" y="7" width="10" height="10" rx="2"/>
+                                <path d="M12 2V5"/>
+                                <path d="M12 19V22"/>
+                                <path d="M2 12H5"/>
+                                <path d="M19 12H22"/>
+                                <path d="M7 12H17"/>
+                                <path d="M12 7V17"/>
+                            </svg>
+                            <h3>Artificial Intelligence</h3>
+                        </div>
+                        <p>AI applied to real business problems.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-top">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="7"/>
+                                <path d="M21 21L16.65 16.65"/>
+                                <path d="M11 8V14"/>
+                                <path d="M8 11H14"/>
+                            </svg>
+                            <h3>Lead Generation</h3>
+                        </div>
+                        <p>Tools for finding and converting new customers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-top">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="20" r="1"/>
+                                <circle cx="18" cy="20" r="1"/>
+                                <path d="M3 4H5L7 16H19L21 8H8"/>
+                            </svg>
+                            <h3>Digital Commerce</h3>
+                        </div>
+                        <p>Optimized shopping experiences for online growth.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card-top">
+                            <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="2" width="6" height="6" rx="1"/>
+                                <rect x="2" y="16" width="6" height="6" rx="1"/>
+                                <rect x="16" y="16" width="6" height="6" rx="1"/>
+                                <path d="M12 8V12"/>
+                                <path d="M12 12H5"/>
+                                <path d="M12 12H19"/>
+                            </svg>
+                            <h3>Scalable Platforms</h3>
+                        </div>
+                        <p>Systems designed to support your company's growth.</p>                    
+                    </div>                    
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="footer">
         <div class="container">
