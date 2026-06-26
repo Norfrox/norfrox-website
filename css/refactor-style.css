@@ -791,6 +791,50 @@ body {
   padding: 60px 0;
   background: var(--bg-main);
   border-bottom: 1px solid var(--border);
+  transition: background 0.4s ease 0s, background 0.2s ease 0s; 
+}
+
+.two-col-section.light-mode {
+  background: #e4f1eb;
+  transition: background 0.4s ease;
+}
+
+.two-col-section.light-mode .col-nav ul li a {
+  color: #1a1a1a;
+}
+.two-col-section.light-mode .col-nav ul li a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+.two-col-section.light-mode .col-nav ul li a.active {
+  color: #000;
+  background: rgba(0, 0, 0, 0.08);
+  border-left-color: #000;
+}
+
+.two-col-section.light-mode .detail-item {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+.two-col-section.light-mode .detail-item h2 {
+  color: #1a1a1a;
+}
+.two-col-section.light-mode .detail-item h2 .highlight-grey {
+  color: #555;
+}
+.two-col-section.light-mode .detail-item p {
+  color: #333;
+}
+
+.two-col-section.light-mode .capabilities-card h3 {
+  color: #1a1a1a;
+}
+
+.two-col-section.light-mode .capabilities-card p {
+  color: #333;
+}
+
+.two-col-section.light-mode .capabilities-top svg {
+  color: #1a1a1a;
 }
 
 .two-col-grid {
@@ -1751,6 +1795,10 @@ body {
     padding: 0;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  .stats-left {
+    border-left: none;
   }
 
   .stats-right {

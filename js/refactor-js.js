@@ -276,7 +276,7 @@ class TwoColSection {
             console.warn('TwoColSection: elementos no encontrados');
             return;
         }
-    this.init();
+        this.init();
     }
 
     init() {
@@ -288,13 +288,13 @@ class TwoColSection {
 
     updateActiveLink() {
         let currentId = '';
-        const scrollPosition = window.scrollY + this.scrollOffset + 40; 
+        const scrollPosition = window.scrollY + this.scrollOffset + 40;
         this.detailItems.forEach(item => {
-        const offsetTop = item.offsetTop;
-        const offsetBottom = offsetTop + item.offsetHeight;
-        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            currentId = item.id;
-        }
+            const offsetTop = item.offsetTop;
+            const offsetBottom = offsetTop + item.offsetHeight;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                currentId = item.id;
+            }
         });
 
         this.navLinks.forEach(link => {
@@ -303,6 +303,14 @@ class TwoColSection {
                 link.classList.add(this.activeClass);
             }
         });
+
+        if (this.section) {
+            if (currentId === 'detail-autoscaling') {
+                this.section.classList.add('light-mode');
+            } else {
+                this.section.classList.remove('light-mode');
+            }
+        }
     }
 
     bindScroll() {
@@ -313,20 +321,28 @@ class TwoColSection {
 
     bindClicks() {
         this.navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - this.scrollOffset;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                this.navLinks.forEach(l => l.classList.remove(this.activeClass));
-                link.classList.add(this.activeClass);
-            }
-        });
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - this.scrollOffset;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'auto'
+                    });
+                    this.navLinks.forEach(l => l.classList.remove(this.activeClass));
+                    link.classList.add(this.activeClass);
+
+                    if (this.section) {
+                        if (targetId === '#detail-autoscaling') {
+                            this.section.classList.add('light-mode');
+                        } else {
+                            this.section.classList.remove('light-mode');
+                        }
+                    }
+                }
+            });
         });
     }
 
@@ -334,12 +350,12 @@ class TwoColSection {
         if (!this.section || !this.nextSection) return;
 
         const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
-            this.nextSection.scrollIntoView({ behavior: 'smooth' });
-            observer.disconnect();
-            }
-        });
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
+                    this.nextSection.scrollIntoView({ behavior: 'smooth' });
+                    observer.disconnect();
+                }
+            });
         }, {
             threshold: 0,
             rootMargin: '0px 0px -50px 0px'
@@ -351,11 +367,11 @@ class TwoColSection {
     throttle(fn, delay) {
         let lastCall = 0;
         return function(...args) {
-        const now = Date.now();
-        if (now - lastCall >= delay) {
-            lastCall = now;
-            fn.apply(this, args);
-        }
+            const now = Date.now();
+            if (now - lastCall >= delay) {
+                lastCall = now;
+                fn.apply(this, args);
+            }
         };
     }
 }
@@ -582,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
         detailItemsSelector: '.detail-item',
         sectionSelector: '.two-col-section',
         nextSectionSelector: '#next-section',
-        scrollOffset: 80,
+        scrollOffset: 60,
         activeClass: 'active'
     });
 
