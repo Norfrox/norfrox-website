@@ -1637,6 +1637,10 @@ body {
     align-items: flex-start;
   }
 
+  .stats-left {
+    border-left: none;
+  }
+
   .stats-right {
     border-left: none;
     border-top: 2px solid rgba(0, 0, 0, 0.15);
