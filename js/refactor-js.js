@@ -256,6 +256,226 @@ class LangDropdown {
     }
 }
 
+class TwoColSection {
+    constructor({
+        navLinksSelector = '.col-nav .nav-link',
+        detailItemsSelector = '.detail-item',
+        sectionSelector = '.two-col-section',
+        nextSectionSelector = '#next-section',
+        scrollOffset = 80,
+        activeClass = 'active'
+    } = {}) {
+        this.navLinks = document.querySelectorAll(navLinksSelector);
+        this.detailItems = document.querySelectorAll(detailItemsSelector);
+        this.section = document.querySelector(sectionSelector);
+        this.nextSection = document.querySelector(nextSectionSelector);
+        this.scrollOffset = scrollOffset;
+        this.activeClass = activeClass;
+
+        if (!this.navLinks.length || !this.detailItems.length) {
+            console.warn('TwoColSection: elementos no encontrados');
+            return;
+        }
+    this.init();
+    }
+
+    init() {
+        this.bindScroll();
+        this.bindClicks();
+        this.observeSectionEnd();
+        setTimeout(() => this.updateActiveLink(), 100);
+    }
+
+    updateActiveLink() {
+        let currentId = '';
+        const scrollPosition = window.scrollY + this.scrollOffset + 40; 
+        this.detailItems.forEach(item => {
+        const offsetTop = item.offsetTop;
+        const offsetBottom = offsetTop + item.offsetHeight;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            currentId = item.id;
+        }
+        });
+
+        this.navLinks.forEach(link => {
+            link.classList.remove(this.activeClass);
+            if (link.getAttribute('href') === '#' + currentId) {
+                link.classList.add(this.activeClass);
+            }
+        });
+    }
+
+    bindScroll() {
+        const throttledUpdate = this.throttle(() => this.updateActiveLink(), 100);
+        window.addEventListener('scroll', throttledUpdate);
+        window.addEventListener('resize', throttledUpdate);
+    }
+
+    bindClicks() {
+        this.navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - this.scrollOffset;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                this.navLinks.forEach(l => l.classList.remove(this.activeClass));
+                link.classList.add(this.activeClass);
+            }
+        });
+        });
+    }
+
+    observeSectionEnd() {
+        if (!this.section || !this.nextSection) return;
+
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
+            this.nextSection.scrollIntoView({ behavior: 'smooth' });
+            observer.disconnect();
+            }
+        });
+        }, {
+            threshold: 0,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        observer.observe(this.section);
+    }
+
+    throttle(fn, delay) {
+        let lastCall = 0;
+        return function(...args) {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            fn.apply(this, args);
+        }
+        };
+    }
+}
+
+class TestimonialCarousel {
+    constructor(config) {
+        this.testimonials = config.testimonials || [];
+        this.container = document.querySelector(config.containerSelector || '.testimonial-carousel');
+        this.textElement = this.container.querySelector('.testimonial-text');
+        this.authorElement = this.container.querySelector('.testimonial-author');
+        this.roleElement = this.container.querySelector('.testimonial-role');
+        this.dotsContainer = this.container.querySelector('.carousel-dots');
+        this.intervalTime = config.intervalTime || 5000;
+        this.typingSpeed = config.typingSpeed || 20;
+        this.currentIndex = 0;
+        this.typingTimer = null;
+        this.intervalTimer = null;
+        this.isTyping = false;
+        this.init();
+    }
+
+    init() {
+        if (!this.testimonials.length) return;
+        this.createDots();
+        this.showTestimonial(0);
+        this.startAutoPlay();
+    }
+
+    createDots() {
+        this.testimonials.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.dataset.index = i;
+        dot.addEventListener('click', () => this.goTo(i));
+        this.dotsContainer.appendChild(dot);
+        });
+    }
+
+    goTo(index) {
+        if (this.isTyping) return;
+        clearTimeout(this.intervalTimer);
+        this.currentIndex = index;
+        this.showTestimonial(index);
+        this.startAutoPlay();
+    }
+
+    showTestimonial(index) {
+        const testimonial = this.testimonials[index];
+        if (!testimonial) return;
+        document.querySelectorAll('.carousel-dots span').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+        });
+        this.typeText(testimonial.text, testimonial.author, testimonial.role);
+    }
+
+    typeText(text, author, role) {
+        this.isTyping = true;
+        this.textElement.textContent = '';
+        this.authorElement.textContent = '';
+        this.roleElement.textContent = '';
+        const height = this.textElement.offsetHeight;
+        this.textElement.style.minHeight = `${height}px`;
+
+        let charIndex = 0;
+        clearInterval(this.typingTimer);
+        const typeAuthorAndRole = () => {
+        let authorIndex = 0;
+        let roleIndex = 0;
+
+        const authorTimer = setInterval(() => {
+            if (authorIndex < author.length) {
+            this.authorElement.textContent += author.charAt(authorIndex);
+            authorIndex++;
+            } else {
+            clearInterval(authorTimer);
+            // Escribir rol
+            const roleTimer = setInterval(() => {
+                if (roleIndex < role.length) {
+                this.roleElement.textContent += role.charAt(roleIndex);
+                roleIndex++;
+                } else {
+                clearInterval(roleTimer);
+                this.isTyping = false;
+                clearTimeout(this.intervalTimer);
+                this.intervalTimer = setTimeout(() => this.next(), this.intervalTime);
+                }
+            }, this.typingSpeed);
+            }
+        }, this.typingSpeed);
+        };
+
+        this.typingTimer = setInterval(() => {
+        if (charIndex < text.length) {
+            this.textElement.textContent += text.charAt(charIndex);
+            charIndex++;
+        } else {
+            clearInterval(this.typingTimer);
+            setTimeout(typeAuthorAndRole, 300);
+        }
+        }, this.typingSpeed);
+    }
+
+    next() {
+        if (this.isTyping) return;
+        const nextIndex = (this.currentIndex + 1) % this.testimonials.length;
+        this.goTo(nextIndex);
+    }
+
+    startAutoPlay() {
+        clearTimeout(this.intervalTimer);
+        this.intervalTimer = setTimeout(() => {
+        this.next();
+        }, this.intervalTime);
+    }
+
+    destroy() {
+        clearInterval(this.typingTimer);
+        clearTimeout(this.intervalTimer);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new MobileMenu({
         toggleSelector: '.js-menu-toggle',
@@ -272,4 +492,39 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLangSelector: '.current-lang',
         langLinksSelector: '.lang-menu a'
     });    
+    new TwoColSection({
+        navLinksSelector: '.col-nav .nav-link',
+        detailItemsSelector: '.detail-item',
+        sectionSelector: '.two-col-section',
+        nextSectionSelector: '#next-section',
+        scrollOffset: 80,
+        activeClass: 'active'
+    });
+
+
+    const testimonials = [
+        {
+            text: "Norfrox supported us in developing our website and strengthening our digital presence. Thanks to their work, we’ve been able to reach more clients and project a much more professional image for our company.",
+            author: "Javier Godinez",
+            role: "Founder & CEO, Servicios Industriales de Aguascalientes"
+        },
+        {
+            text: "I decided to trust Norfrox for the development of my online store, and they exceeded my expectations. They delivered exactly what was promised, with outstanding quality. Highly recommended.",
+            author: "Francisco Esparza",
+            role: "Lead Developer at Darwiins"
+        },
+        {
+            text: "They developed a platform for our restaurant that significantly improved our day-to-day operations. The final result exceeded our expectations and now makes our daily work much easier.",
+            author: "Roberts C.",
+            role: "Restaurant Owner"
+        }
+    ];
+
+    new TestimonialCarousel({
+        containerSelector: '.testimonial-carousel',
+        testimonials: testimonials,
+        intervalTime: 6000,
+        typingSpeed: 20
+    });
+
 });
