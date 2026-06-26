@@ -476,6 +476,51 @@ class TestimonialCarousel {
     }
 }
 
+class TimelineAnimator {
+    constructor(config = {}) {
+        this.items = document.querySelectorAll(config.itemSelector || '.timeline-h-item');
+        this.observerOptions = {
+        threshold: config.threshold || 0.3,
+        rootMargin: config.rootMargin || '0px 0px -50px 0px'
+        };
+        this.observer = null;
+
+        if (!this.items.length) {
+        console.warn('TimelineAnimator: no se encontraron elementos con el selector especificado.');
+        return;
+        }
+
+        this.init();
+    }
+
+    init() {
+        if ('IntersectionObserver' in window) {
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+            });
+        }, this.observerOptions);
+
+        this.items.forEach(item => this.observer.observe(item));
+        } else {
+        this.items.forEach(item => item.classList.add('visible'));
+        }
+    }
+
+    destroy() {
+        if (this.observer) {
+        this.observer.disconnect();
+        this.observer = null;
+        }
+    }
+    refresh() {
+        this.destroy();
+        this.init();
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new MobileMenu({
         toggleSelector: '.js-menu-toggle',
@@ -525,6 +570,12 @@ document.addEventListener("DOMContentLoaded", () => {
         testimonials: testimonials,
         intervalTime: 6000,
         typingSpeed: 20
+    });
+
+    new TimelineAnimator({
+        itemSelector: '.timeline-h-item',
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
     });
 
 });
