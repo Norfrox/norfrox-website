@@ -486,8 +486,8 @@ class TimelineAnimator {
         this.observer = null;
 
         if (!this.items.length) {
-        console.warn('TimelineAnimator: no se encontraron elementos con el selector especificado.');
-        return;
+            console.warn('TimelineAnimator: no se encontraron elementos con el selector especificado.');
+            return;
         }
 
         this.init();
@@ -495,29 +495,69 @@ class TimelineAnimator {
 
     init() {
         if ('IntersectionObserver' in window) {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-            });
-        }, this.observerOptions);
-
-        this.items.forEach(item => this.observer.observe(item));
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+                });
+            }, this.observerOptions);
+            this.items.forEach(item => this.observer.observe(item));
         } else {
-        this.items.forEach(item => item.classList.add('visible'));
+            this.items.forEach(item => item.classList.add('visible'));
         }
     }
 
     destroy() {
         if (this.observer) {
-        this.observer.disconnect();
-        this.observer = null;
+            this.observer.disconnect();
+            this.observer = null;
         }
     }
     refresh() {
         this.destroy();
         this.init();
+    }
+}
+
+class CapabilitiesAnimator {
+    constructor(config = {}) {
+        this.cards = document.querySelectorAll(config.selector || '.capabilities-card');
+        this.threshold = config.threshold || 0.2;
+        this.rootMargin = config.rootMargin || '0px 0px -50px 0px';
+
+        if (!this.cards.length) {
+            console.warn('CapabilitiesAnimator: no se encontraron tarjetas');
+            return;
+        }
+
+        this.init();
+    }
+
+    init() {
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+                });
+            }, {
+                threshold: this.threshold,
+                rootMargin: this.rootMargin
+        });
+
+        this.cards.forEach(card => observer.observe(card));
+        this._observer = observer;
+        } else {
+            this.cards.forEach(card => card.classList.add('visible'));
+        }
+    }
+
+    destroy() {
+        if (this._observer) {
+            this._observer.disconnect();
+        }
     }
 }
 
@@ -576,6 +616,12 @@ document.addEventListener("DOMContentLoaded", () => {
         itemSelector: '.timeline-h-item',
         threshold: 0.3,
         rootMargin: '0px 0px -50px 0px'
+    });
+
+    new CapabilitiesAnimator({
+        selector: '.capabilities-card',
+        threshold: 0.25,
+        rootMargin: '0px 0px -80px 0px'
     });
 
 });

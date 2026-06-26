@@ -905,7 +905,27 @@ body {
   padding: 24px 0 24px 24px;
   border-left: 1px solid var(--border);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;  
 }
+
+.capabilities-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.capabilities-card:nth-child(1) { transition-delay: 0.05s; }
+.capabilities-card:nth-child(2) { transition-delay: 0.12s; }
+.capabilities-card:nth-child(3) { transition-delay: 0.19s; }
+.capabilities-card:nth-child(4) { transition-delay: 0.26s; }
+.capabilities-card:nth-child(5) { transition-delay: 0.33s; }
+.capabilities-card:nth-child(6) { transition-delay: 0.40s; }
 
 .capabilities-description {
     margin-top: 0;
@@ -918,6 +938,10 @@ body {
 .capabilities-top {
   display: flex;
   gap: 15px;
+}
+
+.capabilities-top svg {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .capabilities-card h3 {
