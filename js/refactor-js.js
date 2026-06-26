@@ -598,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
         detailItemsSelector: '.detail-item',
         sectionSelector: '.two-col-section',
         nextSectionSelector: '#next-section',
-        scrollOffset: 60,
+        scrollOffset: 100,
         activeClass: 'active'
     });
 
