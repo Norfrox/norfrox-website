@@ -577,6 +577,43 @@ class CapabilitiesAnimator {
     }
 }
 
+class FadeInAnimator {
+    constructor(config = {}) {
+        this.items = document.querySelectorAll(config.selector || '.mission-card, .project-card, .capabilities-card');
+        this.threshold = config.threshold || 0.25;
+        this.rootMargin = config.rootMargin || '0px 0px -80px 0px';
+
+        if (!this.items.length) {
+        console.warn('FadeInAnimator: no se encontraron elementos');
+        return;
+        }
+        this.init();
+    }
+
+    init() {
+        if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+            });
+        }, {
+            threshold: this.threshold,
+            rootMargin: this.rootMargin
+        });
+        this.items.forEach(item => observer.observe(item));
+        this._observer = observer;
+        } else {
+        this.items.forEach(item => item.classList.add('visible'));
+        }
+    }
+
+    destroy() {
+        if (this._observer) this._observer.disconnect();
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new MobileMenu({
         toggleSelector: '.js-menu-toggle',
@@ -638,6 +675,12 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: '.capabilities-card',
         threshold: 0.25,
         rootMargin: '0px 0px -80px 0px'
+    });
+
+    new FadeInAnimator({
+        selector: '.mission-card',
+        threshold: 0.25,
+        rootMargin: '0px 0px -60px 0px'
     });
 
 });
