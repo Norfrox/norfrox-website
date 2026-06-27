@@ -1792,6 +1792,11 @@ body {
   transform: scale(1.05);
 }
 
+/* WEB DEVELOPMENT */
+
+
+
+/* WEB DEVELOPMENT ENT */
 /* SOLUTIONS END */
 
 @media (max-width: 992px) {
@@ -2229,6 +2234,26 @@ body {
   /* TESTIMONIAL END */
 
   /* INDEX END*/
+
+  /* SOLUTIONS */
+
+  .hero-solutions .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-solutions .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-tags {
+    gap: 8px;
+  }
+  .hero-pill {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+
+  /* SOLUTIONS END */
 }
 
 @media (max-width: 480px) {
@@ -2250,22 +2275,4 @@ body {
     width: 200px;
   }
   /* INDEX END */
-}
-
-
-
-@media (max-width: 768px) {
-  .hero-solutions .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-solutions .hero-subtitle {
-    font-size: 1rem;
-  }
-  .hero-tags {
-    gap: 8px;
-  }
-  .hero-pill {
-    font-size: 0.75rem;
-    padding: 4px 12px;
-  }
 }
