@@ -614,73 +614,255 @@ class FadeInAnimator {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    new MobileMenu({
-        toggleSelector: '.js-menu-toggle',
-        menuSelector: '.nav-links',
-        triggerSelector: '.drop-trigger',
-        dropdownSelector: '.mega-dropdown',
-        mobileBreakpoint: 768
-    });
-    new MegaMenu(".mega-dropdown", 300);
-    new LangDropdown({
-        containerSelector: '.lang-dropdown',
-        toggleSelector: '.lang-toggle',
-        menuSelector: '.lang-menu',
-        currentLangSelector: '.current-lang',
-        langLinksSelector: '.lang-menu a'
-    });    
-    new TwoColSection({
-        navLinksSelector: '.col-nav .nav-link',
-        detailItemsSelector: '.detail-item',
-        sectionSelector: '.two-col-section',
-        nextSectionSelector: '#next-section',
-        scrollOffset: 100,
-        activeClass: 'active'
-    });
+class StatsCounter {
+    constructor(config = {}) {
+        this.items = document.querySelectorAll(config.selector || '.stat-number');
+        this.threshold = config.threshold || 0.3;
+        this.duration = config.duration || 2000; // ms
 
-
-    const testimonials = [
-        {
-            text: "Norfrox supported us in developing our website and strengthening our digital presence. Thanks to their work, we’ve been able to reach more clients and project a much more professional image for our company.",
-            author: "Javier Godinez",
-            role: "Founder & CEO, Servicios Industriales de Aguascalientes"
-        },
-        {
-            text: "I decided to trust Norfrox for the development of my online store, and they exceeded my expectations. They delivered exactly what was promised, with outstanding quality. Highly recommended.",
-            author: "Francisco Esparza",
-            role: "Lead Developer at Darwiins"
-        },
-        {
-            text: "They developed a platform for our restaurant that significantly improved our day-to-day operations. The final result exceeded our expectations and now makes our daily work much easier.",
-            author: "Roberts C.",
-            role: "Restaurant Owner"
+        if (!this.items.length) {
+            console.warn('StatsCounter: no se encontraron elementos');
+            return;
         }
-    ];
+        this.init();
+    }
 
-    new TestimonialCarousel({
-        containerSelector: '.testimonial-carousel',
-        testimonials: testimonials,
-        intervalTime: 6000,
-        typingSpeed: 20
-    });
+    init() {
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const value = parseFloat(target.dataset.target);
+                        this.animateNumber(target, value);
+                        observer.unobserve(target);
+                    }
+                });
+            }, {
+                threshold: this.threshold,
+                rootMargin: '0px 0px -50px 0px'
+            });
 
-    new TimelineAnimator({
+            this.items.forEach(item => observer.observe(item));
+            this._observer = observer;
+        } else {
+            this.items.forEach(item => {
+                const value = parseFloat(item.dataset.target);
+                item.textContent = this.formatNumber(value);
+            });
+        }
+    }
+
+    animateNumber(element, targetValue) {
+        const startTime = performance.now();
+        const duration = this.duration;
+        const isDecimal = targetValue % 1 !== 0;
+
+        const update = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            let current;
+
+            if (isDecimal) {
+                current = Math.floor(eased * targetValue * 10) / 10;
+            } else {
+                current = Math.floor(eased * targetValue);
+            }
+
+            if (isDecimal) {
+                element.textContent = current.toFixed(1);
+            } else if (targetValue >= 1000000) {
+                const millions = current / 1000000;
+                if (millions >= 1) {
+                    element.textContent = millions.toFixed(1) + 'M';
+                } else {
+                    element.textContent = Math.floor(current / 1000) + 'K';
+                }
+            } else if (targetValue >= 1000) {
+                element.textContent = current.toLocaleString();
+            } else {
+                element.textContent = current;
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                element.textContent = this.formatNumber(targetValue);
+            }
+        };
+
+        requestAnimationFrame(update);
+    }
+
+    formatNumber(value) {
+        if (value >= 1000000) {
+            const millions = value / 1000000;
+            if (millions % 1 === 0) {
+                return millions.toFixed(0) + 'M';
+            } else {
+                return millions.toFixed(1) + 'M';
+            }
+        } else if (value >= 1000) {
+            const thousands = value / 1000;
+            if (thousands % 1 === 0) {
+                return thousands.toFixed(0) + 'K';
+            } else {
+                return thousands.toFixed(1) + 'K';
+            }
+        } else {
+            if (value % 1 !== 0) {
+                return value.toFixed(1);
+            }
+            return value.toLocaleString();
+        }
+    }
+
+    destroy() {
+        if (this._observer) this._observer.disconnect();
+    }
+}
+
+
+class CTASection {
+  constructor(config = {}) {
+    this.section = document.querySelector(config.selector || '.cta-section');
+    this.threshold = config.threshold || 0.3;
+
+    if (!this.section) {
+      console.warn('CTASection: no se encontró la sección');
+      return;
+    }
+    this.init();
+  }
+
+  init() {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.section.classList.add('visible');
+            observer.unobserve(this.section);
+          }
+        });
+      }, {
+        threshold: this.threshold,
+        rootMargin: '0px 0px -80px 0px'
+      });
+
+      observer.observe(this.section);
+      this._observer = observer;
+    } else {
+      this.section.classList.add('visible');
+    }
+  }
+
+  destroy() {
+    if (this._observer) this._observer.disconnect();
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (document.querySelector('.js-menu-toggle')) {
+        new MobileMenu({
+            toggleSelector: '.js-menu-toggle',
+            menuSelector: '.nav-links',
+            triggerSelector: '.drop-trigger',
+            dropdownSelector: '.mega-dropdown',
+            mobileBreakpoint: 768
+        });
+    }
+
+    if (document.querySelector('.mega-dropdown')) {
+        new MegaMenu(".mega-dropdown", 300);
+    }
+
+
+    if (document.querySelector('.lang-dropdown')) {
+        new LangDropdown({
+            containerSelector: '.lang-dropdown',
+            toggleSelector: '.lang-toggle',
+            menuSelector: '.lang-menu',
+            currentLangSelector: '.current-lang',
+            langLinksSelector: '.lang-menu a'
+        }); 
+    }
+
+    if (document.querySelector('.col-nav')) {
+        new TwoColSection({
+            navLinksSelector: '.col-nav .nav-link',
+            detailItemsSelector: '.detail-item',
+            sectionSelector: '.two-col-section',
+            nextSectionSelector: '#next-section',
+            scrollOffset: 100,
+            activeClass: 'active'
+        });
+    }
+
+    if (document.querySelector('.testimonial-carousel')) {
+        const testimonials = [
+            {
+                text: "Norfrox supported us in developing our website and strengthening our digital presence. Thanks to their work, we’ve been able to reach more clients and project a much more professional image for our company.",
+                author: "Javier Godinez",
+                role: "Founder & CEO, Servicios Industriales de Aguascalientes"
+            },
+            {
+                text: "I decided to trust Norfrox for the development of my online store, and they exceeded my expectations. They delivered exactly what was promised, with outstanding quality. Highly recommended.",
+                author: "Francisco Esparza",
+                role: "Lead Developer at Darwiins"
+            },
+            {
+                text: "They developed a platform for our restaurant that significantly improved our day-to-day operations. The final result exceeded our expectations and now makes our daily work much easier.",
+                author: "Roberts C.",
+                role: "Restaurant Owner"
+            }
+        ];
+
+        new TestimonialCarousel({
+            containerSelector: '.testimonial-carousel',
+            testimonials: testimonials,
+            intervalTime: 6000,
+            typingSpeed: 20
+        });
+    }
+
+    if (typeof TimelineAnimator !== 'undefined' && document.querySelector('.timeline-h-item')) {
+        new TimelineAnimator({
         itemSelector: '.timeline-h-item',
         threshold: 0.3,
         rootMargin: '0px 0px -50px 0px'
-    });
+        });
+    }
 
-    new CapabilitiesAnimator({
+    if (typeof CapabilitiesAnimator !== 'undefined' && document.querySelector('.capabilities-card')) {
+        new CapabilitiesAnimator({
         selector: '.capabilities-card',
         threshold: 0.25,
         rootMargin: '0px 0px -80px 0px'
-    });
+        });
+    }
 
-    new FadeInAnimator({
+    if (document.querySelector('.mission-card')) {
+        new FadeInAnimator({
         selector: '.mission-card',
         threshold: 0.25,
         rootMargin: '0px 0px -60px 0px'
-    });
+        });
+    }
+
+    if (document.querySelector('.stat-number')) {
+        new StatsCounter({
+        selector: '.stat-number',
+        threshold: 0.3,
+        duration: 2000
+        });
+    }
+
+new CTASection({
+    selector: '.cta-section',
+    threshold: 0.3
+  });
 
 });
