@@ -725,41 +725,41 @@ class StatsCounter {
 
 
 class CTASection {
-  constructor(config = {}) {
-    this.section = document.querySelector(config.selector || '.cta-section');
-    this.threshold = config.threshold || 0.3;
+    constructor(config = {}) {
+        this.section = document.querySelector(config.selector || '.cta-section');
+        this.threshold = config.threshold || 0.3;
 
-    if (!this.section) {
-      console.warn('CTASection: no se encontró la sección');
-      return;
+        if (!this.section) {
+        console.warn('CTASection: no se encontró la sección');
+        return;
+        }
+        this.init();
     }
-    this.init();
-  }
 
-  init() {
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            this.section.classList.add('visible');
-            observer.unobserve(this.section);
-          }
+    init() {
+        if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                this.section.classList.add('visible');
+                observer.unobserve(this.section);
+            }
+            });
+        }, {
+            threshold: this.threshold,
+            rootMargin: '0px 0px -80px 0px'
         });
-      }, {
-        threshold: this.threshold,
-        rootMargin: '0px 0px -80px 0px'
-      });
 
-      observer.observe(this.section);
-      this._observer = observer;
-    } else {
-      this.section.classList.add('visible');
+        observer.observe(this.section);
+        this._observer = observer;
+        } else {
+        this.section.classList.add('visible');
+        }
     }
-  }
 
-  destroy() {
-    if (this._observer) this._observer.disconnect();
-  }
+    destroy() {
+        if (this._observer) this._observer.disconnect();
+    }
 }
 
 
@@ -860,9 +860,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-new CTASection({
-    selector: '.cta-section',
-    threshold: 0.3
-  });
+    if (document.querySelector('.cta-section')) {
+        new CTASection({
+            selector: '.cta-section',
+            threshold: 0.3
+        });
+    }
 
 });
