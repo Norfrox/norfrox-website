@@ -2749,7 +2749,7 @@ body {
   padding: 16px 20px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   transition: border-color 0.2s, background 0.2s;
 }
 
@@ -2782,16 +2782,12 @@ body {
 .contact-idea-form-full {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 6px;
   padding: 44px 48px 40px;
   backdrop-filter: blur(8px);
   transition: border-color 0.3s ease;
   position: relative;
   z-index: 2;
-}
-
-.contact-idea-form-full:hover {
-  border-color: rgba(77, 163, 255, 0.12);
 }
 
 .form-header {
@@ -3284,7 +3280,7 @@ body {
 .contact-form-wrapper {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 40px 36px;
   transition: border-color 0.3s ease;
   display: flex;
@@ -3403,31 +3399,6 @@ body {
   transition: color 0.2s;
 }
 
-.btn-submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  margin-top: 4px;
-  background: #4da3ff;
-  color: #fff;
-  border: none;
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(77, 163, 255, 0.2);
-  width: 100%;
-  max-width: 180px;
-}
-
-.btn-submit:hover {
-  background: #3b82f6;
-  transform: scale(1.02);
-  box-shadow: 0 8px 30px rgba(77, 163, 255, 0.3);
-}
 
 /* CONTACT END */
 
@@ -4545,3 +4516,5 @@ body {
   /* SOLUTIONS END */
 
 }
+
+

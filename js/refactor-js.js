@@ -763,6 +763,7 @@ class CTASection {
 }
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
 
     if (document.querySelector('.js-menu-toggle')) {
@@ -866,5 +867,6 @@ document.addEventListener("DOMContentLoaded", () => {
             threshold: 0.3
         });
     }
+
 
 });
