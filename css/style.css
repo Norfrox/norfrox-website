@@ -1590,6 +1590,8 @@ textarea{
 
     /* Nosotros End */
 
+
+
 }
 
 /*
@@ -4986,15 +4988,22 @@ textarea{
     align-items:center;
     gap:1rem;
     padding:1.2rem;
+    margin-bottom:1rem; 
+
     background:
         linear-gradient(
             135deg,
             rgba(59,130,246,.08),
             rgba(37,99,235,.04)
         );
-    border: 1px solid rgba(59,130,246,.15);
-    border-radius: 12px;
+
+    border:1px solid rgba(59,130,246,.15);
+    border-radius:12px;
     transition:all .3s ease;
+}
+
+.delivery-item:last-child{
+    margin-bottom:0;
 }
 
 .delivery-item::before{
@@ -5141,7 +5150,19 @@ textarea{
     .comparison-table th:not(:first-child){
         min-width: 110px;
     }    
+    
+    .infrastructure-grid{
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
 
+    .infrastructure-card{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    
 }
 
 /* Pricing End*/

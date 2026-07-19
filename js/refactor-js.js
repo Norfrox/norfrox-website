@@ -762,7 +762,106 @@ class CTASection {
     }
 }
 
+class HelpSearch {
+    constructor(config = {}) {
+        this.input = document.querySelector(config.inputSelector || '#help-search-input');
+        this.button = document.querySelector(config.buttonSelector || '#help-search-btn');
+        this.noResultsContainer = document.querySelector(config.noResultsSelector || '#help-no-results');
+        this.articleSelector = config.articleSelector || '.help-article';
+        this.sectionSelector = config.sectionSelector || '.detail-item';
+        this.navLinksSelector = config.navLinksSelector || '.col-nav .nav-link';
+        this.debounceDelay = config.debounceDelay || 300;
 
+        if (!this.input) {
+            console.warn('HelpSearch: no se encontró el input de búsqueda');
+            return;
+        }
+
+        this.init();
+    }
+
+    init() {
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        let debounceTimer;
+        this.input.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                this.performSearch(this.input.value.trim());
+                }, this.debounceDelay);
+        });
+
+        if (this.button) {
+            this.button.addEventListener('click', () => {
+                this.performSearch(this.input.value.trim());
+            });
+        }
+
+        this.input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.performSearch(this.input.value.trim());
+        }
+        });
+    }
+
+    performSearch(query) {
+        const articles = document.querySelectorAll(this.articleSelector);
+        const sections = document.querySelectorAll(this.sectionSelector);
+        const navLinks = document.querySelectorAll(this.navLinksSelector);
+
+        if (!query) {
+            articles.forEach(article => article.style.display = '');
+            sections.forEach(section => section.style.display = '');
+            navLinks.forEach(link => link.style.display = '');
+            if (this.noResultsContainer) {
+                this.noResultsContainer.style.display = 'none';
+            }
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase();
+        let totalVisible = 0;
+
+        sections.forEach(section => {
+        const sectionArticles = section.querySelectorAll(this.articleSelector);
+        let sectionHasVisible = false;
+
+        sectionArticles.forEach(article => {
+            const text = article.textContent.toLowerCase();
+            const isMatch = text.includes(lowerQuery);
+            article.style.display = isMatch ? '' : 'none';
+            if (isMatch) {
+            sectionHasVisible = true;
+            totalVisible++;
+            }
+        });
+
+        section.style.display = sectionHasVisible ? '' : 'none';
+
+        const sectionId = section.id;
+        if (sectionId) {
+            navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === '#' + sectionId) {
+                link.style.display = sectionHasVisible ? '' : 'none';
+            }
+            });
+        }
+        });
+
+        if (this.noResultsContainer) {
+            if (totalVisible === 0 && query !== '') {
+                this.noResultsContainer.style.display = 'block';
+            } else {
+                this.noResultsContainer.style.display = 'none';
+            }
+        }
+
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -868,5 +967,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    if (document.getElementById('help-search-input')) {
+        new HelpSearch({
+            inputSelector: '#help-search-input',
+            buttonSelector: '#help-search-btn',
+            noResultsSelector: '#help-no-results',
+            articleSelector: '.help-article',
+            sectionSelector: '.detail-item',
+            navLinksSelector: '.col-nav .nav-link',
+            debounceDelay: 300
+        });
+    }
 
 });
