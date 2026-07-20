@@ -34,6 +34,12 @@ body {
   color: #888;
 }
 
+.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
 /* WHATSAPP */
 .whatsapp-container {
     position: fixed;
@@ -474,6 +480,7 @@ body {
     align-self: center;
     width: 8px;
     height: 8px;
+    margin-bottom: 4px;
     border-radius: 50%;
     background: #22c55e;
     display: inline-block;
