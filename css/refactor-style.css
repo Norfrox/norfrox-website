@@ -480,6 +480,7 @@ body {
     align-self: center;
     width: 8px;
     height: 8px;
+    margin-bottom: 4px;
     border-radius: 50%;
     background: #22c55e;
     display: inline-block;
