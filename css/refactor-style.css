@@ -951,6 +951,34 @@ body {
   display: block;
   margin-top: 4px;
 }
+
+.bso-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+}
+
+.bso-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #111;
+}
+
+.bso-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bso-subheading {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
 /* DETAILS END */
 
 
@@ -4171,6 +4199,14 @@ body {
     font-size: 1.6rem;
   }
 
+  .bso-content {
+    gap: 20px;
+  }
+  
+  .bso-image {
+    border-radius: 10px;
+  }
+
   /* DETAILS END */
 
   /* CAPABILITIES */
@@ -4982,16 +5018,6 @@ body {
   /* HELP CENTER */
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
