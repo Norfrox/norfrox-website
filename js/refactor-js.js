@@ -863,6 +863,56 @@ class HelpSearch {
     }
 }
 
+class ScrollReveal {
+  constructor(config = {}) {
+    this.selector    = config.selector   || '.reveal';
+    this.threshold   = config.threshold  ?? 0.15;
+    this.rootMargin  = config.rootMargin || '0px 0px -80px 0px';
+    this.once        = config.once       ?? true;
+
+    this.items = document.querySelectorAll(this.selector);
+    if (!this.items.length) return;
+
+    this.init();
+  }
+
+  init() {
+    if (!('IntersectionObserver' in window)) {
+      this.items.forEach(el => el.classList.add('visible'));
+      return;
+    }
+
+    this._observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if (this.once) this._observer.unobserve(entry.target);
+        } else if (!this.once) {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold:  this.threshold,
+      rootMargin: this.rootMargin
+    });
+
+    this.items.forEach(el => this._observer.observe(el));
+  }
+
+  refresh() {
+    this.destroy();
+    this.items = document.querySelectorAll(this.selector);
+    this.init();
+  }
+
+  destroy() {
+    if (this._observer) {
+      this._observer.disconnect();
+      this._observer = null;
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     if (document.querySelector('.js-menu-toggle')) {
@@ -977,6 +1027,15 @@ document.addEventListener("DOMContentLoaded", () => {
             navLinksSelector: '.col-nav .nav-link',
             debounceDelay: 300
         });
+    }
+
+    if (document.querySelector('.reveal')) {
+    new ScrollReveal({
+        selector:   '.reveal',
+        threshold:  0.15,
+        rootMargin: '0px 0px -80px 0px',
+        once:       true
+    });
     }
 
 });
