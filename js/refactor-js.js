@@ -913,6 +913,152 @@ class ScrollReveal {
   }
 }
 
+class HeroNetwork {
+  constructor({
+    canvasSelector = '#hero-canvas',
+    color          = '77, 163, 255',
+    maxDistance    = 150,
+    speed          = 0.22,
+    mouseRadius    = 200,
+    mouseStrength  = 1.1,
+    nodeCount      = null
+  } = {}) {
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    this.canvas = document.querySelector(canvasSelector);
+    if (!this.canvas) return;
+
+    this.ctx   = this.canvas.getContext('2d');
+    this.color = color;
+    this.maxDistance   = maxDistance;
+    this.speed         = speed;
+    this.mouseRadius   = mouseRadius;
+    this.mouseStrength = mouseStrength;
+
+    this.dpr   = Math.min(window.devicePixelRatio || 1, 2);
+    this.mouse = { x: null, y: null };
+    this.nodes = [];
+    this.raf   = null;
+
+    this.nodeCount = nodeCount ?? this.autoCount();
+    this.init();
+  }
+
+  autoCount() {
+    const w = window.innerWidth;
+    if (w < 480) return 25;
+    if (w < 768) return 40;
+    if (w < 1200) return 65;
+    return 90;
+  }
+
+  init() {
+    this.resize();
+    this.createNodes();
+    this.bindEvents();
+    this.animate();
+  }
+
+  resize() {
+    const rect = this.canvas.getBoundingClientRect();
+    this.w = rect.width;
+    this.h = rect.height;
+    this.canvas.width  = this.w * this.dpr;
+    this.canvas.height = this.h * this.dpr;
+    this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+  }
+
+  createNodes() {
+    this.nodes = Array.from({ length: this.nodeCount }, () => ({
+      x: Math.random() * this.w,
+      y: Math.random() * this.h,
+      vx: (Math.random() - 0.5) * this.speed,
+      vy: (Math.random() - 0.5) * this.speed,
+      r: Math.random() * 1.6 + 0.8
+    }));
+  }
+
+  bindEvents() {
+    this._onResize = () => { this.resize(); this.createNodes(); };
+    this._onMouseMove = (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      this.mouse.x = e.clientX - rect.left;
+      this.mouse.y = e.clientY - rect.top;
+    };
+    this._onMouseLeave = () => { this.mouse.x = null; this.mouse.y = null; };
+    this._onVisibility = () => document.hidden ? this.pause() : this.resume();
+
+    window.addEventListener('resize', this._onResize);
+    window.addEventListener('mousemove', this._onMouseMove);
+    window.addEventListener('mouseleave', this._onMouseLeave);
+    document.addEventListener('visibilitychange', this._onVisibility);
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.w, this.h);
+
+    for (const n of this.nodes) {
+      n.x += n.vx;
+      n.y += n.vy;
+
+      if (n.x < 0 || n.x > this.w) n.vx *= -1;
+      if (n.y < 0 || n.y > this.h) n.vy *= -1;
+
+      if (this.mouse.x !== null) {
+        const dx = this.mouse.x - n.x;
+        const dy = this.mouse.y - n.y;
+        const d  = Math.hypot(dx, dy);
+        if (d < this.mouseRadius && d > 0.001) {
+          const force = (1 - d / this.mouseRadius) * this.mouseStrength;
+          n.x += (dx / d) * force;
+          n.y += (dy / d) * force;
+        }
+      }
+    }
+
+    for (let i = 0; i < this.nodes.length; i++) {
+      const a = this.nodes[i];
+      for (let j = i + 1; j < this.nodes.length; j++) {
+        const b  = this.nodes[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < this.maxDistance * this.maxDistance) {
+          const alpha = 1 - Math.sqrt(d2) / this.maxDistance;
+          this.ctx.strokeStyle = `rgba(${this.color}, ${alpha * 0.4})`;
+          this.ctx.lineWidth = 0.6;
+          this.ctx.beginPath();
+          this.ctx.moveTo(a.x, a.y);
+          this.ctx.lineTo(b.x, b.y);
+          this.ctx.stroke();
+        }
+      }
+    }
+
+    for (const n of this.nodes) {
+      this.ctx.fillStyle = `rgba(${this.color}, 0.85)`;
+      this.ctx.beginPath();
+      this.ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      this.ctx.fill();
+    }
+
+    this.raf = requestAnimationFrame(() => this.animate());
+  }
+
+  pause()  { if (this.raf) { cancelAnimationFrame(this.raf); this.raf = null; } }
+  resume() { if (!this.raf) this.animate(); }
+
+  destroy() {
+    this.pause();
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('mousemove', this._onMouseMove);
+    window.removeEventListener('mouseleave', this._onMouseLeave);
+    document.removeEventListener('visibilitychange', this._onVisibility);
+  }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     if (document.querySelector('.js-menu-toggle')) {
@@ -1035,6 +1181,17 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold:  0.15,
         rootMargin: '0px 0px -80px 0px',
         once:       true
+    });
+    }
+
+    if (document.querySelector('#hero-canvas')) {
+    new HeroNetwork({
+        canvasSelector: '#hero-canvas',
+        color:          '77, 163, 255',
+        maxDistance:    150,
+        speed:          0.22,
+        mouseRadius:    200,
+        mouseStrength:  1.1
     });
     }
 
