@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/refactor-style.css?v=1.07"> 
+    <link rel="stylesheet" href="../css/refactor-style.css?v=1.08"> 
 
     <!-- Facebook Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1161158126576872'); fbq('track', 'PageView');</script><noscript> <img height="1" width="1" src="https://www.facebook.com/tr?id=1161158126576872&ev=PageView&noscript=1"/></noscript><!-- End Facebook Pixel Code -->
 
@@ -264,11 +264,12 @@
 
     <main>
 
-        <section class="hero">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="/assets/videos/hero-background.mp4" type="video/mp4">
-                <div class="hero-video-fallback"></div>
-            </video>
+        <section class="hero reveal">
+
+
+            <canvas class="hero-canvas" id="hero-canvas"></canvas>
+
+            <div class="hero-grid-bg"></div>
 
             <div class="hero-overlay"></div>
 
@@ -479,14 +480,14 @@
                             </div>
                         </div>
                         
-                        <div id="detail-autoscaling" class="detail-item">
+                        <div id="detail-autoscaling" class="detail-item reveal">
                             <h2>Automate the work that slows your team down.
                                  <span class="highlight-grey">Free your team from repetitive tasks so they can focus on what actually grows the business.</span>
                             </h2>
 
                         </div>
 
-                        <div id="detail-branching" class="detail-item">
+                        <div id="detail-branching" class="detail-item reveal">
                             <h2>
                                 Capabilities that power real business operations 
                                 <span class="highlight-grey">Build. Secure. Scale.</span>
@@ -566,7 +567,7 @@
 
                         </div>
 
-                        <div id="detail-timeline" class="detail-item">
+                        <div id="detail-timeline" class="detail-item reveal">
                             <h2>Our Jorney</h2>
 
                             <div class="content-wrapper">
