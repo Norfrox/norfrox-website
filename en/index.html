@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/refactor-style.css?v=1.08"> 
+    <link rel="stylesheet" href="../css/refactor-style.css?v=2.08"> 
 
     <!-- Facebook Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1161158126576872'); fbq('track', 'PageView');</script><noscript> <img height="1" width="1" src="https://www.facebook.com/tr?id=1161158126576872&ev=PageView&noscript=1"/></noscript><!-- End Facebook Pixel Code -->
 
@@ -278,7 +278,7 @@
 
                 <h1 class="hero-title">
                     We build the future <br>
-                    of your business with technology.
+                    <span class="hero-title-accent">of your business with technology.</span> 
                 </h1>
 
                 <div class="hero-buttons">
@@ -386,98 +386,372 @@
 
                     <div class="col-content">
                         <div id="detail-bso" class="detail-item">
-                            <h2>Meet Norfrox BSO.
-                                <span class="highlight-grey">Your entire business, running on one platform.</span>
-                            </h2>
+                            <div class="bso-intro reveal">
+                                <span class="bso-intro-tag">Norfrox BSO</span>
 
-                            <div class="content-wrapper">
-                                <div class="bso-content">
+                                <h2 class="bso-intro-title">
+                                    Your entire business,
+                                    <span class="bso-intro-accent">running on one platform.</span>
+                                </h2>
 
-                                    <!--
-                                    <div class="bso-image">
-                                        <img src="/assets/images/bso-preview.png" alt="Norfrox BSO platform preview">
+                                <p class="bso-intro-subtitle">
+                                    CRM, ERP, POS, inventory, HR, and analytics — unified in a single
+                                    system that replaces the six tools you're juggling today.
+                                </p>
+
+                                <div class="bso-intro-meta">
+                                <div class="bso-intro-stat">
+                                    <div class="bso-intro-stat-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                                    </svg>
+                                    <strong>6+</strong>
                                     </div>
-                                    -->
-                                    
-                                    <h2 class="bso-subheading">One platform for your entire operation.</h2>
+                                    <span>Integrated modules</span>
+                                </div>
 
-                                    <div class="capabilities-grid">
+                                <div class="bso-intro-stat">
+                                    <div class="bso-intro-stat-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <ellipse cx="12" cy="5" rx="8" ry="3"/>
+                                        <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
+                                        <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>
+                                    </svg>
+                                    <strong>1</strong>
+                                    </div>
+                                    <span>Single database</span>
+                                </div>
 
-                                        <div class="capabilities-card">
-                                            <div class="capabilities-top">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <circle cx="9" cy="7" r="4"/>
-                                                    <path d="M17 11a4 4 0 1 0-3.6-5.8"/>
-                                                    <path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/>
-                                                    <path d="M17 14a6 6 0 0 1 5 6v1"/>
-                                                </svg>
-                                                <h3>CRM</h3>
-                                            </div>
-                                            <p class="capabilities-description">Track leads, manage pipelines, and build lasting customer relationships from a single dashboard.</p>
-                                        </div>
+                                <div class="bso-intro-stat">
+                                    <div class="bso-intro-stat-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 3h6v4H9z"/>
+                                        <path d="M4 7h16v14H4z"/>
+                                        <path d="M9 12h6"/>
+                                        <path d="M9 16h6"/>
+                                    </svg>
+                                    <strong>0</strong>
+                                    </div>
+                                    <span>Spreadsheets needed</span>
+                                </div>
 
-                                        <div class="capabilities-card">
-                                            <div class="capabilities-top">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M12 2 2 7l10 5 10-5-10-5Z"/>
-                                                    <path d="M2 17l10 5 10-5"/>
-                                                    <path d="M2 12l10 5 10-5"/>
-                                                </svg>
-                                                <h3>ERP</h3>
-                                            </div>
-                                            <p class="capabilities-description">Connect finance, operations, and resources into one integrated system that scales with your business.</p>
-                                        </div>
+                                <div class="bso-intro-stat">
+                                    <div class="bso-intro-stat-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="9"/>
+                                        <path d="M12 7v5l3 3"/>
+                                    </svg>
+                                    <strong>24/7</strong>
+                                    </div>
+                                    <span>Support & monitoring</span>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <div class="capabilities-card">
-                                            <div class="capabilities-top">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <rect x="2" y="6" width="20" height="14" rx="2"/>
-                                                    <path d="M2 10H22"/>
-                                                    <path d="M6 15H10"/>
-                                                </svg>
-                                                <h3>POS</h3>
-                                            </div>
-                                            <p class="capabilities-description">Process sales, manage transactions, and sync inventory in real time at every point of sale.</p>
-                                        </div>
+                        <div class="bso-bento reveal">
 
-                                        <div class="capabilities-card">
-                                            <div class="capabilities-top">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M21 8 12 3 3 8l9 5 9-5Z"/>
-                                                    <path d="M3 8v9l9 5 9-5V8"/>
-                                                    <path d="M12 13v9"/>
-                                                </svg>
-                                                <h3>Inventory</h3>
-                                            </div>
-                                            <p class="capabilities-description">Monitor stock levels, movements, and locations with full visibility across your operation.</p>
-                                        </div>
+                            <div class="bento-tile bento-tile--hero">
+                                <div class="bento-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M17 11a4 4 0 1 0-3.6-5.8"/>
+                                        <path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/>
+                                        <path d="M17 14a6 6 0 0 1 5 6v1"/>
+                                    </svg>
+                                    <h3>CRM</h3>
+                                    </div>
+                                    <p class="bento-desc">Track every lead, move deals through your pipeline, and keep every conversation in one place.</p>
 
-                                        <div class="capabilities-card">
-                                            <div class="capabilities-top">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                                    <circle cx="12" cy="10" r="3"/>
-                                                    <path d="M7 18c0-2.5 2.5-4 5-4s5 1.5 5 4"/>
-                                                </svg>
-                                                <h3>HR & Payroll</h3>
-                                            </div>
-                                            <p class="capabilities-description">Manage employees, schedules, and payroll processing without the administrative overhead.</p>
-                                        </div>
-
-                                        <div class="capabilities-card">
-                                            <div class="capabilities-top">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M3 3v18h18"/>
-                                                    <path d="M7 15l4-4 3 3 5-6"/>
-                                                </svg>
-                                                <h3>Reports & Analytics</h3>
-                                            </div>
-                                            <p class="capabilities-description">Turn business data into actionable insights with real-time dashboards and reports.</p>
-                                        </div>
-
+                                    <div class="bento-mock bento-mock--pipeline">
+                                    <div class="mock-col">
+                                        <span class="mock-col-title">Leads</span>
+                                        <div class="mock-card"><span class="mock-dot"></span>Grupo Delta</div>
+                                        <div class="mock-card"><span class="mock-dot"></span>Panadería Sol</div>
+                                        <div class="mock-card"><span class="mock-dot"></span>AutoParts MX</div>
+                                    </div>
+                                    <div class="mock-col">
+                                        <span class="mock-col-title">Proposal</span>
+                                        <div class="mock-card accent"><span class="mock-dot"></span>Clínica Nova</div>
+                                        <div class="mock-card accent"><span class="mock-dot"></span>Café Luna</div>
+                                    </div>
+                                    <div class="mock-col">
+                                        <span class="mock-col-title">Won</span>
+                                        <div class="mock-card success"><span class="mock-dot"></span>Hotel Aria</div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="bento-tile">
+                                <div class="bento-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2 2 7l10 5 10-5-10-5Z"/>
+                                        <path d="M2 17l10 5 10-5"/>
+                                        <path d="M2 12l10 5 10-5"/>
+                                    </svg>
+                                    <h3>ERP</h3>
+                                </div>
+                                <p class="bento-desc">Finance, operations, and resources in one integrated system.</p>
+                            </div>
+
+                            <div class="bento-tile">
+                                <div class="bento-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="6" width="20" height="14" rx="2"/>
+                                        <path d="M2 10H22"/>
+                                        <path d="M6 15H10"/>
+                                    </svg>
+                                    <h3>POS</h3>
+                                </div>
+                                <p class="bento-desc">Process sales and sync inventory in real time.</p>
+                            </div>
+
+                            <div class="bento-tile">
+                                <div class="bento-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 8 12 3 3 8l9 5 9-5Z"/>
+                                        <path d="M3 8v9l9 5 9-5V8"/>
+                                        <path d="M12 13v9"/>
+                                    </svg>
+                                    <h3>Inventory</h3>
+                                </div>
+                                <p class="bento-desc">Full visibility of stock, movements, and locations.</p>
+                            </div>
+
+                            <div class="bento-tile">
+                                <div class="bento-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                        <path d="M7 18c0-2.5 2.5-4 5-4s5 1.5 5 4"/>
+                                    </svg>
+                                    <h3>HR & Payroll</h3>
+                                </div>
+                                <p class="bento-desc">Manage employees, schedules, and payroll without the overhead.</p>
+                            </div>
+
+                            <div class="bento-tile bento-tile--chart">
+                                <div class="bento-head">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3v18h18"/>
+                                        <path d="M7 15l4-4 3 3 5-6"/>
+                                    </svg>
+                                    <h3>Reports & Analytics</h3>
+                                </div>
+                                <p class="bento-desc">Real-time dashboards that turn data into decisions.</p>
+                                <svg class="bento-chart" viewBox="0 0 200 50" preserveAspectRatio="none">
+                                    <path d="M0 40 L25 32 L50 35 L75 22 L100 26 L125 14 L150 18 L175 8 L200 12"
+                                            fill="none" stroke="#7abfff" stroke-width="2"/>
+                                    <path d="M0 40 L25 32 L50 35 L75 22 L100 26 L125 14 L150 18 L175 8 L200 12 L200 50 L0 50 Z"
+                                            fill="url(#bentoGrad)" opacity="0.25"/>
+                                    <defs>
+                                        <linearGradient id="bentoGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#7abfff"/>
+                                        <stop offset="100%" stop-color="#7abfff" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+
+                            <div class="bento-tile bento-tile--cta">
+                                <span class="bento-cta-tag">Norfrox BSO</span>
+                                <h3>Want to see BSO in action?</h3>
+                                <p class="bento-desc">Explore the full platform, modules, and pricing — or book a live walkthrough with our team.</p>
+                                <div class="bento-cta-actions">
+                                    <a href="/en/products/bso" class="bento-cta-btn">
+                                        Know More About BSO
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14"/>
+                                        <path d="m12 5 7 7-7 7"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="bso-quickstart reveal">
+                            <span class="bso-block-tag">Quick Start</span>
+                            <h2 class="bso-subheading">Install Norfrox BSO in minutes.</h2>
+
+                            <div class="quickstart-card">
+                                <div class="quickstart-card-header">
+                                    <h3>Desktop Apps</h3>
+                                    <p>
+                                        Full apps that install everything for you — CRM, ERP, POS,
+                                        inventory, HR, and analytics. Available for macOS, Windows, and Linux.
+                                    </p>
+                                </div>
+
+                                <div class="quickstart-grid">
+
+                                    <div class="quickstart-item">
+                                        <div class="quickstart-item-head">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                <path d="M16.36 12.79c-.02-2.13 1.74-3.15 1.82-3.2-1-1.45-2.55-1.65-3.1-1.67-1.32-.13-2.58.78-3.25.78-.68 0-1.71-.76-2.81-.74-1.45.02-2.78.84-3.53 2.13-1.5 2.61-.38 6.47 1.08 8.59.72 1.04 1.57 2.2 2.69 2.16 1.08-.04 1.49-.7 2.79-.7 1.3 0 1.67.7 2.81.68 1.16-.02 1.9-1.05 2.61-2.09.82-1.2 1.16-2.36 1.18-2.42-.03-.01-2.27-.87-2.29-3.52zM14.2 6.42c.59-.72 1-1.72.89-2.72-.86.03-1.9.57-2.52 1.29-.55.63-1.04 1.65-.91 2.62.96.08 1.94-.49 2.54-1.19z"/>
+                                            </svg>
+                                            <h4>macOS</h4>
+                                        </div>
+                                        <p class="quickstart-meta">macOS 15+ · Universal Binary · v2026.9.4</p>
+                                        <a href="#" class="quickstart-btn">Download macOS</a>
+                                    </div>
+
+                                    <div class="quickstart-item">
+                                        <div class="quickstart-item-head">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                <path d="M3 5.55 10.4 4.5v7.05H3V5.55zm8.4-1.17L21 2.8v8.75h-9.6V4.38zM3 12.65h7.4V19.7L3 18.65v-6zM11.4 12.65H21v8.75l-9.6-1.6v-7.15z"/>
+                                            </svg>
+                                            <h4>Windows</h4>
+                                        </div>
+                                        <p class="quickstart-meta">Windows 10/11 · x64 or ARM64 · v2026.9.1</p>
+                                        <div class="quickstart-btns">
+                                            <a href="#" class="quickstart-btn">Download x64</a>
+                                            <a href="#" class="quickstart-btn outline">Download ARM64</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="quickstart-item">
+                                        <div class="quickstart-item-head">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                <path d="M12 2c-2.2 0-3.6 1.6-3.5 3.6.05.9.4 1.7.5 2.4.1.7-.05 1.4-.6 2.1-.9 1.2-2 2.4-2.5 4.1-.4 1.4-.1 2.8.9 3.7.5.5.7 1 .7 1.6 0 .4.4.7.9.7h7.2c.5 0 .9-.3.9-.7 0-.6.2-1.1.7-1.6 1-.9 1.3-2.3.9-3.7-.5-1.7-1.6-2.9-2.5-4.1-.55-.7-.7-1.4-.6-2.1.1-.7.45-1.5.5-2.4C15.6 3.6 14.2 2 12 2zM10.2 6.2c-.4 0-.7-.4-.7-.8 0-.4.3-.8.7-.8s.7.4.7.8c0 .4-.3.8-.7.8zm3.6 0c-.4 0-.7-.4-.7-.8 0-.4.3-.8.7-.8s.7.4.7.8c0 .4-.3.8-.7.8zM12 8.6c.7 0 1.3.5 1.3 1.2 0 .4-.4.7-1.3.7-.9 0-1.3-.3-1.3-.7 0-.7.6-1.2 1.3-1.2z"/>
+                                            </svg>
+                                            <h4>Linux</h4>
+                                            <span class="quickstart-badge">New</span>
+                                        </div>
+                                        <p class="quickstart-meta">x64 · AppImage or Debian package · v2026.9.4</p>
+                                        <div class="quickstart-btns">
+                                            <a href="#" class="quickstart-btn">Download AppImage</a>
+                                            <a href="#" class="quickstart-btn outline">Download .deb</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <p class="quickstart-note">
+                                Works on macOS, Linux, and Windows. The apps and the one-liner install
+                                Node.js and everything else for you. Switch later with
+                                <code>norfrox-bso update --channel dev</code> or
+                                <code>norfrox-bso update --channel stable</code>.
+                            </p>
+                        </div>
+
+                        <div class="bso-testimonials reveal">
+                            <span class="bso-block-tag">What People Say</span>
+                            <h2 class="bso-subheading">Trusted by operators, founders, and teams.</h2>
+
+                            <div class="marquee">
+
+                                <div class="marquee-row marquee-left">
+                                    <div class="marquee-track">
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"Norfrox BSO replaced four tools. Sales, inventory, and HR finally live in one place."</p>
+                                            <span class="marquee-user">@carlosmendoza</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"We closed our first month on BSO 30% faster. The POS + inventory sync alone paid for it."</p>
+                                            <span class="marquee-user">@ana_retail</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"The CRM pipeline is the first one my team actually uses. Zero training needed."</p>
+                                            <span class="marquee-user">@diego_sales</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"Payroll used to take a week. With BSO HR & Payroll it takes an afternoon."</p>
+                                            <span class="marquee-user">@laurahr</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"Real-time reports changed how we plan inventory. No more spreadsheet guessing."</p>
+                                            <span class="marquee-user">@miguel_ops</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"Norfrox BSO replaced four tools. Sales, inventory, and HR finally live in one place."</p><span class="marquee-user">@carlosmendoza</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"We closed our first month on BSO 30% faster. The POS + inventory sync alone paid for it."</p><span class="marquee-user">@ana_retail</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"The CRM pipeline is the first one my team actually uses. Zero training needed."</p><span class="marquee-user">@diego_sales</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"Payroll used to take a week. With BSO HR & Payroll it takes an afternoon."</p><span class="marquee-user">@laurahr</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"Real-time reports changed how we plan inventory. No more spreadsheet guessing."</p><span class="marquee-user">@miguel_ops</span></div></div>
+
+                                    </div>
+                                    </div>
+
+                                    <div class="marquee-row marquee-right">
+                                    <div class="marquee-track">
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"Setup took ten minutes. The desktop app installed everything, including Node."</p>
+                                            <span class="marquee-user">@sofiadev</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"One dashboard for CRM, ERP, and POS. Our ops team finally sees the same numbers."</p>
+                                            <span class="marquee-user">@ricardocoo</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"The reports module is worth the price alone. Weekly reporting went from 6h to 30m."</p>
+                                            <span class="marquee-user">@paulinafin</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"Support answered in under an hour. That never happens with enterprise software."</p>
+                                            <span class="marquee-user">@jorgefounder</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card">
+                                        <div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+                                        <div class="marquee-body">
+                                            <p class="marquee-text">"Migrated from three separate systems. No data lost, no downtime."</p>
+                                            <span class="marquee-user">@elenamx</span>
+                                        </div>
+                                        </div>
+
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"Setup took ten minutes. The desktop app installed everything, including Node."</p><span class="marquee-user">@sofiadev</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"One dashboard for CRM, ERP, and POS. Our ops team finally sees the same numbers."</p><span class="marquee-user">@ricardocoo</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"The reports module is worth the price alone. Weekly reporting went from 6h to 30m."</p><span class="marquee-user">@paulinafin</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"Support answered in under an hour. That never happens with enterprise software."</p><span class="marquee-user">@jorgefounder</span></div></div>
+                                        <div class="marquee-card"><div class="marquee-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="marquee-body"><p class="marquee-text">"Migrated from three separate systems. No data lost, no downtime."</p><span class="marquee-user">@elenamx</span></div></div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
                         </div>
                         
                         <div id="detail-autoscaling" class="detail-item reveal">
@@ -765,7 +1039,7 @@
         </a>
     </div>
     
-    <script src="../js/refactor-js.js"></script>
+    <script src="../js/refactor-js.js?v=2.08"></script>
 
 </body>
 </html>
