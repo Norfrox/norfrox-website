@@ -1058,6 +1058,151 @@ class HeroNetwork {
   }
 }
 
+class LangRouter {
+    constructor({
+        defaultLang    = 'es', 
+        supportedLangs = ['es', 'en', 'fr', 'gr'],
+        storageKey     = 'norfrox_lang',
+        autoRewrite    = true,
+        redirectOnLoad = false,                
+        root           = document,
+    } = {}) {
+        this.defaultLang    = defaultLang;
+        this.supportedLangs = supportedLangs;
+        this.storageKey     = storageKey;
+        this.root           = root;
+
+        const urlLang    = this._getLangFromUrl(); 
+        const storedLang = this._getLangFromStorage();
+
+        if (urlLang) {
+        this.currentLang = urlLang;
+        this._saveLang(this.currentLang);
+        } else if (
+        redirectOnLoad &&
+        storedLang &&
+        storedLang !== this.defaultLang
+        ) {
+        this.redirectToLang(storedLang);
+        return;
+        } else {
+
+        this.currentLang = this.defaultLang;
+        }
+
+        document.documentElement.lang = this.currentLang;
+
+        if (autoRewrite) {
+        this._onReady(() => this.applyLinks());
+        }
+    }
+
+    _getLangFromUrl() {
+        const m = window.location.pathname.match(/^\/([a-z]{2})(\/|$)/i);
+        if (!m) return null;
+
+        const lang = m[1].toLowerCase();
+
+        if (lang !== this.defaultLang && this.supportedLangs.includes(lang)) {
+        return lang;
+        }
+        return null;
+    }
+
+    _getLangFromStorage() {
+        const v = localStorage.getItem(this.storageKey);
+        return v && this.supportedLangs.includes(v) ? v : null;
+    }
+
+    _getLangFromBrowser() {
+        const b = (navigator.language || '').slice(0, 2).toLowerCase();
+        return this.supportedLangs.includes(b) ? b : null;
+    }
+
+    _saveLang(lang) {
+        try { localStorage.setItem(this.storageKey, lang); } catch (_) {}
+    }
+
+    _buildPathForLang(lang, path) {
+        const re = new RegExp(`^/(${this.supportedLangs.join('|')})(?=/|$)`, 'i');
+        let clean = path.replace(re, '');
+        if (!clean.startsWith('/')) clean = '/' + clean;
+
+        if (lang === this.defaultLang) return clean;
+
+        return `/${lang}${clean}`;
+    }
+
+    _localizePath(path) {
+        return this._buildPathForLang(this.currentLang, path);
+    }
+
+    localizeUrl(url) {
+        if (!url) return url;
+
+        if (/^(#|mailto:|tel:|javascript:)/i.test(url)) return url;
+
+        if (/^https?:\/\//i.test(url)) {
+        try {
+            const u = new URL(url);
+            if (u.hostname !== window.location.hostname) return url;
+            u.pathname = this._localizePath(u.pathname);
+            return u.toString();
+        } catch (_) {
+            return url;
+        }
+        }
+
+        if (/\.(png|jpe?g|gif|svg|webp|ico|avif|bmp|css|js|mjs|json|woff2?|ttf|otf|eot|pdf|zip|mp4|webm|mp3|wav)$/i.test(url)) {
+        return url;
+        }
+
+        return this._localizePath(url);
+    }
+
+    applyLinks(root = this.root) {
+        root.querySelectorAll('a[href]').forEach(a => {
+        if (a.closest('.lang-dropdown')) return;
+        const href = a.getAttribute('href');
+        if (!href) return;
+        const localized = this.localizeUrl(href);
+        if (localized !== href) a.setAttribute('href', localized);
+        });
+
+        const currentLangEl = document.querySelector('.current-lang');
+        if (currentLangEl) {
+        currentLangEl.textContent = this.currentLang.toUpperCase();
+        }
+
+        document.querySelectorAll('.lang-menu a').forEach(a => {
+        a.classList.toggle('active', a.dataset.lang === this.currentLang);
+        });
+    }
+
+    switchLang(lang) {
+        if (!this.supportedLangs.includes(lang)) return;
+        if (lang === this.currentLang) return;
+
+        this._saveLang(lang);
+
+        const { search, hash } = window.location;
+        const newPath = this._buildPathForLang(lang, window.location.pathname);
+
+        window.location.href = newPath + search + hash;
+    }
+
+    redirectToLang(lang) {
+        if (!this.supportedLangs.includes(lang)) return;
+        const { search, hash } = window.location;
+        const newPath = this._buildPathForLang(lang, window.location.pathname);
+        window.location.href = newPath + search + hash;
+    }
+
+    _onReady(fn) {
+        if (document.readyState !== 'loading') fn();
+        else document.addEventListener('DOMContentLoaded', fn, { once: true });
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
