@@ -2807,6 +2807,22 @@ body {
   color: #0f1a14;
 }
 
+.two-col-section.light-mode .iso-title {
+  color: #0f1a14;
+}
+
+.two-col-section.light-mode .review-score strong {
+  color: #0f1a14;
+}
+
+.two-col-section.light-mode .review-source {
+  color: #0f1a14;
+}
+
+.two-col-section.light-mode .review-quote {
+  color: #0f1a14;
+}
+
 .two-col-section.light-mode .awards-card-label {
   color: #8a9a94;
 }
