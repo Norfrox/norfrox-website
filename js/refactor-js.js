@@ -192,20 +192,22 @@ class MegaMenu {
 
 class LangDropdown {
     constructor({
-        containerSelector = '.lang-dropdown',
-        toggleSelector = '.lang-toggle',
-        menuSelector = '.lang-menu',
+        containerSelector   = '.lang-dropdown',
+        toggleSelector      = '.lang-toggle',
+        menuSelector        = '.lang-menu',
         currentLangSelector = '.current-lang',
-        langLinksSelector = '.lang-menu a',
+        langLinksSelector   = '.lang-menu a',
+        router              = null,
     } = {}) {
 
         this.container = document.querySelector(containerSelector);
         if (!this.container) return;
 
-        this.toggle = this.container.querySelector(toggleSelector);
-        this.menu = this.container.querySelector(menuSelector);
+        this.toggle        = this.container.querySelector(toggleSelector);
+        this.menu          = this.container.querySelector(menuSelector);
         this.currentLangEl = this.container.querySelector(currentLangSelector);
-        this.langLinks = this.container.querySelectorAll(langLinksSelector);
+        this.langLinks     = this.container.querySelectorAll(langLinksSelector);
+        this.router        = router;
 
         if (!this.toggle || !this.menu) return;
 
@@ -216,43 +218,45 @@ class LangDropdown {
         this.bindToggle();
         this.bindOutsideClick();
         this.bindLangLinks();
+        this.syncCurrentLang();
+    }
+
+    syncCurrentLang() {
+        if (this.router && this.currentLangEl) {
+            this.currentLangEl.textContent = this.router.currentLang.toUpperCase();
+        }
+        this.langLinks.forEach(a => {
+            a.classList.toggle('active', this.router && a.dataset.lang === this.router.currentLang);
+        });
     }
 
     bindToggle() {
-        this.toggle.addEventListener("click", (event) => {
+        this.toggle.addEventListener('click', (event) => {
             event.stopPropagation();
-            this.container.classList.toggle("open");
+            this.container.classList.toggle('open');
         });
     }
 
     bindOutsideClick() {
-        document.addEventListener("click", (event) => {
-            if (!this.container.contains(event.target)) {
-                this.close();
-            }
+        document.addEventListener('click', (event) => {
+            if (!this.container.contains(event.target)) this.close();
         });
     }
 
     bindLangLinks() {
         this.langLinks.forEach(link => {
-            link.addEventListener("click", (event) => {
+            link.addEventListener('click', (event) => {
                 event.preventDefault();
                 const lang = link.dataset.lang;
-                if (lang && this.currentLangEl) {
-                    this.currentLangEl.textContent = lang.toUpperCase();
-                }
+                if (!lang) return;
                 this.close();
-                this.onLanguageChange(lang);
+                if (this.router) this.router.switchLang(lang);
             });
         });
     }
 
     close() {
-        this.container.classList.remove("open");
-    }
-
-    onLanguageChange(lang) {
-        console.log(`Idioma cambiado a: ${lang}`);
+        this.container.classList.remove('open');
     }
 }
 
@@ -1058,6 +1062,171 @@ class HeroNetwork {
   }
 }
 
+class LangRouter {
+    constructor({
+        defaultLang    = 'es', 
+        supportedLangs = ['es', 'en', 'fr', 'gr'],
+        storageKey     = 'norfrox_lang',
+        autoRewrite    = true,
+        redirectOnLoad = false,                
+        root           = document,
+    } = {}) {
+        this.defaultLang    = defaultLang;
+        this.supportedLangs = supportedLangs;
+        this.storageKey     = storageKey;
+        this.root           = root;
+
+        const urlLang    = this._getLangFromUrl(); 
+        const storedLang = this._getLangFromStorage();
+
+        if (urlLang) {
+        this.currentLang = urlLang;
+        this._saveLang(this.currentLang);
+        } else if (
+        redirectOnLoad &&
+        storedLang &&
+        storedLang !== this.defaultLang
+        ) {
+        this.redirectToLang(storedLang);
+        return;
+        } else {
+
+        this.currentLang = this.defaultLang;
+        }
+
+        document.documentElement.lang = this.currentLang;
+
+        if (autoRewrite) {
+        this._onReady(() => this.applyLinks());
+        }
+    }
+
+    getCurrentPageInLang(lang) {
+        const links = document.querySelectorAll('link[rel="alternate"][hreflang]');
+        for (const link of links) {
+            if (link.hreflang.toLowerCase() === lang) {
+                try {
+                    const u = new URL(link.href, window.location.origin);
+                    return u.pathname + u.search + u.hash;
+                } catch (_) {}
+            }
+        }
+        return null;
+    }
+
+    _getLangFromUrl() {
+        const m = window.location.pathname.match(/^\/([a-z]{2})(\/|$)/i);
+        if (!m) return null;
+
+        const lang = m[1].toLowerCase();
+
+        if (lang !== this.defaultLang && this.supportedLangs.includes(lang)) {
+        return lang;
+        }
+        return null;
+    }
+
+    _getLangFromStorage() {
+        const v = localStorage.getItem(this.storageKey);
+        return v && this.supportedLangs.includes(v) ? v : null;
+    }
+
+    _getLangFromBrowser() {
+        const b = (navigator.language || '').slice(0, 2).toLowerCase();
+        return this.supportedLangs.includes(b) ? b : null;
+    }
+
+    _saveLang(lang) {
+        try { localStorage.setItem(this.storageKey, lang); } catch (_) {}
+    }
+
+    _buildPathForLang(lang, path) {
+        const re = new RegExp(`^/(${this.supportedLangs.join('|')})(?=/|$)`, 'i');
+        let clean = path.replace(re, '');
+        if (!clean.startsWith('/')) clean = '/' + clean;
+
+        if (lang === this.defaultLang) return clean;
+
+        return `/${lang}${clean}`;
+    }
+
+    _localizePath(path) {
+        return this._buildPathForLang(this.currentLang, path);
+    }
+
+    localizeUrl(url, anchorEl = null) {
+        if (!url) return url;
+
+        if (anchorEl) {
+            const val = anchorEl.getAttribute(`data-hreflang-${this.currentLang}`);
+            if (val) return val;
+        }
+
+        if (/^(#|mailto:|tel:|javascript:)/i.test(url)) return url;
+
+        if (/^https?:\/\//i.test(url)) {
+            try {
+            const u = new URL(url);
+            if (u.hostname !== window.location.hostname) return url;
+            u.pathname = this._localizePath(u.pathname);
+            return u.toString();
+            } catch (_) { return url; }
+        }
+
+        if (/\.(png|jpe?g|gif|svg|webp|ico|avif|bmp|css|js|mjs|json|woff2?|ttf|otf|eot|pdf|zip|mp4|webm|mp3|wav)$/i.test(url)) {
+            return url;
+        }
+
+        return this._localizePath(url);
+    }
+
+    applyLinks(root = this.root) {
+        root.querySelectorAll('a[href]').forEach(a => {
+            if (a.closest('.lang-dropdown')) return;
+            const href = a.getAttribute('href');
+            if (!href) return;
+            const localized = this.localizeUrl(href, a); 
+            if (localized !== href) a.setAttribute('href', localized);
+        });
+
+        const currentLangEl = document.querySelector('.current-lang');
+        if (currentLangEl) {
+            currentLangEl.textContent = this.currentLang.toUpperCase();
+        }
+        document.querySelectorAll('.lang-menu a').forEach(a => {
+            a.classList.toggle('active', a.dataset.lang === this.currentLang);
+        });
+    }
+
+    switchLang(lang) {
+        if (!this.supportedLangs.includes(lang)) return;
+        if (lang === this.currentLang) return;
+
+        this._saveLang(lang);
+
+        const hreflangPath = this.getCurrentPageInLang(lang);
+        if (hreflangPath) {
+            window.location.href = hreflangPath;
+            return;
+        }
+
+        const { search, hash } = window.location;
+        const newPath = this._buildPathForLang(lang, window.location.pathname);
+        window.location.href = newPath + search + hash;
+    }
+
+    redirectToLang(lang) {
+        if (!this.supportedLangs.includes(lang)) return;
+        const { search, hash } = window.location;
+        const newPath = this._buildPathForLang(lang, window.location.pathname);
+        window.location.href = newPath + search + hash;
+    }
+
+    _onReady(fn) {
+        if (document.readyState !== 'loading') fn();
+        else document.addEventListener('DOMContentLoaded', fn, { once: true });
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1076,14 +1245,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    let langRouter = null;
+    if (document.querySelector('.lang-dropdown')) {
+        langRouter = new LangRouter({
+            defaultLang:    'es',
+            supportedLangs: ['es', 'en', 'fr', 'gr'],
+            storageKey:     'norfrox_lang',
+            autoRewrite:    true,
+            redirectOnLoad: false,
+        });
+    }
+
     if (document.querySelector('.lang-dropdown')) {
         new LangDropdown({
-            containerSelector: '.lang-dropdown',
-            toggleSelector: '.lang-toggle',
-            menuSelector: '.lang-menu',
+            containerSelector:   '.lang-dropdown',
+            toggleSelector:      '.lang-toggle',
+            menuSelector:        '.lang-menu',
             currentLangSelector: '.current-lang',
-            langLinksSelector: '.lang-menu a'
-        }); 
+            langLinksSelector:   '.lang-menu a',
+            router:              langRouter,
+        });
     }
 
     if (document.querySelector('.col-nav')) {
