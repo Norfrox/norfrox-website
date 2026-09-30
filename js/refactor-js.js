@@ -1281,7 +1281,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector('.testimonial-carousel')) {
         const testimonials = [
             {
-                text: "Norfrox supported us in developing our website and strengthening our digital presence. Thanks to their work, we’ve been able to reach more clients and project a much more professional image for our company.",
+                text: "They went beyond simply building the site and helped us strengthen our online presence. Thanks to their work, we’ve been able to reach more clients and project a much more professional image for our company.",
                 author: "Javier Godinez",
                 role: "Founder & CEO, Servicios Industriales de Aguascalientes"
             },
