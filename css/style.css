@@ -1131,7 +1131,7 @@ body {
   content: "";
   position: absolute;
   top: 20%;
-  right: -10%;
+  right: 0;
   width: 480px;
   height: 480px;
   background: radial-gradient(circle, rgba(122, 191, 255, 0.06) 0%, transparent 65%);
@@ -3150,10 +3150,13 @@ body {
   z-index: 1;
 }
 
-.review-google-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
+.review-clutch-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px; 
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
 }
 
 .review-source {
@@ -4738,6 +4741,7 @@ body {
 
 /* TESTIMONIAL */
 
+
 .stats-section {
   min-height: 100vh;
   background: #e4f1eb;
@@ -4751,7 +4755,7 @@ body {
 .stats-container {
   display: flex;
   gap: 40px;
-  align-items: stretch;
+
   width: 100%;
 }
 
@@ -4763,7 +4767,8 @@ body {
 }
 
 .stats-left {
-  flex: 0 0 60%;
+  flex: 1 1 58%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -4774,7 +4779,8 @@ body {
 }
 
 .stats-right {
-  flex: 0 0 40%;
+  flex: 1 1 38%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
